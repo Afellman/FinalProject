@@ -1,0 +1,19 @@
+.category-col {
+  padding: 20px;
+  
+}
+
+.category-col > div {
+  border-radius: 50%;
+  /* height: 100px; */
+  padding: 35% 0px 35% 0px;
+  text-align: center;
+  background: radial-gradient(rgba(234, 199, 122, 0.315),rgba(255, 204, 94, 0.911)  );
+  transition: .3s;
+}
+
+.category-col > div:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px 1px rgba(187, 180, 180, 0.918);
+
+}
