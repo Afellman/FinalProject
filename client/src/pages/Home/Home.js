@@ -65,27 +65,6 @@ class Home extends Component {
             full = false;
           }
         }
-<<<<<<< HEAD
-      }``
-    },50);
-  }
-
-  // sets the background image with the given image parameter
-  setBg = (image) => {
-    this.state.backgound = `url(${image})`
-  }
-
-  // gets an image from Unsplash and calls setBg with that image
-  getBgImage = (keyword) => {
-    //  Getting background image based on keyword.
-     API.getPhotoByKeyword(keyword)
-     .then((data)=>{
-       
-       let randomNum = this.getRandomNum(10)
-       let image = data.data.results[randomNum].urls.full
-       this.setBg(image)
-     })
-=======
       },50);
     }
     
@@ -104,7 +83,6 @@ class Home extends Component {
         let image = data.data.results[randomNum].urls.full
         this.setBg(image)
       })
->>>>>>> master
       
     }
     
