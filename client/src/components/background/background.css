@@ -1,0 +1,12 @@
+#filter {
+  background: url('./demo_bg.jpg');
+  position: fixed;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  /* filter: blur(3px); */
+  z-index: 0;
+  
+}
