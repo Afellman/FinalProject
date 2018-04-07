@@ -26,7 +26,7 @@ class Home extends Component {
   }
   
   componentDidMount(){
-    let categoriesDemo = ['Astronomy', 'Art', 'History', 'Science', 'Philosophy', 'Technology', ''];
+    let categoriesDemo = ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine'];
     this.state.categories = categoriesDemo;
     // starting the category bobble effect
     this.categoryBobble()
