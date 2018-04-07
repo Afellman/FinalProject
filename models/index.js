@@ -1,4 +1,4 @@
 module.exports = {
-  Users: require("./users"),
+  User: require("./user"),
   Saved: require('./saved')
 };

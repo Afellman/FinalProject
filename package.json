@@ -2,6 +2,11 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "mongoose": "^5.0.13"
+    "mongod": "^2.0.0",
+    "mongodb": "^3.0.5",
+    "mongoose": "^5.0.13",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.0"
   }
 }

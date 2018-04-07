@@ -1,6 +1,6 @@
 import React from 'react';
 import {Motion, spring} from 'react-motion';
-import styles from './background.css'
+import styles from './background.css';
 
 const Background = (props) => {
 

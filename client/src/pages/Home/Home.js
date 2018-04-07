@@ -27,7 +27,7 @@ class Home extends Component {
   }
   
   componentDidMount(){
-    let categoriesDemo = ['Astronomy', 'Art', 'History', 'Science', 'Philosophy', 'Technology', ''];
+    let categoriesDemo = ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine'];
     this.state.categories = categoriesDemo;
     // starting the category bobble effect
     this.categoryBobble()
@@ -65,7 +65,7 @@ class Home extends Component {
         if (bobble < 0) {
           full = false;
         }
-      }
+      }``
     },50);
   }
 
