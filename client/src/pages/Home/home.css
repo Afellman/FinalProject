@@ -7,18 +7,7 @@
 }
 
 
-#filter {
-  /* background: url('https://images.unsplash.com/photo-1514905552197-0610a4d8fd73?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjI0MDEwfQ&s=cf52b12a9b3bdea87b1c88bf98e4ff15'); */
-  position: fixed;
-  background-size: cover;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  /* filter: blur(3px); */
-  z-index: 0;
-  
-}
+
 #tag {
   /* width: 350px; */
   margin: auto;
