@@ -1,0 +1,65 @@
+body {
+    margin: auto;
+    background-color: lightgrey;
+}
+
+#top {
+    float: left;
+    background: radial-gradient(grey, black);
+    width: 100%;
+    height: 64px;
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Dancing Script', Georgia, Times, serif;
+    padding-top: 25px;
+    color: #e6d275;
+}
+
+#container {
+    width: 1100px;
+    margin-top: 50px;
+    margin-left: 225px;
+}
+
+.unit {
+    float: left;
+    width: 300px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    margin-top: 50px;
+}
+
+.buttons {
+    clear: both;
+    margin-right: 0px;
+    color: black;
+    margin-top: 10px;
+    border-radius: 50%;
+    width: 150px;
+    height: 50px;
+    padding: 12% 0px 10% 0px;
+    text-align: center;
+    border: 1px solid rgba(190, 190, 190, 0.685);
+    background: radial-gradient(lightblue, blue);
+    font-size: 35px;
+}
+
+#guest {
+    padding: 10% 0px 15% 0px; 
+    /* centers text of this guest button */
+}
+
+.buttons:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 10px 1px rgba(187, 180, 180, 0.918);
+}
+
+.descriptions {
+    clear: both;
+    color: black;
+    width: 120px;
+    transform: rotate(1deg);
+    text-align: center;
+    margin-left: 10px;
+    font-size: 18px;
+}
