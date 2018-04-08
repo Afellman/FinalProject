@@ -5,6 +5,7 @@
   "proxy": "http://127.0.0.1:3001",
   "dependencies": {
     "axios": "^0.18.0",
+    "mo-js": "^0.288.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-motion": "^0.5.2",

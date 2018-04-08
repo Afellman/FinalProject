@@ -28,7 +28,17 @@
 }
 
 #home-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
   margin-top: 10%;
-  max-width: 960px;
+  
+  max-width: 1250px;
 }
+
+#home-categories > div > div {
+  display: inline-block;
+}
+
 

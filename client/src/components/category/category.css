@@ -1,12 +1,19 @@
 .category-col {
-  padding: 20px;
+  position: relative;
+  padding: 5px;
+  
   
 }
 
 .category-col > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   /* height: 100px; */
-  padding: 35% 0px 35% 0px;
+  /* padding: 40px 20px 40px 20px; */
   text-align: center;
   border: 1px solid rgba(190, 190, 190, 0.685);
   background: radial-gradient(rgba(234, 199, 122, 0.315),rgba(255, 204, 94, 0.911)  );

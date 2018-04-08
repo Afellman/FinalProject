@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Motion, spring} from 'react-motion';
 import styles from './background.css';
 
-const Background = (props) => {
+class Background extends Component {
+  constructor(props) {
+    super(props)
+}
+  componentDidMount() {
+    this.fadeBg()
 
-  return (
-    <div id="filter" style={{backgroundImage: props.image, opacity: props.opacity}}></div>
-  )
+  }
+  componentDidUpdate() {
+  }
+
+  fadeBg = () => {
+    let background = document.getElementById('background')
+    background.style.transition = '2s';
+    // background.style.opacity = '1'
+  }
+  render() {
+    return (
+      <div id="background" style={{backgroundImage: this.props.image}}></div>
+    )
+  }
 }
 
 export default Background;

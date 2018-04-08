@@ -1,4 +1,5 @@
-#filter {
+#background {
+  opacity: 1 ;
   background: url('./demo_bg.jpg');
   position: fixed;
   background-size: cover;
