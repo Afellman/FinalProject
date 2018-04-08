@@ -39,7 +39,6 @@ body {
     background: radial-gradient(lightblue, blue);
     font-size: 35px;
     font-weight: normal;
-    transform: rotate(1deg);
 }
 
 #guest {
