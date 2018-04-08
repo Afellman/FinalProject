@@ -1,18 +1,19 @@
 body {
     margin: auto;
-    background-color: lightgrey;
+    background-color: rgb(235, 230, 230);
 }
 
 #top {
     float: left;
-    background: radial-gradient(grey, black);
+    background: radial-gradient(lightblue, blue);
     width: 100%;
-    height: 64px;
+    height: 45px;
     text-align: center;
     font-size: 36px;
     font-family: 'Dancing Script', Georgia, Times, serif;
-    padding-top: 25px;
-    color: #e6d275;
+    padding: 20px 0 20px 0;
+    color: black;
+    font-weight: bold;
 }
 
 #container {
@@ -24,29 +25,25 @@ body {
 .unit {
     float: left;
     width: 300px;
-    margin-bottom: 30px;
-    margin-left: 0px;
-    margin-top: 50px;
 }
 
 .buttons {
-    clear: both;
-    margin-right: 0px;
     color: black;
-    margin-top: 10px;
+    margin-top: 100px;
     border-radius: 50%;
     width: 150px;
     height: 50px;
-    padding: 12% 0px 10% 0px;
+    padding: 17% 0px 15% 0px;
     text-align: center;
     border: 1px solid rgba(190, 190, 190, 0.685);
     background: radial-gradient(lightblue, blue);
     font-size: 35px;
+    font-weight: normal;
 }
 
 #guest {
-    padding: 10% 0px 15% 0px; 
-    /* centers text of this guest button */
+    padding: 14% 0px 19% 0px;
+    /* centers text of guest button */
 }
 
 .buttons:hover {
@@ -62,4 +59,5 @@ body {
     text-align: center;
     margin-left: 10px;
     font-size: 18px;
+    font-weight: normal;
 }
