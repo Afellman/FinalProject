@@ -1,12 +1,14 @@
 import React , {Component} from 'react';
 import styles from './home.css'
-import API from '../../utils/unsplash';
+import Unsplash from '../../utils/unsplash';
 import SciMuse from '../../utils/sciencemuseum';
 import Category from '../../components/category';
 import {Motion, spring} from 'react-motion';
 import Background from '../../components/background';
 import mojs from 'mo-js';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+import Wiki from '../../utils/wikiapi';
+import Endpoint from '../../components/endpoint';
 
 class Home extends Component {
 
@@ -47,7 +49,8 @@ class Home extends Component {
     // gets an image from Unsplash and calls setBg with that image
     getBgImage = (keyword) => {
       //  Getting background image based on keyword.
-      API.getPhotoByKeyword(keyword)
+      // *** NEED TO SET FALLBACK IMG INCASE NOTHING IS RETURNED
+      Unsplash.getPhotoByKeyword(keyword)
       .then((data)=>{
         
         let randomNum = this.getRandomNum(10)
@@ -59,6 +62,7 @@ class Home extends Component {
     // Function to explode the category with animation
 
     explodeBubble = (element) => {
+      // **** Need to reset scale for new bubbles. Maybe set in state? 
       console.log(element)
       element.style.transition = ".5s ease-out"
       element.style.transform = "scale(1.5)"
@@ -67,12 +71,6 @@ class Home extends Component {
         element.style.transform = "scale(0)"
 
       },400)
-      // this.setState({categoryTransform: 2})
-      
-      // const burst = new mojs.Burst({
-      //   radius: { 0: 360}
-      // }).play()
-      // this.state.categoryTransform
     }
 
     changeLevel = (e) => {
@@ -80,22 +78,26 @@ class Home extends Component {
       let category = e.target.textContent
       this.explodeBubble(target)
       // demo new categories
-      let categoriesDemo2 = ['blah', 'blah', 'blah', 'blah'];
+      
       this.getBgImage(category)
-      // waiting .8 seconds still updating the state to avoid some weird errors
-      setTimeout(()=> {
-        this.setState({categories: categoriesDemo2 })
-      },1000)
-
-      SciMuse.getInfoAge()
+      // returns new bubbles of subcategories
+      // ** Need to save previous bubble to search on aka "Go back"
+      Wiki.getWikiByArticle(category).then(res=> {
+        setTimeout(()=> {
+          this.setState({categories: res.data.subCategories })
+          
+          },1000)
+        // console.log(res.data)
+      })
+      // SciMuse.getInfoAge()
     }
   
   render(){
 
-    // This data will come from the api (api's). Hard coded for now.
     
     return(
       <div>
+        
           <Background opacity={this.state.bgOpacity} image={this.state.backgound}/>
         <div id="home-container">
           <div id="home-categories">
@@ -106,6 +108,12 @@ class Home extends Component {
                 <Category key={index} transform={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
             })}
+            {this.state.endpoints ? 
+              this.state.endpoints.map((object, index) => {
+              return(
+              <Endpoint/>
+            )})
+            : null}
             </div>
           </div>
         </div>
