@@ -1,6 +1,8 @@
 body {
     margin: auto;
-    background: linear-gradient(orangered, orange) fixed;
+    /* background: linear-gradient(orangered, orange) fixed; */
+    background-image: url("louvre.jpg");
+    background-size: 100%;
 }
 
 .toptext {
@@ -11,7 +13,7 @@ body {
     font-size: 36px;
     font-family: 'Dancing Script', Georgia, Times, serif;
     padding-top: 40px;
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
@@ -58,7 +60,7 @@ body {
 
 .descriptions {
     clear: both;
-    color: black;
+    color: white;
     width: 120px;
     transform: rotate(0.5deg);
     text-align: center;
@@ -66,4 +68,9 @@ body {
     font-size: 18px;
     font-weight: normal;
     font-family: 'Dancing Script', Georgia, Times, serif;
+    text-shadow: 2px 2px black;
+}
+
+.descriptions:hover {
+    font-weight: bold;
 }
