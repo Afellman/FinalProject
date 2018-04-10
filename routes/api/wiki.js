@@ -1,58 +1,72 @@
 const router = require('express').Router();
 // const astroidController = require('../../controllers/astroidController');
-var request = require('request');
-var wikipedia = require("node-wikipedia");
+const request = require('request');
+const wikipedia = require("node-wikipedia");
 const fs = require('fs')
 
 
 router.post('/post', function(req, res) {
-  console.log(req.body.article)
+  let wikiObject = {}
 
-  wikipedia.page.data(req.body.article, { content: true }, function(response) {
-    let wikiObject = {}
-    // grabbing the html text
-    let string = response.text['*']
-
-    // finding the img url ---------------------------
-    let imgStart = string.indexOf('src="//')
-    let imgEnd = string.indexOf('.jpg"', imgStart)
-    let imgUrl = string.substr(imgStart + 7, (imgEnd - imgStart) - 3)
-    wikiObject.img = imgUrl;
-    // ----------------------------------
-
-    // finding the first ten links ---------------
-    let i = 0;
-    let linkArray = [];
-    let urlStart = 'https://en.wikipedia.org'
-    let linkStartingPoint = string.indexOf('File', imgEnd)
-    getLinks(linkStartingPoint)
-    function getLinks(startPoint){
-      let linkStart = string.indexOf('<a href="', startPoint)
-      let linkEnd = string.indexOf('" ', linkStart)
-      let linkName = string.substr(linkStart + 15, linkEnd-(linkStart+15))
-      let newArray = [];
-      linkName.split('_').forEach(element => {
-        newArray.push(element)
-      });
-      let fullName = newArray.join(' ')
-      console.log(fullName)
-      linkArray.push(fullName)
-      i ++
-      if(i < 5) {
-        getLinks(linkEnd)
-      }
+  // Getting img url and text excerpt
+  request({
+    url: `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts%7Cpageimages%7Ccategories&exintro=&titles=${req.body.article}`,
+    method: 'GET'
+  }, (error, response, body)=> {
+    let parse = JSON.parse(body)
+    let img;
+    console.log(JSON.stringify(parse))
+    // Getting the first index from the object
+    for (var prop in parse.query.pages){
+      try {img = parse.query.pages[prop].thumbnail.source}
+      catch(err){img = ''}
+      extract = parse.query.pages[prop].extract
+      break
     }
-    wikiObject.subCategories = linkArray
-  //  let fullLinks = linkArray.map((element, index)=> {
-  //     return element
-  //   })
-    
-    // console.log(string.substr(600, 399))
-    res.send(wikiObject)
-  })
- 
-})
+    wikiObject.img = img
+    wikiObject.body = extract
 
+    // Calling function to get the related topics
+    getRelated(wikiObject)
+    
+  })
+   function getRelated(wikiObject) {
+     // **** NEED TO REDUE THIS!! 
+
+    // Currently it is grabbing the first 15 links after the "Major subfields"
+    // text on the wikipage, but not all pages have this text. Might need to grab
+    // them from the page itself instead? 
+
+
+     // Wiki library that returns the whole page for finding links
+    wikipedia.page.data(req.body.article, { content: true }, function(response) {
+      // grabbing the html text
+      let string = response.text['*']
+      let linkArray = [];
+      let i = 0;
+      let majorSubfields = string.indexOf('Major subfields')
+      if (majorSubfields) {
+        
+        getLinks(string.substr('<a href'), majorSubfields)
+      } else {
+        return
+      }
+      // finding the first ten links ---------------
+      function getLinks(startPoint){
+        let linkStart = string.indexOf('title="', startPoint)
+        let linkEnd = string.indexOf('">', linkStart)
+        let linkName = string.substr(linkStart + 7, linkEnd-(linkStart+7))
+        linkArray.push(linkName)
+        i ++
+        if(i < 15) {
+          getLinks(linkEnd)
+        }
+      }
+      wikiObject.subCategories = linkArray
+      res.send(wikiObject)
+    })
+  }
+})
   
 module.exports = router;
 
