@@ -1,4 +1,6 @@
-#filter {
+#background {
+  /* transition: 5s; */
+  opacity: 1 ;
   background: url('./demo_bg.jpg');
   position: fixed;
   background-size: cover;
@@ -10,3 +12,8 @@
   z-index: 0;
   
 }
+/* 
+@keyframes background {
+  0% {opacity: 0}
+  100%{opacity: 1}
+}  */

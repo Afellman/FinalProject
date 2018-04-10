@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Motion, spring} from 'react-motion';
 import styles from './background.css';
 
-const Background = (props) => {
+class Background extends Component {
+  constructor(props) {
+    super(props)
+}
+  
 
-  return (
-    <div id="filter" style={{backgroundImage: props.image, opacity: props.opacity}}></div>
-  )
+
+
+
+  render() {
+    return (
+      <div id="background" style={{backgroundImage: this.props.image}}></div>
+    )
+  }
 }
 
 export default Background;
