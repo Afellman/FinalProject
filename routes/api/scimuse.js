@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// const astroidController = require('../../controllers/astroidController');
+
 var request = require('request');
 
 router.get('/get', function(req, res) {
@@ -13,8 +13,10 @@ router.get('/get', function(req, res) {
     }
   }, (error, response, body) => {
     console.log(JSON.parse(body))
+
+    // Pushes body to the browser
+    // res.send(body)
     })
-  
 })
   
 module.exports = router;
