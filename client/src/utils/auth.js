@@ -11,12 +11,16 @@ export default {
     return axios.post('/auth/register', newUser)
   },
 
-  login: (username, password) => {
+  login: (username, password, cb) => {
     let login = {
       username: username,
       password: password
     }
-    return axios.post(`/auth/login`, login )
+    axios.post(`/auth/login`, login )
+    .then()
+    .catch((error) => {
+      cb(error)
+    })
   }
 }
 
