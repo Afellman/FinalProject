@@ -7,7 +7,7 @@ const fs = require('fs')
 
 router.post('/post', function(req, res) {
   let wikiObject = {}
-
+  console.log(req.body)
   // Getting img url and text excerpt
   request({
     url: `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts%7Cpageimages%7Ccategories&exintro=&titles=${req.body.article}`,
@@ -36,6 +36,9 @@ router.post('/post', function(req, res) {
     // Currently it is grabbing the first 15 links after the "Major subfields"
     // text on the wikipage, but not all pages have this text. Might need to grab
     // them from the page itself instead? 
+    // 
+    // Also should be grabbed from a bigger list, mixed around and 10 or so chosen
+    // from that.
 
 
      // Wiki library that returns the whole page for finding links
