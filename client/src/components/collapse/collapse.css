@@ -1,0 +1,31 @@
+#accordion {
+  width: 30%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.card-header {
+  background: radial-gradient(rgb(119, 192, 216), blue);
+}
+
+.btn {
+  color: white;
+  text-decoration: none;
+}
+
+.btn:visited {
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: gold;
+}
+
+.card-body {
+  text-align: left;
+}
+
+.article-title {
+  padding-top: 10px;
+}

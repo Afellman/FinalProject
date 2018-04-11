@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Home from './pages/Home/Home';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Start from './pages/Start/Start';
-import Profile from './pages/Profile';
+import Profile from './pages/Profile/Profile';
 
 class App extends Component {
   render() {

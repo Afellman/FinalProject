@@ -4,21 +4,18 @@ import Collapse from '../../components/collapse';
 
 class Profile extends Component {
   render() {
-    let name = "alex";
+
+    let name = "Alex";
+
     return (
-      <div className = "container">
-        <div className = "name">
-          <h1> {name}'s Splash Page</h1>
+      <div className="outer">
+        <div className="name">
+          <h1> {name}'s Saved Articles</h1>
         </div>
 
-        <div className = "collapse">
-          <Collapse/>
+        <div >
+          <Collapse />
         </div>
-
-
-
-
-
 
       </div>
     )
