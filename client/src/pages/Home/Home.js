@@ -17,8 +17,9 @@ class Home extends Component {
     level: 0,
     categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine'],
     backgound: ``,
-    category: ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology", ]
-
+    category: ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ],
+    showEndpoint: false,
+    endpoint:{}
   }
 
   // Random Number generator
@@ -84,7 +85,13 @@ class Home extends Component {
       let results = SciMuse.getSciMuse(this.state.category[0]);
       console.log(this.state.category[0])
 
-      console.log(results)
+      console.log(results);
+      let museumObj = {
+        name: results.data[0].attributes.summary.title,
+        description: results.data[0].attributes.description[0].value,
+        img: results.data[0].attributes.multimedia[0].processed.large_thumbnail.location
+      }
+      this.setState({})
     }
   
   render(){
@@ -103,11 +110,12 @@ class Home extends Component {
                 <Category key={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
             })}
-            {this.state.endpoints ? 
-              this.state.endpoints.map((object, index) => {
-              return(
-              <Endpoint/>
-            )})
+            {this.state.showEndpoint ? 
+              
+        
+              <Endpoint 
+              />
+          
             : null}
             </div>
           </div>
