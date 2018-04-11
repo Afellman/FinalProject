@@ -17,6 +17,8 @@ class Home extends Component {
     level: 0,
     categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine'],
     backgound: ``,
+    category: ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology", ]
+
   }
 
   // Random Number generator
@@ -71,15 +73,18 @@ class Home extends Component {
       this.getBgImage(category)
       // returns new bubbles of subcategories
       // ** Need to save previous bubble to search on aka "Go back"
-      Wiki.getWikiByArticle(category).then(res=> {
-        setTimeout(()=> {
-          this.setState({categories: res.data.subCategories, categoryTransform: 'scale(1)'})
+      // Wiki.getWikiByArticle(category).then(res=> {
+      //   setTimeout(()=> {
+      //     this.setState({categories: res.data.subCategories, categoryTransform: 'scale(1)'})
 
-        },500)
+      //   },500)
           
-        console.log(res.data)
-      })
-      // SciMuse.getInfoAge()
+      //   console.log(res.data)
+      // })
+      let results = SciMuse.getSciMuse(this.state.category[0]);
+      console.log(this.state.category[0])
+
+      console.log(results)
     }
   
   render(){
