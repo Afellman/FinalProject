@@ -9,6 +9,7 @@ import mojs from 'mo-js';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Wiki from '../../utils/wikiapi';
 import Endpoint from '../../components/endpoint';
+import EndpointItem from '../../components/endpointItem';
 
 class Home extends Component {
 
@@ -82,13 +83,13 @@ class Home extends Component {
           
       //   console.log(res.data)
       // })
-      let results = SciMuse.getSciMuse(this.state.category[0]);
-      console.log(this.state.category[0]);
-      console.log()
+      let results = SciMuse.getSciMuse(this.state.category);
+      console.log(this.state.category);
       
-      console.log(results.data.data[0].attributes.summary_title, "name")
+      
+      // console.log(results)
       let museumObj = {
-        name: results.data.data[0].attributes.summary_title,
+        name: results.data,
         description: results.data.data[0].attributes.description[0].value,
         img: results.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
         link: results.data.data[0].links.self
@@ -98,7 +99,7 @@ class Home extends Component {
       )
     }
   
-  render(){
+  render() {
     return(
       <div>
         
@@ -113,8 +114,11 @@ class Home extends Component {
               )
             })}
             {this.state.showEndpoint ? 
-              <Endpoint 
-              />
+              <Endpoint
+              
+              > 
+                <EndpointItem/>
+              </Endpoint>
           
             : null}
             </div>
