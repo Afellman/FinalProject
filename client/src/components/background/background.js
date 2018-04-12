@@ -3,47 +3,26 @@ import {Motion, spring} from 'react-motion';
 import styles from './background.css';
 import Unsplash from '../../utils/unsplash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+import anime from 'animejs';
 
 class Background extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
       background: '',
-      showBg : true,
-      category: ''
+      category: '',
+      opacity : 1
     }
-}
-  
-componentWillReceiveProps(nextProp){
-  console.log(nextProp)
-  if (nextProp.trigger != this.state.category) {
-    this.setState({showBg : false})
-    this.getBgImage(nextProp.trigger)
-  }
-}
-
-  // gets an image from Unsplash and calls setBg with that image
-  getBgImage = (keyword) => {
-    let image;
-    //  Getting background image based on keyword.
-    // *** NEED TO SET FALLBACK IMG INCASE NOTHING IS RETURNED
-    Unsplash.getPhotoByKeyword(keyword)
-    .then((data)=>{
-      console.log(data)
-      if (data.data.total){
-      // let randomNum = this.getRandomNum(10)
-      image = data.data.results[0].urls.full
-    } else {
-      image = 'https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-0.3.5&s=709c4a0d39f08a5558dac7e059debb05&auto=format&fit=crop&w=1050&q=80'  
-    }
-    this.setState({backgound: `url(${image})`, category: this.props.trigger, showBg: true})
-    })
-    
   }
 
-  render(props) {
+
+  render() {
+    console.log(this.props.image)
     return (
-        <div id="background" style={{backgroundImage: this.state.backgound}} className={this.props.trigger}></div>
+      <div>
+        <img  id="background" onLoad={this.props.fade} src={this.props.image || 'https://images.unsplash.com/photo-1484415063229-3d6335668531?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e41b789e5d2a9b156139b4e4f860845c&auto=format&fit=crop&w=1388&q=80'} className={this.props.trigger}/> 
+      </div>
     )
   }
 }
