@@ -3,6 +3,10 @@ Arguments:
 
 PATH: 
   /usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/mysql/bin:~/_/root/bin/fasd:/usr/local/mysql/bin:~/_/root/bin/fasd
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js start
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Heroku\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Program Files\Heroku\bin;C:\Program Files\MongoDB\Server\3.6\bin;C:\Users\User\AppData\Local\Yarn\bin
 
 Yarn version: 
   1.5.1
@@ -12,6 +16,10 @@ Node version:
 
 Platform: 
   darwin x64
+  9.4.0
+
+Platform: 
+  win32 x64
 
 npm manifest: 
   {
@@ -950,3 +958,14 @@ Trace:
       at ChildProcess.emit (events.js:214:7)
       at maybeClose (internal/child_process.js:925:16)
       at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+  Command: C:\Windows\system32\cmd.exe
+  Arguments: /d /s /c node server.js
+  Directory: C:\Users\User\Desktop\FinalProject
+  Output:
+  
+      at ProcessTermError.MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Program Files (x86)\Yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:30281:17)
+      at ChildProcess.emit (events.js:160:13)
+      at maybeClose (internal/child_process.js:943:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
