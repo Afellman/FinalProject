@@ -89,14 +89,15 @@ class Home extends Component {
       let museumObj = {
         name: results.data[0].attributes.summary.title,
         description: results.data[0].attributes.description[0].value,
-        img: results.data[0].attributes.multimedia[0].processed.large_thumbnail.location
+        img: results.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
+        link: results.data[0].links.self
       }
-      this.setState({})
+      .then(res => 
+        this.setState({ [endpoint]: museumObj })
+      )
     }
   
   render(){
-
-    
     return(
       <div>
         
@@ -113,7 +114,7 @@ class Home extends Component {
             {this.state.showEndpoint ? 
               
         
-              <Endpoint 
+              <Endpoint
               />
           
             : null}
