@@ -2,9 +2,10 @@ const router = require('express').Router();
 
 var request = require('request');
 
-router.get('/get', function(req, res) {
+router.post('/post', function(req, res) {
+  console.log(req.body.category, "req.body")
   request({
-    url:'http://collection.sciencemuseum.org.uk/search/objects/gallery/information%20age%20gallery:%20web?random=20',
+    url:`http://collection.sciencemuseum.org.uk/search/objects/images/categories/${req.body.category}?random=1`,
     method: "GET",
     headers: {
       'crossdomain': 'true',
@@ -15,7 +16,7 @@ router.get('/get', function(req, res) {
     console.log(JSON.parse(body))
 
     // Pushes body to the browser
-    // res.send(body)
+    res.send(body)
     })
 })
   
