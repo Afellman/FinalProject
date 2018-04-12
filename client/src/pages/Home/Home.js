@@ -83,17 +83,18 @@ class Home extends Component {
       //   console.log(res.data)
       // })
       let results = SciMuse.getSciMuse(this.state.category[0]);
-      console.log(this.state.category[0])
-
-      console.log(results);
+      console.log(this.state.category[0]);
+      console.log()
+      
+      console.log(results.data.data[0].attributes.summary_title, "name")
       let museumObj = {
-        name: results.data[0].attributes.summary.title,
-        description: results.data[0].attributes.description[0].value,
-        img: results.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
-        link: results.data[0].links.self
+        name: results.data.data[0].attributes.summary_title,
+        description: results.data.data[0].attributes.description[0].value,
+        img: results.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
+        link: results.data.data[0].links.self
       }
       .then(res => 
-        this.setState({ [endpoint]: museumObj })
+        this.setState({ [this.endpoint]: museumObj })
       )
     }
   
@@ -112,9 +113,7 @@ class Home extends Component {
               )
             })}
             {this.state.showEndpoint ? 
-              
-        
-              <Endpoint
+              <Endpoint 
               />
           
             : null}
