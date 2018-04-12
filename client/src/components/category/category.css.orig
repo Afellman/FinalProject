@@ -19,7 +19,12 @@
   /* padding: 40px 20px 40px 20px; */
   text-align: center;
   border: 1px solid rgba(190, 190, 190, 0.685);
+<<<<<<< HEAD
+  background: radial-gradient(rgba(234, 199, 122, 0.315),rgba(192, 141, 31, 0.911)  );
+  transition: .3s;
+=======
   background: radial-gradient(rgba(234, 199, 122, 0.315),rgba(255, 204, 94, 0.911)  );
+>>>>>>> master
 }
 
 .category-col > div:hover {
