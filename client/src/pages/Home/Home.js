@@ -9,6 +9,7 @@ import mojs from 'mo-js';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Wiki from '../../utils/wikiapi';
 import Endpoint from '../../components/endpoint';
+import Profile from '../../components/profile';
 
 class Home extends Component {
 
@@ -104,6 +105,7 @@ class Home extends Component {
               <Endpoint/>
             )})
             : null}
+            <Profile/>
             </div>
           </div>
         </div>
