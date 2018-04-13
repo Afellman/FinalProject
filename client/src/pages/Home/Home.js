@@ -82,7 +82,7 @@ class Home extends Component {
           
       //   console.log(res.data)
       // })
-      //Calls function using a specific category in the science museum api
+      //Calls function using a specific category from the science museum api
      SciMuse.getSciMuse(this.state.category[0]).then(data => {
        let museumObj = {
          name: data.data.data[0].attributes.summary_title,
