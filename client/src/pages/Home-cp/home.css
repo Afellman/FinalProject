@@ -34,9 +34,11 @@
   margin: auto;
   margin-top: 10%;
   
-  /* max-width: 1250px; */
+  max-width: 1250px;
 }
 
 #home-categories > div > div {
   display: inline-block;
 }
+
+

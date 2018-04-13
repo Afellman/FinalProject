@@ -1,4 +1,8 @@
 Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn start
+
+PATH: 
+  /usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/mysql/bin:~/_/root/bin/fasd:/usr/local/mysql/bin:~/_/root/bin/fasd
   C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js start
 
 PATH: 
@@ -8,6 +12,10 @@ Yarn version:
   1.5.1
 
 Node version: 
+  8.9.1
+
+Platform: 
+  darwin x64
   9.4.0
 
 Platform: 
@@ -17,6 +25,9 @@ npm manifest:
   {
     "dependencies": {
       "body-parser": "^1.18.2",
+      "connect-ensure-login": "^0.1.1",
+      "cookie-parser": "^1.4.3",
+      "cookie-session": "^2.0.0-beta.3",
       "cors": "^2.8.4",
       "express": "^4.16.3",
       "mongod": "^2.0.0",
@@ -935,6 +946,18 @@ Lockfile:
 Trace: 
   Error: Command failed.
   Exit code: 1
+  Command: sh
+  Arguments: -c node server.js
+  Directory: /Users/Andrew/Desktop/FinalProject
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
   Command: C:\Windows\system32\cmd.exe
   Arguments: /d /s /c node server.js
   Directory: C:\Users\User\Desktop\FinalProject
