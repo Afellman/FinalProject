@@ -6,7 +6,12 @@
   /* padding-top: 7%; */
 }
 
-
+#sidebar {
+  z-index: 2;
+  position: fixed;
+  right: 0;
+  top: 0;
+} 
 
 #tag {
   /* width: 350px; */

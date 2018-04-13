@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './Profile.css';
+import styles from './profile.css';
 import Collapse from '../../components/collapse';
 
 class Profile extends Component {
@@ -20,3 +20,5 @@ class Profile extends Component {
 }
 
 export default Profile;
+
+

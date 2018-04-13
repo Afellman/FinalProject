@@ -5,6 +5,7 @@ import Category from '../../components/category';
 import Background from '../../components/background';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Wiki from '../../utils/wikiapi';
+import Profile from '../../components/profile';
 import anime from 'animejs';
 import Unsplash from '../../utils/unsplash';
 import Backdrop from '../../components/backdrop'
@@ -20,6 +21,7 @@ class Home extends Component {
     currentCategory: 'home',
     backdrop_start: false,
     backgound: ``,
+    showProfile: false,
     category: ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ],
     showEndpoint: false,
     endpoint:{}
@@ -164,6 +166,8 @@ class Home extends Component {
           {this.state.backdrop_start ? <Backdrop/> : null}
           <Background  fade={this.fadeInBackground} image={this.state.background} trigger={this.state.currentCategory}/>
         <div id="home-container">
+          <button className="btn" onClick = {()=>this.setState({showProfile: true})} id = "sidebar">Button</button>
+          {this.state.showProfile ? <Profile />: null}
           <div id="home-categories">
             <div id="bubbles-parents">
             {/* Mapping through all the given categories and building divs for them */}
@@ -183,6 +187,8 @@ class Home extends Component {
           ): null}
             </div>
           </div>
+          
+          
         </div>
        </div>
     )
