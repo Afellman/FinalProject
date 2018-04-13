@@ -1,0 +1,39 @@
+.category-col {
+  position: relative;
+  padding: 5px;
+  
+  
+}
+
+.category-col > div {
+  transition: .5s;
+  animation: bubble .5s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 200px;
+  height: 200px; */
+  padding: 50px;
+  border-radius: 50%;
+  /* height: 100px; */
+  /* padding: 40px 20px 40px 20px; */
+  text-align: center;
+  border: 1px solid rgba(190, 190, 190, 0.685);
+<<<<<<< HEAD
+  background: radial-gradient(rgba(234, 199, 122, 0.315),rgba(192, 141, 31, 0.911)  );
+  transition: .3s;
+=======
+  background: radial-gradient(rgba(234, 199, 122, 0.315),rgba(255, 204, 94, 0.911)  );
+>>>>>>> master
+}
+
+.category-col > div:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 10px 1px rgba(187, 180, 180, 0.918);
+
+}
+
+@keyframes bubble {
+  0% {transform: scale(0)}
+  100% {transform: scale(1)}
+}
