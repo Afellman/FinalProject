@@ -24,6 +24,7 @@ class Home extends Component {
 
     
     componentDidMount() {
+      this.arrangeBubbles()
       this.fadeInCategorys()
       this.fadeInBackground()
       // this.arrangeBubbles()
@@ -37,6 +38,7 @@ class Home extends Component {
       anime({
         targets: '.category-col',
         translateX: function(e){
+          console.log('arrange bubbles')
           return 200
         },
         translateY: function(){
@@ -57,9 +59,7 @@ class Home extends Component {
       });
     }
 
-
   getBgImage = (keyword) => {
-    
     //  Getting background image based on keyword.
     Unsplash.getPhotoByKeyword(keyword)
     .then((data)=>{
@@ -67,7 +67,7 @@ class Home extends Component {
       let randomNum = Math.floor(Math.random() * data.data.results.length);
       image = data.data.results[randomNum].urls.full
     } else {
-      image = 'https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-0.3.5&s=709c4a0d39f08a5558dac7e059debb05&auto=format&fit=crop&w=1050&q=80'
+      image = 'https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8df2caeb47cf27eae792735019e072f&auto=format&fit=crop&w=1350&q=80'
     }
     this.setState({background: image});
     })
@@ -124,6 +124,7 @@ class Home extends Component {
       let category = e.target.textContent
       // console.log(category)
       this.getBgImage(category)
+      this.arrangeBubbles()
       this.setState({backdrop_start : true})
       this.fadeOut()
       // returns new bubbles of subcategories

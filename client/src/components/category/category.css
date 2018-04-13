@@ -10,12 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 200px;
-  height: 200px; */
   padding: 50px;
   border-radius: 50%;
-  /* height: 100px; */
-  /* padding: 40px 20px 40px 20px; */
+
   text-align: center;
   /* border: 2px solid rgba(36, 34, 150, 0.747); */
   background: radial-gradient(rgba(7, 6, 34, 0.699),rgba(255, 255, 255, 0.541)  );
