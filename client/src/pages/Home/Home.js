@@ -5,10 +5,10 @@ import Category from '../../components/category';
 import Background from '../../components/background';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Wiki from '../../utils/wikiapi';
-import Endpoint from '../../components/endpoint';
 import anime from 'animejs';
 import Unsplash from '../../utils/unsplash';
 import Backdrop from '../../components/backdrop'
+import { Endpoint, EndpointItem } from '../../components/endpoint';
 
 let image;
 class Home extends Component {
@@ -17,9 +17,12 @@ class Home extends Component {
     categoryTransform: ``,
     level: 0,
     categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine'],
-    background: ``,
     currentCategory: 'home',
-    backdrop_start: false
+    backdrop_start: false,
+    backgound: ``,
+    category: ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ],
+    showEndpoint: false,
+    endpoint:{}
   }
 
     
@@ -133,19 +136,29 @@ class Home extends Component {
       Wiki.getWikiByArticle(category).then(res=> {
         setTimeout(()=> {
           this.setState({categories: res.data.subCategories, categoryTransform: 'scale(1)'})
+
         },500)
+          
+        console.log(res.data)
       })
-      // SciMuse.getInfoAge()
+      //Calls function using a specific category in the science museum api
+     SciMuse.getSciMuse(this.state.category[0]).then(data => {
+       let museumObj = {
+         name: data.data.data[0].attributes.summary_title,
+         description: data.data.data[0].attributes.description[0].value,
+         img: data.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
+         link: data.data.data[0].links.self
+       }
+       this.setState({endpoint: museumObj, showEndpoint: true})
+
+     })
     }
 
     
   
     // ------------------------------------------------------------
-  
     
   render(){
-
-
     return(
       <div>
           {this.state.backdrop_start ? <Backdrop/> : null}
@@ -159,12 +172,15 @@ class Home extends Component {
                 <Category key={index} index={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
             })}
-            {this.state.endpoints ? 
-              this.state.endpoints.map((object, index) => {
-              return(
-              <Endpoint/>
-            )})
-            : null}
+            {this.state.showEndpoint ? (
+              <Endpoint
+              > 
+                <EndpointItem
+                  museumObj= {this.state.endpoint}>
+                </EndpointItem>
+              </Endpoint>
+          
+          ): null}
             </div>
           </div>
         </div>

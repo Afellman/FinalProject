@@ -1,10 +1,12 @@
 const router = require('express').Router();
-// const astroidController = require('../../controllers/astroidController');
+
 var request = require('request');
 
-router.get('/get', function(req, res) {
+router.post('/post', function(req, res) {
+  console.log(req.body.category, "category")
+  
   request({
-    url:'http://collection.sciencemuseum.org.uk/search/objects/gallery/information%20age%20gallery:%20web?random=20',
+    url:`http://collection.sciencemuseum.org.uk/search/objects/images/categories/${req.body.category}?random=10`,
     method: "GET",
     headers: {
       'crossdomain': 'true',
@@ -13,8 +15,10 @@ router.get('/get', function(req, res) {
     }
   }, (error, response, body) => {
     console.log(JSON.parse(body))
+
+    // Pushes body to the browser
+    res.send(body)
     })
-  
 })
   
 module.exports = router;
