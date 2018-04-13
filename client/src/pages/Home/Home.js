@@ -5,7 +5,6 @@ import SciMuse from '../../utils/sciencemuseum';
 import Category from '../../components/category';
 import {Motion, spring} from 'react-motion';
 import Background from '../../components/background';
-import mojs from 'mo-js';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Wiki from '../../utils/wikiapi';
 import Endpoint from '../../components/endpoint';
@@ -18,6 +17,7 @@ class Home extends Component {
     level: 0,
     categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine'],
     backgound: ``,
+    showProfile: false
   }
 
   // Random Number generator
@@ -87,15 +87,18 @@ class Home extends Component {
 
     
     return(
-      <div>
-        
+      <div>        
           <Background opacity={this.state.bgOpacity} image={this.state.backgound}/>
+          
         <div id="home-container">
+          <button className="btn" onClick = {()=>this.setState({showProfile: true})} id = "sidebar">Button</button>
+          {this.state.showProfile ? <Profile />: null}
           <div id="home-categories">
             <div>
             {/* Mapping through all the given categories and building divs for them */}
             {this.state.categories.map((category, index)=> {
               return (
+                
                 <Category key={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
             })}
@@ -105,9 +108,10 @@ class Home extends Component {
               <Endpoint/>
             )})
             : null}
-            <Profile/>
             </div>
           </div>
+          
+          
         </div>
        </div>
     )
