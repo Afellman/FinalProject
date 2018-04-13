@@ -3,9 +3,9 @@ import styles from './home.css'
 import Unsplash from '../../utils/unsplash';
 import SciMuse from '../../utils/sciencemuseum';
 import Category from '../../components/category';
-import {Motion, spring} from 'react-motion';
+
 import Background from '../../components/background';
-import mojs from 'mo-js';
+
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Wiki from '../../utils/wikiapi';
 import Endpoint from '../../components/endpoint';
