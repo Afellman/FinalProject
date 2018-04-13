@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Jumbotron from "../../components/Jumbotron";
 import auth from '../../utils/auth'
 import styles from './start.css';
 import Signup from '../../components/signup'
+import { Col, Row, Container } from "../../components/Grid";
 import Login from '../../components/login';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 
@@ -65,7 +67,13 @@ class Start extends Component {
   render(){
     
     return(
-      <div>
+      <Container fluid>
+        <Row>
+          <Col size="md-2"/>
+          <Col size="md-12">
+            <Jumbotron>
+            <h1><i className="fa fa-newspaper-o" aria-hidden="true"></i></h1> 
+             <div>
         <ReactCSSTransitionGroup
           transitionName="login"
           transitionEnterTimeout={200}
@@ -98,8 +106,35 @@ class Start extends Component {
               </div>
             </div>
             : null}
-        </ReactCSSTransitionGroup>
-      </div>
+          </ReactCSSTransitionGroup>
+      </div>     
+          </Jumbotron>
+          <h2>Welcome to the site of endless possiblities</h2>
+
+          </Col>
+          </Row>
+      
+
+        <Row>
+          <div className="container1">
+
+           <div className="carousel">
+            <div className="item a"> </div>
+            <div className="item b"> </div>
+            <div className="item c"> </div>
+            <div className="item d"> </div>
+            <div className="item e"> </div>
+            <div className="item f"> </div>
+          </div>
+            <div className="next">Next</div>
+            <div className="prev">Prev</div>
+
+          </div>  
+        </Row>
+
+        
+      
+        </Container>
     )
   }
 }
