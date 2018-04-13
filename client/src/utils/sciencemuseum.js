@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 export default {
-    getInfoAge: () => {
-        return axios.get('/api/scimuse/get')
+    getSciMuse: (category, cb) => {
+    return axios.post('/api/scimuse/post', {category: category})
+        //  .then((data) => {
+        //      console.log(data,"blah")
+        //      cb(data)
+        //  })
     }
 }
-
