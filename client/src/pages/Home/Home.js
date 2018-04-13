@@ -8,8 +8,7 @@ import Background from '../../components/background';
 import mojs from 'mo-js';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Wiki from '../../utils/wikiapi';
-import Endpoint from '../../components/endpoint';
-import EndpointItem from '../../components/endpointItem';
+import { Endpoint, EndpointItem } from '../../components/endpoint';
 
 class Home extends Component {
 
@@ -83,20 +82,17 @@ class Home extends Component {
           
       //   console.log(res.data)
       // })
-      let results = SciMuse.getSciMuse(this.state.category);
-      console.log(this.state.category);
-      
-      
-      // console.log(results)
-      let museumObj = {
-        name: results.data,
-        description: results.data.data[0].attributes.description[0].value,
-        img: results.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
-        link: results.data.data[0].links.self
-      }
-      .then(res => 
-        this.setState({ [this.endpoint]: museumObj })
-      )
+      //Calls function using a specific category in the science museum api
+     SciMuse.getSciMuse(this.state.category[0]).then(data => {
+       let museumObj = {
+         name: data.data.data[0].attributes.summary_title,
+         description: data.data.data[0].attributes.description[0].value,
+         img: data.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
+         link: data.data.data[0].links.self
+       }
+       this.setState({endpoint: museumObj, showEndpoint: true})
+
+     })
     }
   
   render() {
@@ -113,14 +109,15 @@ class Home extends Component {
                 <Category key={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
             })}
-            {this.state.showEndpoint ? 
+            {this.state.showEndpoint ? (
               <Endpoint
-              
               > 
-                <EndpointItem/>
+                <EndpointItem
+                  museumObj= {this.state.endpoint}>
+                </EndpointItem>
               </Endpoint>
           
-            : null}
+          ): null}
             </div>
           </div>
         </div>

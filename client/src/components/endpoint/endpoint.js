@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import EndpointItem from './endpoint';
+import styles from './endpoint.css';
 
-const Endpoint = (props) => {
+export const Endpoint = ({children}) => {
     return(
         <div className='container'>
-            Results
-
-            {/* <h3>{props.endpoint.name} </h3>
-            <img src={props.endpoint.img} className="img-fluid"> 
-            </img>
-            <p> Description: {props.endpoint.description} </p>
-            <a href={props.endpoint.link}> </a> */}
+            <h1> Results </h1>
+            {children}
         </div>
     );
 }
-
-export default Endpoint; 
