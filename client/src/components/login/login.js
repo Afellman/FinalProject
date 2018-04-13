@@ -8,11 +8,11 @@ const Login = (props) => {
       <div className='login' style={{opacity: props.opacity}}>
           <div  className='form-group'>
             <label>Email</label>
-            <input className='form-control' value={props.email} onChange={props.handleChange} type='text' name='email' placeholder='Username'/>
+            <input className='form-control' value={props.email} onChange={props.handleChange} type='text' name='loginEmail' placeholder='johndoe@gmail.com'/>
           </div>
           <div  className='form-group'>
             <label>Password</label>
-            <input className='form-control' value={props.pass} onChange={props.handleChange} type='password' name='password' placeholder='Password'/>
+            <input className='form-control' value={props.pass} onChange={props.handleChange} type='password' name='loginPass' placeholder='Password'/>
           </div>
           <button className='btn btn-primary' onClick={props.handleLogin}>Submit</button>
       </div>

@@ -6,12 +6,7 @@
   /* padding-top: 7%; */
 }
 
-#sidebar {
-  z-index: 2;
-  position: fixed;
-  right: 0;
-  top: 0;
-} 
+
 
 #tag {
   /* width: 350px; */
@@ -39,9 +34,11 @@
   margin: auto;
   margin-top: 10%;
   
-  /* max-width: 1250px; */
+  max-width: 1250px;
 }
 
 #home-categories > div > div {
   display: inline-block;
 }
+
+
