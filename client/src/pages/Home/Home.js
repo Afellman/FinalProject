@@ -1,3 +1,6 @@
+// TODO ************
+// Sync transition so image loads with bubbles
+
 import React , {Component} from 'react';
 import styles from './home.css';
 import SciMuse from '../../utils/sciencemuseum';
@@ -26,7 +29,6 @@ class Home extends Component {
     showEndpoint: false,
     endpoint:{}
   }
-
     
     componentDidMount() {
       this.arrangeBubbles()
@@ -49,18 +51,18 @@ class Home extends Component {
         translateY: function(){
         },
         rotate: 180,
-        duration: function(target) {
-          // Duration based on every div 'data-duration' attribute
-          return target.getAttribute('data-duration');
-        },
-        delay: function(target, index) {
-          // 100ms delay multiplied by every div index, in ascending order
-          return index * 100;
-        },
-        elasticity: function(target, index, totalTargets) {
-          // Elasticity multiplied by every div index, in descending order
-          return 200 + ((totalTargets - index) * 200);
-        }
+        // duration: function(target) {
+        //   // Duration based on every div 'data-duration' attribute
+        //   return target.getAttribute('data-duration');
+        // },
+        // delay: function(target, index) {
+        //   // 100ms delay multiplied by every div index, in ascending order
+        //   return index * 100;
+        // },
+        // elasticity: function(target, index, totalTargets) {
+        //   // Elasticity multiplied by every div index, in descending order
+        //   return 200 + ((totalTargets - index) * 200);
+        // }
       });
     }
 
@@ -95,6 +97,26 @@ class Home extends Component {
     anime({
       targets: '.category-col',
       scale: 1,
+      translateX :  (e) => {
+        let radius = (window.innerWidth < (window.innerHeight - 50) ? window.innerWidth : (window.innerHeight - 50)) + 100;
+        let index = e.getAttribute('data-angle')
+        let width = (radius / 10) + 50
+        let angle = (index / (this.state.categories.length /2 )) * Math.PI
+        return ((radius/3) * Math.cos(angle)) - 150;
+        
+      },
+      translateY : (e) => {
+        let radius = (window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight) + 100;
+        let index = e.getAttribute('data-angle')
+        let width = (radius /10 ) + 50
+        let angle = (index / (this.state.categories.length /2 )) * Math.PI
+        return ((radius/3)  * Math.sin(angle));
+      },
+      duration: 6000,
+    });
+    anime({
+      targets: '.endpoint',
+      scale: 1,
       duration: 6000,
     });
   }
@@ -112,7 +134,7 @@ class Home extends Component {
       }
     });         
     anime({
-      targets: '.category-col',
+      targets: '.category-col, .endpoint ',
       scale: 0,
       duration: 3000,
     });
@@ -141,7 +163,6 @@ class Home extends Component {
 
         },500)
           
-        console.log(res.data)
       })
       //Calls function using a specific category in the science museum api
      SciMuse.getSciMuse(this.state.category[0]).then(data => {
@@ -164,7 +185,7 @@ class Home extends Component {
     return(
       <div>
           {this.state.backdrop_start ? <Backdrop/> : null}
-          <Background  fade={this.fadeInBackground} image={this.state.background} trigger={this.state.currentCategory}/>
+          <Background fade={this.fadeInBackground} image={this.state.background} trigger={this.state.currentCategory}/>
         <div id="home-container">
           <button className="btn" onClick = {()=>this.setState({showProfile: true})} id = "sidebar">Button</button>
           {this.state.showProfile ? <Profile />: null}
@@ -173,12 +194,11 @@ class Home extends Component {
             {/* Mapping through all the given categories and building divs for them */}
             {this.state.categories.map((category, index)=> {
               return (
-                <Category key={index} index={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
+                <Category key={index} index={index} angle={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
             })}
             {this.state.showEndpoint ? (
-              <Endpoint
-              > 
+              <Endpoint> 
                 <EndpointItem
                   museumObj= {this.state.endpoint}>
                 </EndpointItem>
