@@ -13,6 +13,7 @@ import anime from 'animejs';
 import Unsplash from '../../utils/unsplash';
 import Backdrop from '../../components/backdrop'
 import { Endpoint, EndpointItem } from '../../components/endpoint';
+import { Row } from "../../components/Grid";
 
 let image;
 class Home extends Component {
@@ -164,7 +165,7 @@ class Home extends Component {
         },500)
           
       })
-      
+
       //Calls function using a specific category in the science museum api
      SciMuse.getSciMuse(this.state.category[1]).then(data => {
        let museumObj = {
