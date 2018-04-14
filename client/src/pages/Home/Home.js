@@ -30,7 +30,8 @@ class Home extends Component {
     showProfile: false,
     showEndpoint: false,
     endpoint:{},
-    path: ''
+    path: '',
+    showChoice: true
   }
     
     componentDidMount() {
@@ -60,7 +61,7 @@ class Home extends Component {
   
   fadeInBackground = () =>{
     anime({
-      targets: '#background',
+      targets: '#background, .endpoint',
       opacity: 1,
       duration: 7000,
       complete: ()=> {
@@ -70,40 +71,49 @@ class Home extends Component {
   }
 
   fadeInCategorys = (e) => {
+    
+    this.setState({showBubbles: true})
+    var maxElements = this.state.categories.length
+    var duration = 6000;
+    var toAnimate = [];
+    var radius = window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight;
+    var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
 
-    // Animations for fading in the bubbles and arranging them around the endpoint.
-    console.log('fade in')
-    anime({
-      targets: '.category-col',
-      translateX :  (e) => {
-        let radius = (window.innerWidth / 2) + 200
-        let index = e.getAttribute('data-angle')
-        let width = (radius / 2)
-        let angle = (index / (this.state.categories.length /2 )) * Math.PI
-        return ((radius/ 1.6) * Math.cos(angle )) - 150;
-        
-      },
-      translateY : (e) => {
-        let radius = (window.innerWidth / 2) + 200
-        let index = e.getAttribute('data-angle')
-        let width = (radius / 2)
-        let angle = (index / (this.state.categories.length / 2)) * Math.PI
-        return ((radius/3)  * Math.sin(angle));
-      },
-      scale: 1,
-      duration: 6000,
-    });
-    anime({
-      targets: '.endpoint',
-      scale: 1,
-      duration: 2000,
-    });
+    let bubbleArray = [];
+    for (let i = 0; i < this.state.categories.length; i++) {
+      bubbleArray.push(document.getElementById(`bubble-${i}`))
+    } 
+    
+    var animate = function(el, i) {
+      var angle = Math.random() * Math.PI * 2;
+      anime({
+        targets: el,
+        translateX: ()=> {
+          var angle = Math.random() * Math.PI * 2;
+          var distance = radius - 80;
+          return 0, Math.cos(angle) * distance
+        },
+        translateY: ()=> {
+          var distance = radius /2 - 60;
+         return 0, Math.sin(angle) * distance
+        },
+        scale: [
+          {value: [0, 1], duration: 400, easing: 'easeOutBack'},
+          {value: 0, duration: 400, delay: duration, easing: 'easeInBack'}
+        ],
+        offset: (duration / maxElements) * i,
+        duration: duration,
+        easing: 'easeOutSine',
+        loop: true
+      });
+    }
+  bubbleArray.forEach(animate)
   }
 
   fadeOut = () => {
     let i = 0
     anime({
-      targets: '#background',
+      targets: '#background, .category-col, .endpoint ',
       opacity: 0 ,
       duration: 3000,
       complete: (ani)=>{
@@ -114,12 +124,7 @@ class Home extends Component {
 
         }
       }
-    });         
-    anime({
-      targets: '.category-col, .endpoint ',
-      scale: 0,
-      duration: 3000,
-    });
+    });      
       
     }
   
@@ -129,7 +134,9 @@ class Home extends Component {
 
     // changing the level after a category click --------------------------
     changeLevel = (e) => {
+      this.setState({showBubbles: false})
       if (this.state.firstRound) {
+        this.setState({showChoice: false})
         this.fadeInCategorys()
         
       } else {
@@ -192,10 +199,11 @@ class Home extends Component {
                 <Category key={index} index={index} angle={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
             })
-          : <div id='initial-choice'>
+          : null }
+          {this.state.showChoice ? <div id='initial-choice'>
             <div onClick={()=> {
               this.setState({showBubbles: true, path: "wiki", categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine']})
-              setTimeout(()=>this.changeLevel(), 1000 )
+              setTimeout(()=>this.changeLevel(), 500 )
               
               } 
               } className="wiki btn">
@@ -203,11 +211,11 @@ class Home extends Component {
             </div>
             <div onClick={()=>{
               this.setState({showBubbles: true, path: "scimuse", categories :  ["Computing-&-Data-Processing", "Telecommunications", "Aeronautics", "Photographic-Technology", "Radio-Communication", "Orthopaedics", "Space-Technology" ]})
-              setTimeout(()=>this.changeLevel(), 1000 )
+              setTimeout(()=>this.changeLevel(), 500 )
             }}className='scimuse btn'>
               <h3>Science Museum</h3>
             </div></div>
-          }
+            : null}
             {this.state.showEndpoint ? (
               <Endpoint> 
                 <EndpointItem
