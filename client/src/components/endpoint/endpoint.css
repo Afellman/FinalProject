@@ -1,7 +1,7 @@
 .endpoint {
     position: relative;
     margin: 0 auto;
-    top:10vh;
+    top: 17vh;
     background: linear-gradient(rgba(7, 6, 34, 0.699),rgba(255, 255, 255, 0.541));
     background-position: center center;
     background-repeat: no-repeat;
@@ -9,9 +9,10 @@
     background-size: cover;
     color: white;
     border-radius: 25px;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-right: 5px;
     padding-left: 5px;
+    width:50vh;
 }
 
 .carousel-item {
@@ -24,4 +25,22 @@
     text-align: center;
     overflow: hidden;
     text-indent: 0;
+    font-size: 16px;
+}
+
+a {
+    color: purple;
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    float: right;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    background-color: purple;
+    border-color: purple;
 }
