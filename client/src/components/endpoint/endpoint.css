@@ -1,13 +1,28 @@
-.container {
+.endpoint {
     position: relative;
+    margin: 0 auto;
+    width: 30%;
+    background: rgb(63, 19, 33);
+    box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.623);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
-h1{
-    font-size: 70px;
-    text-align: center;
-}
 .carousel-item {
-    position: relative;
     display: inherit;
+    margin: 0 auto;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     text-align: center;
+    overflow: hidden;
+    text-indent: 0;
 }
