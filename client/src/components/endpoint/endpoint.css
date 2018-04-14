@@ -2,12 +2,13 @@
     position: relative;
 }
 
-h1{
-    font-size: 70px;
-    text-align: center;
-}
 .carousel-item {
-    position: relative;
     display: inherit;
+    margin: 0 auto;
+    top: 10vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
     text-align: center;
+    overflow: hidden;
 }

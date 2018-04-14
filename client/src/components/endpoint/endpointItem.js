@@ -8,9 +8,9 @@ export const EndpointItem = (props) => {
       <h4>{props.museumObj.name}
       </h4>
       <img src={props.museumObj.img} alt="Unable to load"></img>
-      <div className="carousel-caption">
+      <div className="caption">
         <p>
-          Description: {props.museumObj.description}
+          {props.museumObj.description}
         </p>
         <a href={props.museumObj.link}></a>
       </div>

@@ -25,7 +25,7 @@ class Home extends Component {
     backdrop_start: false,
     backgound: ``,
     showProfile: false,
-    category: ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ],
+    category: ["computing-&-data-processing", "telecommunications", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ],
     showEndpoint: false,
     endpoint:{}
   }
@@ -165,7 +165,8 @@ class Home extends Component {
           
       })
       //Calls function using a specific category in the science museum api
-     SciMuse.getSciMuse(this.state.category[0]).then(data => {
+      // name: ()=>{return data.data.data[0].attributes.summary_title || null},
+     SciMuse.getSciMuse(this.state.category[1]).then(data => {
        let museumObj = {
          name: data.data.data[0].attributes.summary_title,
          description: data.data.data[0].attributes.description[0].value,
