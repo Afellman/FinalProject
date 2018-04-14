@@ -29,7 +29,7 @@ class Home extends Component {
     backgound: ``,
     showProfile: false,
     showEndpoint: false,
-    endpoint:{},
+    endpoint:[],
     path: '',
     showChoice: true
   }
@@ -84,16 +84,17 @@ class Home extends Component {
       bubbleArray.push(document.getElementById(`bubble-${i}`))
     } 
     
-    var animate = function(el, i) {
+    var animate = (el, i)=> {
       var angle = Math.random() * Math.PI * 2;
       anime({
         targets: el,
         translateX: ()=> {
-          var angle = Math.random() * Math.PI * 2;
+          var angle = (i / (this.state.categories.length /2 )) * Math.PI
           var distance = radius - 80;
           return 0, Math.cos(angle) * distance
         },
         translateY: ()=> {
+          var angle = (i / (this.state.categories.length /2 )) * Math.PI
           var distance = radius /2 - 60;
          return 0, Math.sin(angle) * distance
         },
@@ -118,13 +119,22 @@ class Home extends Component {
       duration: 3000,
       complete: (ani)=>{
         if(ani.completed) {
-      
-            console.log('fade out')
-            this.fadeInCategorys()
-
+          console.log('fade out')
+          this.fadeInCategorys()
         }
       }
-    });      
+    });    
+    anime({
+      targets: '#background, .category-col, .endpoint ',
+      opacity: 0 ,
+      duration: 3000,
+      complete: (ani)=>{
+        if(ani.completed) {
+          console.log('fade out')
+          this.fadeInCategorys()
+        }
+      }
+    });     
       
     }
   
@@ -158,20 +168,26 @@ class Home extends Component {
             description: res.data.body,
             img: res.data.img
           }
-          this.setState({categories: res.data.subCategories, endpoint: wikiObj, showEndpoint: true})
+          this.setState({categories: res.data.subCategories, endpoint: [wikiObj], showEndpoint: true})
         })
 
       } else {
         console.log(category)
         //Calls function using a specific category in the science museum api
       SciMuse.getSciMuse(category).then(data => {
-        let museumObj = {
-          name: data.data.data[0].attributes.summary_title,
-          description: data.data.data[0].attributes.description[0].value,
-          img: data.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
-          link: data.data.data[0].links.self
-        }
-        this.setState({endpoint: museumObj, showEndpoint: true})
+        let array = [];
+        data.data.data.forEach(element => {
+          let museumObj = {
+            name: element.attributes.summary_title,
+            description: element.attributes.description[0].value,
+            img: element.attributes.multimedia[0].processed.large_thumbnail.location,
+            link: element.links.self
+          }
+          array.push(museumObj)
+        });
+        console.log(array, "array ****************************************")
+      
+        this.setState({endpoint: array, showEndpoint: true})
 
       })
       }
@@ -216,14 +232,18 @@ class Home extends Component {
               <h3>Scimuse</h3>
             </div></div>
             : null}
-            {this.state.showEndpoint ? (
+            {this.state.showEndpoint ? 
               <Endpoint> 
+              {this.state.endpoint.map((element, index)=>{
+                return (
                 <EndpointItem
-                  museumObj= {this.state.endpoint}>
+                  museumObj= {element}>
                 </EndpointItem>
+                )
+              })}
               </Endpoint>
           
-          ): null}
+          : null}
             </div>
           
           
