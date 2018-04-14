@@ -1,5 +1,7 @@
 // TODO ************
-// Sync transition so image loads with bubbles
+// - Sync transition so image loads with bubbles
+// - Arrange bubbles nicer around endpoint
+// - Save and delete routes
 
 import React , {Component} from 'react';
 import styles from './home.css';
@@ -20,51 +22,26 @@ class Home extends Component {
 
   state = {
     categoryTransform: ``,
+    firstRound : true,
     level: 0,
-    categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine'],
+    categories : [],
     currentCategory: 'home',
     backdrop_start: false,
     backgound: ``,
     showProfile: false,
-    category: ["computing-&-data-processing", "telecommunications", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ],
     showEndpoint: false,
-    endpoint:{}
+    endpoint:{},
+    path: ''
   }
     
     componentDidMount() {
-      this.arrangeBubbles()
-      this.fadeInCategorys()
+      
       this.fadeInBackground()
       // this.arrangeBubbles()
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
 
-    }
-
-    arrangeBubbles = () => {
-      anime({
-        targets: '.category-col',
-        translateX: function(e){
-          console.log('arrange bubbles')
-          return 200
-        },
-        translateY: function(){
-        },
-        rotate: 180,
-        // duration: function(target) {
-        //   // Duration based on every div 'data-duration' attribute
-        //   return target.getAttribute('data-duration');
-        // },
-        // delay: function(target, index) {
-        //   // 100ms delay multiplied by every div index, in ascending order
-        //   return index * 100;
-        // },
-        // elasticity: function(target, index, totalTargets) {
-        //   // Elasticity multiplied by every div index, in descending order
-        //   return 200 + ((totalTargets - index) * 200);
-        // }
-      });
     }
 
   getBgImage = (keyword) => {
@@ -94,31 +71,33 @@ class Home extends Component {
   }
 
   fadeInCategorys = (e) => {
+
+    // Animations for fading in the bubbles and arranging them around the endpoint.
     console.log('fade in')
     anime({
       targets: '.category-col',
-      scale: 1,
       translateX :  (e) => {
-        let radius = (window.innerWidth < (window.innerHeight - 50) ? window.innerWidth : (window.innerHeight - 50)) + 100;
+        let radius = (window.innerWidth / 2) + 200
         let index = e.getAttribute('data-angle')
-        let width = (radius / 10) + 50
+        let width = (radius / 2)
         let angle = (index / (this.state.categories.length /2 )) * Math.PI
-        return ((radius/3) * Math.cos(angle)) - 150;
+        return ((radius/ 1.6) * Math.cos(angle )) - 150;
         
       },
       translateY : (e) => {
-        let radius = (window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight) + 100;
+        let radius = (window.innerWidth / 2) + 200
         let index = e.getAttribute('data-angle')
-        let width = (radius /10 ) + 50
-        let angle = (index / (this.state.categories.length /2 )) * Math.PI
+        let width = (radius / 2)
+        let angle = (index / (this.state.categories.length / 2)) * Math.PI
         return ((radius/3)  * Math.sin(angle));
       },
+      scale: 1,
       duration: 6000,
     });
     anime({
       targets: '.endpoint',
       scale: 1,
-      duration: 6000,
+      duration: 2000,
     });
   }
 
@@ -130,7 +109,10 @@ class Home extends Component {
       duration: 3000,
       complete: (ani)=>{
         if(ani.completed) {
-          this.fadeInCategorys()
+      
+            console.log('fade out')
+            this.fadeInCategorys()
+
         }
       }
     });         
@@ -148,37 +130,48 @@ class Home extends Component {
 
     // changing the level after a category click --------------------------
     changeLevel = (e) => {
+      if (this.state.firstRound) {
+        this.fadeInCategorys()
+        
+      } else {
+        this.fadeOut()
       let target = e.target;
       let category = e.target.textContent
       // console.log(category)
       this.getBgImage(category)
-      this.arrangeBubbles()
       this.setState({backdrop_start : true})
-      this.fadeOut()
       // returns new bubbles of subcategories
       this.setState({currentCategory: category})
       // ** Need to save previous bubble to search on aka "Go back"
-      Wiki.getWikiByArticle(category).then(res=> {
-        setTimeout(()=> {
-          this.setState({categories: res.data.subCategories, categoryTransform: 'scale(1)'})
+      if (this.state.path == 'wiki'){
+        console.log('wiki path')
+        Wiki.getWikiByArticle(category).then(res=> {
+          console.log(res)
+          let wikiObj = {
+            name: category,
+            description: res.data.body,
+            img: res.data.img
+          }
+          this.setState({categories: res.data.subCategories, endpoint: wikiObj, showEndpoint: true})
+        })
 
-        },500)
-          
+      } else {
+        console.log(category)
+        //Calls function using a specific category in the science museum api
+      SciMuse.getSciMuse(category).then(data => {
+        let museumObj = {
+          name: data.data.data[0].attributes.summary_title,
+          description: data.data.data[0].attributes.description[0].value,
+          img: data.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
+          link: data.data.data[0].links.self
+        }
+        this.setState({endpoint: museumObj, showEndpoint: true})
+
       })
-
-      //Calls function using a specific category in the science museum api
-     SciMuse.getSciMuse(this.state.category[1]).then(data => {
-       let museumObj = {
-         name: data.data.data[0].attributes.summary_title,
-         description: data.data.data[0].attributes.description[0].value,
-         img: data.data.data[0].attributes.multimedia[0].processed.large_thumbnail.location,
-         link: data.data.data[0].links.self
-       }
-       this.setState({endpoint: museumObj, showEndpoint: true})
-
-     })
+      }
     }
-
+    this.setState({firstRound: false})
+    }
     
   
     // ------------------------------------------------------------
@@ -186,19 +179,36 @@ class Home extends Component {
   render(){
     return(
       <div>
+         
           {this.state.backdrop_start ? <Backdrop/> : null}
           <Background fade={this.fadeInBackground} image={this.state.background} trigger={this.state.currentCategory}/>
         <div id="home-container">
           <button className="btn" onClick = {()=>this.setState({showProfile: true})} id = "sidebar">Button</button>
           {this.state.showProfile ? <Profile />: null}
           <div id="home-categories">
-            <div id="bubbles-parents">
-            {/* Mapping through all the given categories and building divs for them */}
-            {this.state.categories.map((category, index)=> {
+            {this.state.showBubbles ? 
+            // Mapping through all the given categories and building divs for them
+            this.state.categories.map((category, index)=> {
               return (
                 <Category key={index} index={index} angle={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
               )
-            })}
+            })
+          : <div id='initial-choice'>
+            <div onClick={()=> {
+              this.setState({showBubbles: true, path: "wiki", categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine']})
+              setTimeout(()=>this.changeLevel(), 1000 )
+              
+              } 
+              } className="wiki btn">
+              <h3>Wikipedia</h3>
+            </div>
+            <div onClick={()=>{
+              this.setState({showBubbles: true, path: "scimuse", categories :  ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ]})
+              setTimeout(()=>this.changeLevel(), 1000 )
+            }}className='scimuse btn'>
+              <h3>Scimuse</h3>
+            </div></div>
+          }
             {this.state.showEndpoint ? (
               <Endpoint> 
                 <EndpointItem
@@ -208,7 +218,6 @@ class Home extends Component {
           
           ): null}
             </div>
-          </div>
           
           
         </div>
