@@ -173,7 +173,7 @@ class Home extends Component {
 
       } else {
         console.log(category)
-        //Calls function using a specific category in the science museum api
+      //Calls function using a specific category in the science museum api
       SciMuse.getSciMuse(category).then(data => {
         let array = [];
         data.data.data.forEach(element => {
@@ -237,7 +237,7 @@ class Home extends Component {
               {this.state.endpoint.map((element, index)=>{
                 return (
                 <EndpointItem
-                  museumObj= {element}>
+                  museumObj= {element} index={index}>
                 </EndpointItem>
                 )
               })}

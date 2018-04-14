@@ -1,24 +1,27 @@
-.endpoint {
-    position: relative;
+.carousel {
     margin: 0 auto;
-<<<<<<< HEAD
-    top: 17vh;
-    background: linear-gradient(rgba(7, 6, 34, 0.699),rgba(255, 255, 255, 0.541));
-=======
-    width: 30%;
+}
+
+.carousel-inner {
+    position: relative;
+    display: inherit;
+    margin: 0 auto;
     background: rgb(63, 19, 33);
     box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.623);
->>>>>>> master
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     color: white;
+    text-indent: 0;
+    overflow: hidden;
     border-radius: 25px;
-    padding-top: 10px;
+    margin-top: 60px;
+    padding-top: 15px;
     padding-right: 5px;
-    padding-left: 5px;
-    width:50vh;
+    padding-bottom: 30px;
+    width:40vw;
+    /* height: 65vh */
 }
 
 .carousel-item {
@@ -35,7 +38,6 @@
 }
 
 a {
-    color: purple;
     font-weight: bold;
     font-size: 18px;
     float: left;
@@ -47,6 +49,4 @@ a {
     float: right;
     margin-right: 15px;
     margin-bottom: 10px;
-    background-color: purple;
-    border-color: purple;
 }
