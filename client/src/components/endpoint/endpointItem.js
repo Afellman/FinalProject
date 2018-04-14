@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './endpoint.css';
 
 export const EndpointItem = (props) => {
-  // nextObject = () => {
   //   props.museumObj.map(function(endpoint) {
   //     return  key={endpoint}
   //   }

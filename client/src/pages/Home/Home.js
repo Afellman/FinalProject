@@ -29,7 +29,7 @@ class Home extends Component {
     backgound: ``,
     showProfile: false,
     showEndpoint: false,
-    endpoint:{},
+    endpoint:[],
     path: '',
     showChoice: true
   }
@@ -218,6 +218,7 @@ class Home extends Component {
             : null}
             {this.state.showEndpoint ? (
               <Endpoint> 
+                
                 <EndpointItem
                   museumObj= {this.state.endpoint}>
                 </EndpointItem>
