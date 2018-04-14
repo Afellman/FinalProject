@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from './pages/Home/Home';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Start from './pages/Start/Start';
+import Nav from "./components/Nav";
 import Profile from './components/profile';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
     return (
       <Router>
       <div>
+      <Nav/>
         <Switch>
           <Route exact path="/" component={Start} />
           <Route exact path="/home" component={Home} />

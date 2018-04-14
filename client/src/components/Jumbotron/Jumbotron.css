@@ -1,0 +1,13 @@
+.jumbotron {
+  position: relative;
+  background: #000 url("./images/art_science.jpg") center center;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background-size: cover;
+  overflow: hidden;
+}
+
+p1 {
+	font-size: 22px;
+
+}

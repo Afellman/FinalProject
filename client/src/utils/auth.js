@@ -22,11 +22,8 @@ export default {
       username: email,
       password: password
     }
-    axios.post(`/auth/login`, login )
-    .then()
-    .catch((error) => {
-      cb(error)
-    })
+    return axios.post(`/auth/login`, login )
+
   },
   checkLogged: ()=> {
     axios.get('/auth/login')

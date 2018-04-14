@@ -3,29 +3,30 @@
     margin: auto;
     margin-top: 50px;
     text-align: center;
+    /* overflow-y: scroll; */
 }
 
-.card-header {
+#accordion .card-header {
     background: radial-gradient(rgb(119, 192, 216), blue);
 }
 
-.btn {
+#accordion .btn {
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
-.btn:visited {
-    text-decoration: none;
+#accordion .btn:visited {
+    text-decoration: none !important;
 }
 
-.btn:hover {
+#accordion .btn:hover {
     color: gold;
 }
 
 .card-body {
     text-align: left;
     overflow-y: scroll;
-    z-index: 3;
+    /* z-index: 3; */
     
 }
 

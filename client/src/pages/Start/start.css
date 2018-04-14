@@ -1,13 +1,17 @@
-.btn {
-  margin-right: 20px;
+.button-div {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+  left: 0;
 }
 
-.button-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+  .button-div .btn {
+    margin-right: 20px;
+    /* margin-top: 500px; */
+    background-color: purple;
+    border-color: purple;
+  }
 
 .login-enter {
   opacity: 0.01;
@@ -43,4 +47,21 @@
   padding: 20px;
   border-radius: 10px;
   background: rgba(179, 10, 10, 0.973);
+}
+
+
+.enter-void {
+  padding: 50px;
+  border-radius: 10px !important;
+  background: rgb(160, 61, 3);
+  border: 2px blue;
+}
+
+.void {
+  position: absolute;
+  top: calc(50% - 60px);
+  
+  width: 100%;
+  text-align: center;
+  left: 0;
 }
