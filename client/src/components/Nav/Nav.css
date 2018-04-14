@@ -2,5 +2,6 @@
     background-color: purple;
     border-color: black;
     margin-bottom: 0px;
+    z-index: 1;
    
 }
