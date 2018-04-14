@@ -10,7 +10,7 @@ router.post('/post', function(req, res) {
   console.log(req.body)
   // Getting img url and text excerpt
   request({
-    url: `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts%7Cpageimages%7Ccategories&exintro=&titles=${req.body.article}`,
+    url: `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts%7Cpageimages%7Ccategories&exintro=1&titles=${req.body.article}`,
     method: 'GET'
   }, (error, response, body)=> {
     let parse = JSON.parse(body)
