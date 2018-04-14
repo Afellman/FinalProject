@@ -164,8 +164,8 @@ class Home extends Component {
         },500)
           
       })
+      
       //Calls function using a specific category in the science museum api
-      // name: ()=>{return data.data.data[0].attributes.summary_title || null},
      SciMuse.getSciMuse(this.state.category[1]).then(data => {
        let museumObj = {
          name: data.data.data[0].attributes.summary_title,

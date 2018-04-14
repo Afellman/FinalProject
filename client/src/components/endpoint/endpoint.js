@@ -4,7 +4,7 @@ import styles from './endpoint.css';
 
 export const Endpoint = ({children}) => {
   return (
-    <div className="endpoint" style={{margin: 'auto'}}>
+    <div className="endpoint">
       {children}
     </div>
   );
