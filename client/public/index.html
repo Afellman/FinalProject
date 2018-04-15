@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <!--
@@ -20,6 +21,12 @@
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.swatchbook.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -58,6 +65,13 @@ h2 {
   font-family: 'Great Vibes', cursive;
   font-size: 52px;
   text-align: center;
+}
+
+h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 46px;
+  text-align: center;
+  color: purple;
 }
 
 p1 {
@@ -173,6 +187,7 @@ p1 {
     -->
   </body>
 
+
   <script type="text/javascript">
       var carousel = $(".carousel"),
     currdeg  = 0;
@@ -195,6 +210,20 @@ function rotate(e){
   });
 }
   
+    $(function() {
+      
+        $( '#sb-container' ).swatchbook( {
+          // number of degrees that is between each item
+          angleInc : -10,
+          // amount in degrees for the opened item's next sibling
+          proximity : -45,
+          neighbor : -4,
+          // index of the element that when clicked, triggers the open/close function
+          // by default there is no such element
+          closeIdx : 11
+        } );
+      
+      });
     
   </script>
 </html>
