@@ -34,16 +34,6 @@ class Home extends Component {
     showChoice: true
   }
     
-    componentDidMount() {
-      
-      this.fadeInBackground()
-      // this.arrangeBubbles()
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-
-    }
-
   getBgImage = (keyword) => {
     //  Getting background image based on keyword.
     Unsplash.getPhotoByKeyword(keyword)
@@ -59,20 +49,11 @@ class Home extends Component {
     
   }
   
-  fadeInBackground = () =>{
-    anime({
-      targets: '#background, .endpoint',
-      opacity: 1,
-      duration: 7000,
-      complete: ()=> {
-        this.setState({backdrop_start : false})
-      }
-    });
-  }
+ 
 
   fadeInCategorys = (e) => {
-    
     this.setState({showBubbles: true})
+    console.log('fadeInCategories')
     var maxElements = this.state.categories.length
     var duration = 6000;
     var toAnimate = [];
@@ -80,11 +61,11 @@ class Home extends Component {
     var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
 
     let bubbleArray = [];
-    for (let i = 0; i < this.state.categories.length; i++) {
-      bubbleArray.push(document.getElementById(`bubble-${i}`))
-    } 
+   
+    console.log(bubbleArray)
     
     var animate = (el, i)=> {
+      console.log('animate')
       var angle = Math.random() * Math.PI * 2;
       anime({
         targets: el,
@@ -95,7 +76,7 @@ class Home extends Component {
         },
         translateY: ()=> {
           var angle = (i / (this.state.categories.length /2 )) * Math.PI
-          var distance = radius /2 - 60;
+          var distance = radius /2 - 80;
          return 0, Math.sin(angle) * distance
         },
         scale: [
@@ -108,7 +89,21 @@ class Home extends Component {
         loop: true
       });
     }
-  bubbleArray.forEach(animate)
+        anime({
+          targets: '#background, .endpoint, .endpoint',
+          opacity: 1,
+          duration: 3000,
+          complete: ()=> {
+            console.log('fade in complete')
+            this.setState({backdrop_start : false})
+          }
+        });
+    setTimeout(()=>{
+      for (let i = 0; i < this.state.categories.length; i++) {
+        bubbleArray.push(document.getElementById(`bubble-${i}`))
+      } 
+      bubbleArray.forEach(animate)
+    },500)
   }
 
   fadeOut = () => {
@@ -117,28 +112,49 @@ class Home extends Component {
       targets: '#background, .category-col, .endpoint ',
       opacity: 0 ,
       duration: 3000,
-      complete: (ani)=>{
-        if(ani.completed) {
-          console.log('fade out')
-          this.fadeInCategorys()
-        }
-      }
     });    
-    anime({
-      targets: '#background, .category-col, .endpoint ',
-      opacity: 0 ,
-      duration: 3000,
-      complete: (ani)=>{
-        if(ani.completed) {
-          console.log('fade out')
-          this.fadeInCategorys()
-        }
-      }
-    });     
-      
     }
   
-    
+    transition = () => {
+      let category = this.state.currentCategory;
+      if (this.state.path == 'wiki'){
+        console.log('wiki path')
+        Wiki.getWikiByArticle(category).then(res=> {
+          console.log(res)
+          let wikiObj = {
+            name: category,
+              description: res.data.body,
+              img: res.data.img
+            }
+            this.setState({categories: res.data.subCategories, endpoint: [wikiObj]})
+            if(!this.state.firstRound) {
+              this.setState({showEndpoint: true})
+            }
+            this.fadeInCategorys()
+          })
+  
+        } else {
+          console.log(category)
+          //Calls function using a specific category in the science museum api
+        SciMuse.getSciMuse(category).then(data => {
+          let array = [];
+          data.data.data.forEach(element => {
+            let museumObj = {
+              name: element.attributes.summary_title,
+              description: element.attributes.description[0].value,
+              img: element.attributes.multimedia[0].processed.large_thumbnail.location,
+              link: element.links.self
+            }
+            array.push(museumObj)
+          });
+          this.setState({endpoint: array})
+          if(!this.state.firstRound) {
+            this.setState({showEndpoint: true})
+          }
+          this.fadeInCategorys()
+        })
+        }
+    }
 
     // -----------------------------------------------------------------
 
@@ -148,49 +164,16 @@ class Home extends Component {
       if (this.state.firstRound) {
         this.setState({showChoice: false})
         this.fadeInCategorys()
-        
       } else {
         this.fadeOut()
-      let target = e.target;
-      let category = e.target.textContent
+        this.setState({backdrop_start : true})
+        let target = e.target;
+        let category = e.target.textContent
+      this.setState({currentCategory: category})
       // console.log(category)
       this.getBgImage(category)
-      this.setState({backdrop_start : true})
       // returns new bubbles of subcategories
-      this.setState({currentCategory: category})
       // ** Need to save previous bubble to search on aka "Go back"
-      if (this.state.path == 'wiki'){
-        console.log('wiki path')
-        Wiki.getWikiByArticle(category).then(res=> {
-          console.log(res)
-          let wikiObj = {
-            name: category,
-            description: res.data.body,
-            img: res.data.img
-          }
-          this.setState({categories: res.data.subCategories, endpoint: [wikiObj], showEndpoint: true})
-        })
-
-      } else {
-        console.log(category)
-        //Calls function using a specific category in the science museum api
-      SciMuse.getSciMuse(category).then(data => {
-        let array = [];
-        data.data.data.forEach(element => {
-          let museumObj = {
-            name: element.attributes.summary_title,
-            description: element.attributes.description[0].value,
-            img: element.attributes.multimedia[0].processed.large_thumbnail.location,
-            link: element.links.self
-          }
-          array.push(museumObj)
-        });
-        console.log(array, "array ****************************************")
-      
-        this.setState({endpoint: array, showEndpoint: true})
-
-      })
-      }
     }
     this.setState({firstRound: false})
     }
@@ -201,9 +184,8 @@ class Home extends Component {
   render(){
     return(
       <div>
-         
           {this.state.backdrop_start ? <Backdrop/> : null}
-          <Background fade={this.fadeInBackground} image={this.state.background} trigger={this.state.currentCategory}/>
+          <Background fade={this.transition} image={this.state.background} trigger={this.state.currentCategory}/>
         <div id="home-container">
           <button className="btn" onClick = {()=>this.setState({showProfile: true})} id = "sidebar">Button</button>
           {this.state.showProfile ? <Profile />: null}
@@ -220,7 +202,6 @@ class Home extends Component {
             <div onClick={()=> {
               this.setState({showBubbles: true, path: "wiki", categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine']})
               setTimeout(()=>this.changeLevel(), 500 )
-              
               } 
               } className="wiki btn">
               <h3>Wikipedia</h3>

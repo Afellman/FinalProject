@@ -3,7 +3,6 @@ const router = require('express').Router();
 var request = require('request');
 
 router.post('/post', function(req, res) {
-  console.log(req.body.category, "category")
   
   request({
     url:`http://collection.sciencemuseum.org.uk/search/objects/images/categories/${req.body.category}?random=10`,
@@ -14,7 +13,7 @@ router.post('/post', function(req, res) {
       'Content-Type': 'application/json',
     }
   }, (error, response, body) => {
-    console.log(JSON.parse(body))
+
 
     // Pushes body to the browser
     res.send(body)

@@ -2,7 +2,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 56px);
   /* padding-top: 7%; */
 }
 
@@ -43,6 +43,7 @@
 #home-categories >  #initial-choice {
   height: 100%;
 }
+
 #home-categories .wiki {
   position: relative;
   float: left;
@@ -55,6 +56,7 @@
   align-items: center;
   transition: .5s;
 }
+
 #home-categories .wiki > h3{
   background: radial-gradient( rgba(90, 174, 207, 0.438), rgba(0, 0, 0, 0.685));
   color: rgb(124, 206, 129);
@@ -81,6 +83,7 @@
   align-items: center;
   transition: .5s;
 }
+
 #home-categories .scimuse > h3{
   background: radial-gradient( rgba(90, 174, 207, 0.438), rgba(0, 0, 0, 0.685));
   color: rgb(124, 206, 129);
