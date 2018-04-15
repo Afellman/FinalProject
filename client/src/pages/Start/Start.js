@@ -13,8 +13,11 @@ class Start extends Component {
     showLogin: false,
     showSignup: false,
     showButtons: true,
-    email: '',
-    password: '',
+    signupName : '',
+    signupEmail: '',
+    signupPass: '',
+    loginEmail: '',
+    loginPass: '',
     loginFail: false
   }
 
@@ -25,13 +28,14 @@ class Start extends Component {
       [name]: value
     })
   }
+
   handleLogin = (e) => {
     e.preventDefault();
-    let email = this.state.email;
-    let pass = this.state.password;
-    
+    this.setState({showLogin: false})
+    let username = this.state.loginEmail;
+    let pass = this.state.loginPass;
     // parameters need to be coming from the form
-      auth.login(email, pass, (response) => {
+      auth.login(username, pass, (response) => {
         this.setState({loginFail: true})
         setTimeout(()=> {
           this.setState({loginFail: false, email: '', password: ''})
@@ -39,12 +43,25 @@ class Start extends Component {
       })
 
   }
+
   handleGuest = () => {
     
   }
+
   handleSignup = (e) => {
+    let username =this.state.signupEmail
+    let password = this.state.signupPass
     // parameters need to be coming from the form
-    auth.register('andrew', 'pass')
+    auth.register(username, password)
+  }
+
+  checkSignedIn = () => {
+    auth.checkLogged()
+      
+  }
+  
+  logout = () =>{
+    auth.logout()
   }
 
   render(){
@@ -63,16 +80,18 @@ class Start extends Component {
           transitionLeaveTimeout={300}
           >
             {this.state.showLogin ? 
-              <Login email={this.state.email} pass={this.state.password} handleLogin={this.handleLogin} handleChange={this.handleChange}/>
+              <Login email={this.state.loginEmail} pass={this.state.loginPass} handleLogin={this.handleLogin} handleChange={this.handleChange}/>
             : null}
-        </ReactCSSTransitionGroup>
         {this.state.showSignup ? 
-          <Signup/> : null}
+          <Signup handleChange={this.handleChange} handleSignup={this.handleSignup} signupName={this.state.signupName} signupEmail={this.state.signupEmail} signupPass={this.state.signupPass}/> : null}
+          </ReactCSSTransitionGroup>
         {this.state.showButtons ? 
           <div className='button-div'>
-            <button onClick={this.handleSignup} className='btn btn-primary'>Signup</button>
-            <button onClick={()=> this.setState({showLogin: true, showButtons: false})} className='btn btn-primary'>Login</button>
+            <button onClick={()=> this.setState({showSignup: true})} className='btn btn-primary'>Signup</button>
+            <button onClick={()=> this.setState({showLogin: true})} className='btn btn-primary'>Login</button>
             <button onClick={this.handleGuest} className='btn btn-primary'>Guest</button>
+            <button onClick={this.checkSignedIn} className='btn btn-primary'>check user</button>
+            <button onClick={this.logout} className='btn btn-primary'>Logout</button>
           </div>
         : null }
         <ReactCSSTransitionGroup
@@ -180,10 +199,13 @@ class Start extends Component {
 
      
         </Container>
+<<<<<<< HEAD
       
 
 
 
+=======
+>>>>>>> 2e5a5179a5de9e83e0ae62da4c5c2f92b21c940d
     )
   }
 }

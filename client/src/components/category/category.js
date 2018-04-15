@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './category.css';
 
-const Category = (props) => {
-  return (
-    <div onClick={props.changeLevel} className='category-col'><div className="bubble" style={{transform: props.transition}}><h3>{props.text}</h3></div></div>
-  )
-}
+class Category  extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
 
+    }
+  }
+  
+  render(){
+    return (
+      <div onClick={this.props.changeLevel} id={`bubble-${this.props.index}`} data-duration="100ms" className={`category-col`}><div className="bubble" style={{transform: this.props.transition}}><h3>{this.props.text}</h3></div></div>
+    )
+  }
+}
 export default Category; 
 

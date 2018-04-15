@@ -1,0 +1,13 @@
+.container {
+    position: relative;
+}
+
+h1{
+    font-size: 70px;
+    text-align: center;
+}
+.carousel-item {
+    position: relative;
+    display: inherit;
+    text-align: center;
+}

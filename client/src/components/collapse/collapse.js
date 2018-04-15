@@ -15,7 +15,6 @@ const Collapse = (props) => {
             </h5>
           </div>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            
             <div class="article-title">
             <h3>
               Title #1
