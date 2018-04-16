@@ -194,7 +194,6 @@ class Home extends Component {
     }
     this.setState({firstRound: false})
     }
-    
   
     // ------------------------------------------------------------
     

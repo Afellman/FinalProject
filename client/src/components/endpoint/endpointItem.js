@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './endpoint.css';
-import database from '../../utils/database';
+import API from '../../utils/database';
 
 // const EndpointItem = (props) => {
 //   return(
@@ -11,10 +11,12 @@ import database from '../../utils/database';
 
 // export default EndpointItem;
 
-export const EndpointItem = (props) => {
-  function handleClick (props){
-    props.postArticle(props.museumObj)
+
+function handleClick (props) {
+    API.postArticle(props.museumObj)
   }
+export const EndpointItem = (props) => {
+  
   console.log(props.museumObj, "******")
   return (
     <div className={`carousel-item item${props.index}`}>
