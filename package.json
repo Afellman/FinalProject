@@ -14,6 +14,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.0",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-responsive-carousel": "^3.1.36",
     "react-transition-group": "^2.3.0",
     "request": "^2.85.0"
   }

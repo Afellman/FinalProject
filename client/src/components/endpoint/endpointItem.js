@@ -1,7 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styles from './endpoint.css';
+import database from '../../utils/database';
+
+// const EndpointItem = (props) => {
+//   return(
+//     <div className="slide">
+//     </div>
+//   );
+// }
+
+// export default EndpointItem;
 
 export const EndpointItem = (props) => {
+  function handleClick (props){
+    props.postArticle(props.museumObj)
+  }
   console.log(props.museumObj, "******")
   return (
     <div className={`carousel-item item${props.index}`}>
@@ -14,7 +27,7 @@ export const EndpointItem = (props) => {
         </p>
         <a href={props.museumObj.link} target="_blank"> Learn More </a> 
         <span> 
-          <button  type="button" className="btn-primary">Save</button>
+          <button onClick={() => this.handleClick(props.museumObj)} type="button" className="btn-primary">Save</button>
         </span>
 
         {/* Left and right controls */}

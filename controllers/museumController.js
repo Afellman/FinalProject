@@ -17,9 +17,9 @@ module.exports = {
     },
     create: function(req, res) {
         const item = {
-            id: req.body.id,
             title: req.body.name,
-            category: req.body.category,
+            description: req.body.description,
+            img: req.body.img,
             url: req.body.link
         };
       db.Item
