@@ -2,7 +2,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
-  height: 1200px;
+  height: 100vh;
   /* padding-top: 7%; */
 }
 
@@ -33,15 +33,62 @@
 }
 
 #home-categories {
+  height: 100%;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: auto;
-  margin-top: 10%;
-  
-  /* max-width: 1250px; */
+  align-items: center;
 }
 
-#home-categories > div > div {
-  display: inline-block;
+#home-categories >  #initial-choice {
+  height: 100%;
+}
+#home-categories .wiki {
+  position: relative;
+  float: left;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+#home-categories .wiki > h3{
+  background: radial-gradient( rgba(90, 174, 207, 0.438), rgba(0, 0, 0, 0.685));
+  color: rgb(124, 206, 129);
+  padding: 60px;
+  border-radius: 50%;
+  font-size: 3em;
+  z-index: 99;
+}
+
+#home-categories .wiki:hover {
+  transform: scale(1.6);
+}
+
+
+#home-categories .scimuse {
+  position: relative;
+  float: right;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+#home-categories .scimuse > h3{
+  background: radial-gradient( rgba(90, 174, 207, 0.438), rgba(0, 0, 0, 0.685));
+  color: rgb(124, 206, 129);
+  padding: 60px;
+  border-radius: 50%;
+  font-size: 3em;
+}
+
+#home-categories .scimuse:hover {
+  transform: scale(1.6);
 }

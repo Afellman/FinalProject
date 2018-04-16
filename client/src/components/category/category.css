@@ -1,5 +1,8 @@
 .category-col {
-  position: relative;
+  transform: scale(0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
   padding: 5px;
   /* transform: scale(0); */
 }
@@ -7,14 +10,12 @@
 .category-col > div {
   transition: .3s;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
+  padding: 30px;
   border-radius: 50%;
-
+  word-wrap: break-word;
   text-align: center;
-  /* border: 2px solid rgba(36, 34, 150, 0.747); */
+  border: 1px solid rgba(248, 248, 248, 0.616);
+  
   background: radial-gradient(rgba(7, 6, 34, 0.699),rgba(255, 255, 255, 0.541)  );
 }
 
@@ -22,4 +23,9 @@
   transform: scale(1.05) !important;
   box-shadow: 1px 1px 10px 5px rgba(107, 27, 27, 0.671);
 
+}
+
+
+.bubble > p {
+  font-size: 1.3em;
 }
