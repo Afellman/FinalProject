@@ -207,10 +207,10 @@ class Home extends Component {
               <h3>Wikipedia</h3>
             </div>
             <div onClick={()=>{
-              this.setState({showBubbles: true, path: "scimuse", categories :  ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ]})
+              this.setState({showBubbles: true, path: "scimuse", categories :  ["Computing-&-Data-Processing", "Telecommunications", "Aeronautics", "Photographic-Technology", "Radio-Communication", "Orthopaedics", "Space-Technology" ]})
               setTimeout(()=>this.changeLevel(), 500 )
             }}className='scimuse btn'>
-              <h3>Scimuse</h3>
+              <h3>Science Museum</h3>
             </div></div>
             : null}
             {this.state.showEndpoint ? 
@@ -218,7 +218,7 @@ class Home extends Component {
               {this.state.endpoint.map((element, index)=>{
                 return (
                 <EndpointItem
-                  museumObj= {element}>
+                  museumObj= {element} index={index}>
                 </EndpointItem>
                 )
               })}
