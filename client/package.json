@@ -9,6 +9,7 @@
     "mo-js": "^0.288.2",
     "react": "^16.3.0",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-animated-burgers": "^1.1.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.0",
     "react-layout-components": "^3.0.6",

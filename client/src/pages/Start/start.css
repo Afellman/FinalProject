@@ -191,7 +191,9 @@ p1 {
   text-transform: uppercase;
   letter-spacing: 0.5em;
   padding-left: 80px;
- 
+  padding-bottom: 50px;
+  padding-top: 50px;
+
 }
 
 .ml12 .letter {
