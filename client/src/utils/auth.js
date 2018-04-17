@@ -26,10 +26,7 @@ export default {
 
   },
   checkLogged: ()=> {
-    axios.get('/auth/login')
-    .then((res)=> {
-      console.log(res)
-    })
+    return axios.get('/auth/login')
   },
   logout: () => {
     axios.get('/auth/logout')

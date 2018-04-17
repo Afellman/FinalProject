@@ -123,7 +123,7 @@ class Start extends Component {
         <Row>
           <div className="container1">
 
-           <div className="carousel">
+            <div className="carousel">
             <div className="item a"> </div>
             <div className="item b"> </div>
             <div className="item c"> </div>
