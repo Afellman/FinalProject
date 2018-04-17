@@ -1,8 +1,7 @@
-.endpoint {
-    opacity: 0;
-}
+
 .carousel {
     margin: 0 auto;
+    opacity: 0;
     width: 40vw;
 }
 
@@ -24,7 +23,7 @@
     padding-top: 15px;
     padding-right: 5px;
     padding-bottom: 30px;
-    width:40vw;
+    width:30vw;
     /* height: 65vh */
 }
 

@@ -90,7 +90,7 @@ class Home extends Component {
       });
     }
         anime({
-          targets: '#background, .endpoint, .endpoint',
+          targets: '#background, .carousel',
           opacity: 1,
           duration: 3000,
           complete: ()=> {
@@ -109,9 +109,9 @@ class Home extends Component {
   fadeOut = () => {
     let i = 0
     anime({
-      targets: '#background, .category-col, .endpoint ',
+      targets: '#background, .category-col, .carousel ',
       opacity: 0 ,
-      duration: 3000,
+      duration: 2000,
     });    
     }
   
@@ -130,7 +130,10 @@ class Home extends Component {
             if(!this.state.firstRound) {
               this.setState({showEndpoint: true})
             }
+             setTimeout(()=>{
             this.fadeInCategorys()
+
+          },1000)
           })
   
         } else {
@@ -151,7 +154,10 @@ class Home extends Component {
           if(!this.state.firstRound) {
             this.setState({showEndpoint: true})
           }
-          this.fadeInCategorys()
+          setTimeout(()=>{
+            this.fadeInCategorys()
+
+          },1000)
         })
         }
     }
