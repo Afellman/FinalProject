@@ -11,13 +11,7 @@ import API from '../../utils/database';
 
 // export default EndpointItem;
 
-
-function handleClick (props) {
-    API.postArticle(props.museumObj)
-  }
 export const EndpointItem = (props) => {
-  
-  console.log(props.museumObj, "******")
   return (
     <div className={`carousel-item item${props.index}`}>
       <h3>{props.museumObj.name}
@@ -29,16 +23,22 @@ export const EndpointItem = (props) => {
         </p>
         <a href={props.museumObj.link} target="_blank"> Learn More </a> 
         <span> 
-          <button onClick={() => this.handleClick(props.museumObj)} type="button" className="btn-primary">Save</button>
+          <button onClick={() => {
+            let museumObj = props.museumObj;
+            museumObj.user = props.user
+            database.postArticle(museumObj)
+            .then(res=>console.log(res))
+          }}
+             type="button" className="btn-primary">Save</button>
         </span>
 
         {/* Left and right controls */}
         <a class="carousel-control-prev" href="#carousel-item" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </a>
-        <a class="carousel-control-next" href="#carousel-item" data-slide="next">
+        {/* <a class="carousel-control-next" href="#carousel-item" data-slide="next">
           <span class="carousel-control-next-icon"></span>
-        </a>
+        </a> */}
       </div>
     </div>
   );

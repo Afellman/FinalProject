@@ -1,8 +1,9 @@
+
 .carousel {
     margin: 0 auto;
-    position: relative;
     width: 40vw;
     top: 5%;
+    opacity: 0;
 }
 
 .carousel-inner {
