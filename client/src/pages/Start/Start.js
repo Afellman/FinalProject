@@ -142,7 +142,6 @@ class Start extends Component {
 
           </div>
 
-
           <div className="row">
           <div className="col-md-12">
 
@@ -213,6 +212,7 @@ class Start extends Component {
           <div className="col-md-12">
           <div className="container1">
            <div className="carousel">
+
             <div className="item a"> </div>
             <div className="item b"> </div>
             <div className="item c"> </div>
