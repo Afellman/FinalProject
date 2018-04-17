@@ -5,10 +5,6 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const userSchema = new Schema({
   username: String,
   password: String,
-  saved: {
-    type: Schema.Types.ObjectId,
-    ref: "Saved"
-    }
 });
 
 userSchema.plugin(passportLocalMongoose);

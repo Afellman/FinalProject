@@ -1,9 +1,9 @@
 const router = require('express').Router();
-// const astroidController = require('../../controllers/astroidController');
+const museumController = require('../../controllers/museumController');
 
-router.route('/')
-  // .get(astroidController.findAll)
-  // .post(astroidController.saveOne)
-  // .delete(astroidController.delete)
+router.route('/articles')
+  .get(museumController.findAll)
+  .post(museumController.create)
+  .delete(museumController.remove)
   
 module.exports = router;
