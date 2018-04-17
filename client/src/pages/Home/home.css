@@ -46,10 +46,10 @@
 
 #home-categories .wiki {
   position: relative;
-  float: left;
+  /* float: left;
   top: 0;
   height: 100%;
-  width: 50%;
+  width: 50%; */
   color: black;
   display: flex;
   justify-content: center;
@@ -72,11 +72,11 @@
 
 
 #home-categories .scimuse {
-  position: relative;
-  float: right;
+  position: relative; 
+  /* float: right;
   top: 0;
   height: 100%;
-  width: 50%;
+  width: 50%;  */
   color: black;
   display: flex;
   justify-content: center;

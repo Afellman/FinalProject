@@ -43,6 +43,10 @@ class Home extends Component {
       .then(res=> {
         if (res) {
           console.log(res)
+          auth.getUser(res.data['_id'])
+          .then((result)=> {
+            console.log(result)
+          })
           this.setState({user: res.data['_id']})
         }
       })

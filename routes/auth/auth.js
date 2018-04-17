@@ -6,6 +6,15 @@ router.get('/', function(req, res) {
   res.render('index', {user: req.user});
 });
 
+router.get('/one:id', function(req, res) {
+  User.findById(req.params.id)
+  .populate('Article')
+  .then((result)=>{
+    res.send(result)
+    console.log(result, "res res res res")
+  })
+});
+
 router.get('/register', function(req, res) {
   res.render('register', {});
 });

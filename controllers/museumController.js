@@ -27,7 +27,10 @@ module.exports = {
         console.log(Saved)
       db.Saved
         .create(Saved)
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => {
+          res.json(dbModel)
+          db.User.findOneAndUpdate({_id: req.body.museumObj.user},{ $push:{articles: dbModel._id}})
+        })
         .catch(err => res.status(422).json(err));
     },
     update: function(req, res) {
