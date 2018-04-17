@@ -11,8 +11,8 @@
 }
 
 .nav .btn {
-    background: black;
-    border: 1px black solid;
+    background: rgb(223, 83, 157);
+    border: 1px gray solid;
 }
 .nav .btn, .nav a {
     font-size: 16px;
