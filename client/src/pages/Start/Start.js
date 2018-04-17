@@ -114,7 +114,7 @@ class Start extends Component {
       </div>     
           </Jumbotron>
            
-          <h2>Welcome to the site of endless possiblities</h2>
+          <h1 className="ml12">Welcome to the site of endless possiblities</h1>
 
           <div className="row">
           <div className="col-sm-4">
@@ -228,7 +228,6 @@ class Start extends Component {
       </div>
 
 
-      
 
 
        </div>

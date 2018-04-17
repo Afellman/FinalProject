@@ -185,3 +185,16 @@ p1 {
 .next { right: -6em; margin-top: 50px; }
 .prev { left: -2em; margin-top: 50px; }
 
+.ml12 {
+  font-weight: 120;
+  font-size: 2.0em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  padding-left: 80px;
+ 
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
