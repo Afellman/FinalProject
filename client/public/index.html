@@ -15,7 +15,7 @@
       crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -32,6 +32,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo2.css" />
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+      <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/demo.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -67,113 +74,6 @@
 }
 
 
-h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 52px;
-  text-align: center;
-}
-
-h3 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 46px;
-  text-align: center;
-  color: purple;
-}
-
-p1 {
-  font-family: 'Great Vibes', cursive;
-
-}
-.container1 {
-  margin: 0 auto;
-  width: 250px;
-  height: 200px;
-  position: relative;
-  perspective: 1000px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.carousel {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-}
-
-.item {
-  display: block;
-  position: absolute;
-  background: #000;
-  width: 300px;
-  height: 250px;
-  line-height: 200px;
-  font-size: 5em;
-  text-align: center;
-  color: #FFF;
-  opacity: 0.95;
-  border-radius: 10px;
-  margin-bottom: 400px;
-}
-
-.a {
-  transform: rotateY(0deg) translateZ(250px);
-  background: #000 url("./images/albert.jpg") center center;
-  background-size: cover;
-
-}
-.b {
-  transform: rotateY(60deg) translateZ(250px);
-  background: #000 url("./images/art.jpg") center center;
-  background-size: cover;
-
-}
-.c {
-  transform: rotateY(120deg) translateZ(250px);
-  background: #000 url("./images/history.jpg") center center;
-  background-size: cover;
-
-}
-.d {
-  transform: rotateY(180deg) translateZ(250px);
-  background: #000 url("./images/code.jpg") center center;
-  background-size: cover;
-
-}
-.e {
-  transform: rotateY(240deg) translateZ(250px);
-  background: #000 url("./images/monalisa.jpg") center center;
-  background-size: cover;
-
-} 
-.f {
-  transform: rotateY(300deg) translateZ(250px);
-  background: #000 url("./images/dinosaur.jpg") center center;
-  background-size: cover;
-
-
-}
-
-.next, .prev {
-  color: #444;
-  position: absolute;
-  top: 100px;
-  padding: .7em;
-  cursor: pointer;
-  background: #CCC;
-  border-radius: 5px;
-  border-top: 1px solid #FFF;
-  box-shadow: 0 5px 0 #999;
-  transition: box-shadow 0.1s, top 0.1s;
-}
-.next:hover, .prev:hover { color: #000; }
-.next:active, .prev:active {
-  top: 104px;
-  box-shadow: 0 1px 0 #999;
-}
-.next { right: -6em; margin-top: 50px; }
-.prev { left: -2em; margin-top: 50px; }
     </style>
   </head>
   <body>
@@ -195,6 +95,12 @@ p1 {
 
 
   <script type="text/javascript">
+
+    $.noConflict();
+jQuery( document ).ready(function( $ ) {
+  
+});
+
       var carousel = $(".carousel"),
     currdeg  = 0;
 
@@ -216,7 +122,7 @@ function rotate(e){
   });
 }
   
-    $(function() {
+  $(function() {
       
         $( '#sb-container' ).swatchbook( {
           // number of degrees that is between each item
@@ -230,6 +136,5 @@ function rotate(e){
         } );
       
       });
-    
   </script>
 </html>

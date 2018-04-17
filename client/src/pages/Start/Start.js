@@ -3,7 +3,7 @@ import Jumbotron from "../../components/Jumbotron";
 import auth from '../../utils/auth'
 import styles from './start.css';
 import Signup from '../../components/signup'
-import { Col, Row, Container } from "../../components/Grid";
+//import { Col, Row, Container } from "../../components/Grid";
 import Login from '../../components/login';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Logout from '../../components/logout-btn';
@@ -73,81 +73,85 @@ class Start extends Component {
   render(){
     
     return(
-      <div>
-    <ReactCSSTransitionGroup
-      transitionName="login"
-      transitionEnterTimeout={200}
-      transitionLeaveTimeout={300}
-      >
-        {this.state.showLogin ? 
-          <Login email={this.state.loginEmail} pass={this.state.loginPass} handleLogin={this.handleLogin} handleChange={this.handleChange}/>
-        : null}
-    {this.state.showSignup ? 
-      <Signup handleChange={this.handleChange} handleSignup={this.handleSignup} signupName={this.state.signupName} signupEmail={this.state.signupEmail} signupPass={this.state.signupPass}/> : null}
-      </ReactCSSTransitionGroup>
-    <ReactCSSTransitionGroup
-      transitionName="login"
-      transitionEnterTimeout={200}
-      transitionLeaveTimeout={300}
-      >
-      {this.state.loginFail ? 
-        <div id="fail-container">
-          <div id='fail'>
-            <h2>Login Failed</h2>
-          </div>
-        </div>
-        : null}
-      </ReactCSSTransitionGroup>
-      <Container fluid>
-        <Row>
-          <Col size="md-2"/>
-          <Col size="md-8">
+  <div className="Container">
+        <div className="Row">
+        
             <Jumbotron>
-              {this.state.notLoggedIn ? 
-              <div className='button-div'>
-                <button onClick={()=> this.setState({showSignup: true})} className='btn btn-primary'>Signup</button>
-                <button onClick={()=> this.setState({showLogin: true})} className='btn btn-primary'>Login</button>
-                <Link className='btn btn-primary' to="/home">Guest</Link>
-                <button onClick={this.checkSignedIn} className='btn btn-primary'>check user</button>
-               <Logout/>
-              </div>
-               : <div className='void' ><Link className='btn enter-void' to="/home">Enter The Void</Link></div> }
             <h1><i className="fa fa-newspaper-o" aria-hidden="true"></i></h1> 
-          </Jumbotron>
-          <h2>Welcome to the site of endless possiblities</h2>
-          <h3>Here at Splash you will have your own personalized musuem at your fingertips. You will be able to explore your inner curiosity and quench your thirst for knowledge on broad subjects. Within you profile you will be able to save articles that suite your interests. Feel free to cruise this site and have a feel for what it has to offer. All information is obtained from the finest Musuems and from Wikepedia. Enjoy!</h3>
-
+             <div>
+        <ReactCSSTransitionGroup
+          transitionName="login"
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={300}
+          >
+            {this.state.showLogin ? 
+              <Login email={this.state.loginEmail} pass={this.state.loginPass} handleLogin={this.handleLogin} handleChange={this.handleChange}/>
+            : null}
+        {this.state.showSignup ? 
+          <Signup handleChange={this.handleChange} handleSignup={this.handleSignup} signupName={this.state.signupName} signupEmail={this.state.signupEmail} signupPass={this.state.signupPass}/> : null}
+          </ReactCSSTransitionGroup>
+        {this.state.showButtons ? 
+          <div className='button-div'>
+            <button onClick={()=> this.setState({showSignup: true})} className='btn btn-primary'>Signup</button>
+            <button onClick={()=> this.setState({showLogin: true})} className='btn btn-primary'>Login</button>
+            <button onClick={this.handleGuest} className='btn btn-primary'>Guest</button>
          
-      
-
-      
-          <div className="container1">
-
-           <div className="carousel">
-            <div className="item a"> </div>
-            <div className="item b"> </div>
-            <div className="item c"> </div>
-            <div className="item d"> </div>
-            <div className="item e"> </div>
-            <div className="item f"> </div>
           </div>
-            <div className="next">Next</div>
-            <div className="prev">Prev</div>
+        : null }
+        <ReactCSSTransitionGroup
+          transitionName="login"
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={300}
+          >
+          {this.state.loginFail ? 
+            <div id="fail-container">
+              <div id='fail'>
+                <h2>Login Failed</h2>
+              </div>
+            </div>
+            : null}
+          </ReactCSSTransitionGroup>
+      </div>     
+          </Jumbotron>
+           
+          <h2>Welcome to the site of endless possiblities</h2>
 
-          </div>  
-      
+          <div className="row">
+          <div className="col-sm-4">
+          <div style={{ paddingLeft:  190}}>
+          <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDM2Ljc2MiAzNi43NjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM2Ljc2MiAzNi43NjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNMjguMzM4LDEzLjAwNWMwLDAuODcyLTAuNzA5LDEuNTgxLTEuNTgxLDEuNTgxcy0xLjU4MS0wLjcwOS0xLjU4MS0xLjU4MXMwLjcwOS0xLjU4MSwxLjU4MS0xLjU4MSAgIFMyOC4zMzgsMTIuMTMzLDI4LjMzOCwxMy4wMDV6IE0xNS4wMDYsOC40MjVjLTEuNDQ0LDAtMi42MjEsMS4xNzctMi42MjEsMi42MjJjMCwxLjQ0NiwxLjE3NywyLjYyMiwyLjYyMSwyLjYyMiAgIGMxLjQ0NSwwLDIuNjIxLTEuMTc2LDIuNjIxLTIuNjIyQzE3LjYyNyw5LjYwMywxNi40NTIsOC40MjUsMTUuMDA2LDguNDI1eiBNMzIuODAyLDEzLjQ1NmMtMC4xMDMsMi40OS0zLjUzNSw3LjAyMi0zLjUzNSw3LjAyMiAgIGMtMi43MzksMy45MzUtMS4zOTUsNi45NzMtMS4zOTUsNi45NzNjLTUuNTI4LDEuMjQ0LTEwLjA2Miw5LjMxMi0xMC4wNjIsOS4zMTJjLTAuMjAxLTEuMTkzLTIuODU2LTYuMjM4LTIuODU2LTYuMjM4ICAgYy0xLjExMi0xLjM5Ni0yLjk3Ni0wLjkwNi0zLjk4My0wLjc4MmMtMi44ODYsMC4zNTQtMy42MDQtMC40OTUtMy42MDQtMC40OTVjLTAuNjMxLTAuMzg1LTAuMzMyLTEuOTkyLTAuMzMyLTEuOTkyICAgYzAuMjMyLTAuODMyLTAuMTQ2LTEuMjM4LTAuMzgxLTEuNTYyYy0wLjYzMy0wLjg4NS0wLjI2Ni0xLjI5NC0wLjI2Ni0xLjI5NGMwLjE5OC0wLjI1MSwwLjA2NS0wLjM4NCwwLjA2NS0wLjM4NCAgIGMtMC42OTctMC4yMzEtMC43NDctMC42MTItMC43NDctMC42MTJsMC4wMTgtMS4yOGMwLjExNC0wLjg3OC0wLjI4My0wLjkzLTAuMjgzLTAuOTNjLTEuNTk1LTAuMDMxLTEuNTYtMS4wNjItMS41Ni0xLjA2MiAgIGMtMC4wNjUtMC41NjMsMS44NTctMy45NTEsMS44NTctMy45NTFjMC44OTYtMS43MjYtMC4zNzgtMi43NTktMC40NjUtMy42NUM0Ljg3Nyw4LjQxMyw2LjI2OSw1Ljg5NCw4LjE1NiwzLjkwMSAgIEMxMS4yNzcsMC41OTksMTUuMjktMC4wMjEsMTcuOTE3LDBjNi43MjUsMC4wNDksOS40NDYsMi4xODMsMTEuNTA1LDQuNDhDMzMuNzA5LDkuMjU5LDMyLjgwMiwxMy40NTYsMzIuODAyLDEzLjQ1NnogTTIxLjY5NCw5LjU0NiAgIGgtMS4yNzVjLTAuMTI0LTAuNDQ3LTAuMzAxLTAuODcyLTAuNTIzLTEuMjY3bDAuOTAxLTAuOTAybC0yLjEyMi0yLjEyMWwtMC45MDEsMC45MDJjLTAuMzk2LTAuMjI2LTAuODE5LTAuNC0xLjI2Ny0wLjUyNFY0LjM2aC0zICAgdjEuMjc0Yy0wLjQ0NiwwLjEyNC0wLjg3MiwwLjMwMS0xLjI2NiwwLjUyNGwtMC45MDItMC45MDJMOS4yMTgsNy4zNzdsMC45MDIsMC45MDJDOS44OTYsOC42NzQsOS43MjEsOS4wOTgsOS41OTcsOS41NDZIOC4zMjF2MyAgIGgxLjI3NmMwLjEyNCwwLjQ0NywwLjMsMC44NzIsMC41MjMsMS4yNjhsLTAuOTAyLDAuOTAxbDIuMTIxLDIuMTIxbDAuOTAyLTAuOTAxYzAuMzk1LDAuMjI1LDAuODE5LDAuMzk5LDEuMjY2LDAuNTIzdjEuMjc1aDMgICB2LTEuMjc1YzAuNDQ3LTAuMTI0LDAuODcyLTAuMywxLjI2Ny0wLjUyM2wwLjkwMSwwLjkwMWwyLjEyMi0yLjEyMWwtMC45MDEtMC45MDFjMC4yMjUtMC4zOTYsMC4zOTktMC44MiwwLjUyMy0xLjI2OGgxLjI3NVY5LjU0NnogICAgTTMwLjk0NCwxMi4wMDVoLTAuNzY3Yy0wLjA3My0wLjI1LTAuMTcyLTAuNDg2LTAuMjk1LTAuNzExbDAuNTQyLTAuNTQybC0xLjQxNC0xLjQxNEwyOC40NjksOS44OCAgIGMtMC4yMjYtMC4xMjQtMC40NjEtMC4yMjMtMC43MTItMC4yOTZWOC44MThoLTJ2MC43NjZjLTAuMjUsMC4wNzMtMC40ODYsMC4xNzItMC43MTIsMC4yOTZsLTAuNTQyLTAuNTQybC0xLjQxNCwxLjQxNGwwLjU0MiwwLjU0MiAgIGMtMC4xMjMsMC4yMjUtMC4yMjMsMC40NjEtMC4yOTUsMC43MTFoLTAuNzY3djJoMC43NjdjMC4wNzMsMC4yNSwwLjE3MiwwLjQ4NywwLjI5NSwwLjcxMWwtMC41NDIsMC41NDJsMS40MTQsMS40MTRsMC41NDItMC41NDIgICBjMC4yMjYsMC4xMjQsMC40NjEsMC4yMjQsMC43MTIsMC4yOTZ2MC43NjdoMnYtMC43NjdjMC4yNS0wLjA3MiwwLjQ4Ni0wLjE3MiwwLjcxMi0wLjI5NmwwLjU0MiwwLjU0MmwxLjQxNC0xLjQxNGwtMC41NDItMC41NDIgICBjMC4xMjMtMC4yMjQsMC4yMjMtMC40NjEsMC4yOTUtMC43MTFoMC43NjdWMTIuMDA1eiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+          </div>
+          
+          <h6>Splash provides a personalized museum at your fingertips. You can explore your inner curiosity and quench your thirst for knowledge on broad subjects.</h6>
+         
+           </div>
+
+          <div className="col-sm-4">
+          <div style={{ paddingLeft: 190}}>
+          <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDMxLjM4NyAzMS4zODYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMxLjM4NyAzMS4zODY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMjYuMDE4LDI3LjAxNWwzLjc0NC0xNS44MTdsLTExLjA3LTEuMDg1bDAuNTYtMC44MzdsLTIuMTM0LTIuNjQybDAuODY1LTAuNjk5bDEuNTEzLDEuODc0bC0wLjQzMywwLjM0OWwxLjI3OSwxLjU4NSAgICBsMS4zNDQtMS4wODZsLTEuMjc3LTEuNTg0TDIwLjEyLDcuMzA0bC0xLjUxNS0xLjg3M2wwLjUyOC0wLjQyNkwxOC40OCw0LjE5NEw2Ljc2MiwxMy42NThsMC42NTMsMC44MTFsMS43NzctMS40MzVsMi4xMzQsMi42NDIgICAgbDAuNDEtMC4xNzFsLTEuMjgzLDYuNzMzbC0wLjAwMS0wLjAwMUwwLjIyOCwyMy43NTFsMTMuNjQxLDQuODk2TDI2LjAxOCwyNy4wMTV6IE0xMi43MDQsMTUuMTA0bDMuNjc1LTEuNTI0bDEuNjAyLTIuNDAyICAgIGwxMC4wOCwxLjE4NWwtMy4xNTYsMTMuMzI0bC0xMy41MS0zLjgyMkwxMi43MDQsMTUuMTA0eiBNMTAuNDc0LDI2LjczN2wtMy4zNDktMS4yNzdsMS42MTUtMC4yMTZsMy43NTYsMS4yNTNMMTAuNDc0LDI2LjczN3oiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cG9seWdvbiBwb2ludHM9IjI2LjgxNCwyNy41NjkgMTMuODI0LDI5LjQ2OCAxMy44MjQsMjkuNDYzIDAsMjQuNDA1IDAsMjUuMTkgMTMuNzMsMzAuNDQxIDI3LjUyLDI4LjI0OSAzMS4zODcsMTIuMjI4ICAgICAzMC41NDcsMTEuNjQ1ICAgIiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTUuMzQ0LDIwLjQxMWMwLjI5NS0wLjA2OSwwLjU2NC0wLjE5MSwwLjgwNi0wLjM1bDAuNDMzLDAuMzIxbDAuMjU3LTAuMzQ2bDIuMTQ3LDEuNTkybDAuNjIzLTAuODQybC0yLjE0OC0xLjU5MSAgICBsMC4yMDgtMC4yODFsLTAuNDQyLTAuMzI3YzAuMTEyLTAuNDA1LDAuMTI3LTAuODQ2LDAuMDIyLTEuMjgxYy0wLjMzMi0xLjM4Mi0xLjcyNC0yLjIzNy0zLjEwNi0xLjkwNSAgICBjLTEuMzgyLDAuMzMtMi4yMzUsMS43MjMtMS45MDUsMy4xMDRDMi41NjksMTkuODg3LDMuOTYyLDIwLjc0Miw1LjM0NCwyMC40MTF6IE00LjM5NCwxNi40NDdjMC44MDYtMC4xOTIsMS42MTYsMC4zMDYsMS44MDksMS4xMSAgICBjMC4xOTMsMC44MDUtMC4zMDQsMS42MTUtMS4xMDksMS44MDdDNC4yOSwxOS41NTcsMy40OCwxOS4wNiwzLjI4NiwxOC4yNTVDMy4wOTIsMTcuNDUxLDMuNTkxLDE2LjY0LDQuMzk0LDE2LjQ0N3oiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMjIuMTgyLDQuNTg5YzAuMzg3LDAuNDY1LDAuOTY5LDAuNzYzLDEuNjE5LDAuNzY2YzAuMDA0LDAsMC4wMDgsMC4wMDEsMC4wMSwwLjAwMWwwLDBoMC4wMDIgICAgYzAuNjU4LDAsMS4yNDQtMC4yOTgsMS42MzUtMC43NjdjMC4wMzctMC4wNDIsMC4wNjgtMC4wODcsMC4xMDMtMC4xMzJjMC4yNDYtMC4zNDgsMC4zOTItMC43NzEsMC4zOTItMS4yMjcgICAgcy0wLjE0Ni0wLjg3OC0wLjM5Mi0xLjIyNmMtMC4wMzItMC4wNDUtMC4wNjUtMC4wODktMC4xMDMtMC4xMzNjLTAuMzkxLTAuNDY4LTAuOTc3LTAuNzY3LTEuNjMzLTAuNzY3aC0wLjAwNGwwLDAgICAgYy0wLjAwMiwwLTAuMDA2LDAtMC4wMSwwYy0wLjY1LDAuMDA0LTEuMjMyLDAuMzAxLTEuNjE5LDAuNzY3Yy0wLjAzNywwLjA0My0wLjA3LDAuMDg4LTAuMTA0LDAuMTMzICAgIGMtMC4yNDUsMC4zNDctMC4zOTMsMC43Ny0wLjM5MywxLjIyNnMwLjE0NiwwLjg3OSwwLjM5MywxLjIyN0MyMi4xMTEsNC41MDIsMjIuMTQ1LDQuNTQ3LDIyLjE4Miw0LjU4OXogTTI0LjQxOSw1LjA4NiAgICBjMC4xOTgtMC4xOSwwLjM2My0wLjQ2OSwwLjQ3OC0wLjgwNGMwLjE1MiwwLjA1NywwLjI5MSwwLjEyNSwwLjQwOCwwLjIwM0MyNS4wNzMsNC43NiwyNC43Nyw0Ljk3MSwyNC40MTksNS4wODZ6IE0yNS40MDcsNC4zNTIgICAgYy0wLjEzNC0wLjA5MS0wLjI5LTAuMTY5LTAuNDYyLTAuMjMzYzAuMDYxLTAuMjI2LDAuMTAxLTAuNDczLDAuMTExLTAuNzMxaDAuN0MyNS43MjksMy43NDQsMjUuNjA0LDQuMDc0LDI1LjQwNyw0LjM1MnogICAgIE0yNS43NjYsMy4yMTNoLTAuNzA1Yy0wLjAwMi0wLjMxMS0wLjA0My0wLjYwNS0wLjExNS0wLjg3MWMwLjE3My0wLjA2NCwwLjMyOC0wLjE0MywwLjQ2My0wLjIzMyAgICBDMjUuNjMsMi40MjIsMjUuNzYyLDIuODAyLDI1Ljc2NiwzLjIxM3ogTTI1LjMwNSwxLjk3N2MtMC4xMTcsMC4wNzctMC4yNTYsMC4xNDYtMC40MDgsMC4yMDIgICAgYy0wLjExMy0wLjMzNS0wLjI3OC0wLjYxNC0wLjQ3OC0wLjgwNEMyNC43NywxLjQ5LDI1LjA3NCwxLjcwMSwyNS4zMDUsMS45Nzd6IE0yMy45LDEuMjg3YzAuMzU0LDAuMDU0LDAuNjYsMC40MjEsMC44MzIsMC45NDYgICAgYy0wLjI1LDAuMDc0LTAuNTMxLDAuMTE5LTAuODMyLDAuMTI2VjEuMjg3eiBNMjMuOSwyLjUzNGMwLjMxNS0wLjAwOCwwLjYxNS0wLjA1NiwwLjg3OS0wLjEzNiAgICBjMC4wNjYsMC4yNDcsMC4xMDQsMC41MjMsMC4xMDUsMC44MTVIMjMuOVYyLjUzNHogTTIzLjksMy4zODdoMC45OGMtMC4wMSwwLjI0LTAuMDQ1LDAuNDY5LTAuMTAyLDAuNjc2ICAgIGMtMC4yNjYtMC4wOC0wLjU2My0wLjEyOS0wLjg4MS0wLjEzN1YzLjM4N0gyMy45eiBNMjMuOSw0LjEwMmMwLjMwMSwwLjAwNywwLjU4MiwwLjA1MiwwLjgzMiwwLjEyNiAgICBDMjQuNTYxLDQuNzUzLDI0LjI1NCw1LjEyLDIzLjksNS4xNzRWNC4xMDJ6IE0yMi4zMiw0LjQ4NWMwLjExNy0wLjA3NywwLjI1NC0wLjE0NCwwLjQtMC4yYzAuMTEyLDAuMzMsMC4yNzQsMC42MDYsMC40NzEsMC43OTUgICAgQzIyLjg1LDQuOTY0LDIyLjU1LDQuNzU2LDIyLjMyLDQuNDg1eiBNMjMuNzI3LDUuMTc2Yy0wLjM1Ni0wLjA1LTAuNjY2LTAuNDE3LTAuODQyLTAuOTQ1YzAuMjUyLTAuMDc2LDAuNTM3LTAuMTIyLDAuODQyLTAuMTI5ICAgIFY1LjE3NnogTTIzLjcyNywzLjkyNmMtMC4zMTgsMC4wMDgtMC42MjMsMC4wNTktMC44OTEsMC4xNDFjLTAuMDU1LTAuMjA5LTAuMDkxLTAuNDM4LTAuMTAyLTAuNjhoMC45OTJWMy45MjZMMjMuNzI3LDMuOTI2eiAgICAgTTIzLjcyNywzLjIxM2gtMC45OTRjMC0wLjI5MywwLjAzOS0wLjU3LDAuMTA0LTAuODE5YzAuMjY5LDAuMDgyLDAuNTcxLDAuMTMyLDAuODksMC4xNFYzLjIxM3ogTTIzLjcyNywxLjI4NXYxLjA3NCAgICBjLTAuMzA1LTAuMDA4LTAuNTg4LTAuMDUzLTAuODQyLTAuMTI4QzIzLjA2MSwxLjcwMSwyMy4zNjksMS4zMzUsMjMuNzI3LDEuMjg1eiBNMjMuMTkxLDEuMzggICAgYy0wLjE5NSwwLjE4OS0wLjM1NywwLjQ2NS0wLjQ3MSwwLjc5NWMtMC4xNDgtMC4wNTUtMC4yODMtMC4xMjItMC40LTAuMTk5QzIyLjU1LDEuNzA2LDIyLjg1LDEuNDk3LDIzLjE5MSwxLjM4eiBNMjIuMjE5LDIuMTA5ICAgIGMwLjEzMywwLjA4OSwwLjI4NSwwLjE2NiwwLjQ1NCwwLjIyOWMtMC4wNzEsMC4yNjYtMC4xMTQsMC41NjMtMC4xMTYsMC44NzVoLTAuNjk1QzIxLjg2NSwyLjgwMiwyMS45OTgsMi40MjIsMjIuMjE5LDIuMTA5eiAgICAgTTIyLjU2MSwzLjM4N2MwLjAxMywwLjI2MSwwLjA1MSwwLjUwOSwwLjExMiwwLjczNWMtMC4xNjksMC4wNjMtMC4zMjEsMC4xNC0wLjQ1NCwwLjIyOWMtMC4xOTUtMC4yNzgtMC4zMi0wLjYwOC0wLjM1LTAuOTY1ICAgIEwyMi41NjEsMy4zODdMMjIuNTYxLDMuMzg3eiIgZmlsbD0iIzAwMDAwMCIvPgoJCTxwYXRoIGQ9Ik0yNS43NjgsNy42MzJsLTAuMzE4LDAuNTVsLTAuODE2LDAuMzI3bDAuNDE0LDEuMDMzbDAuODE2LTAuMzI5bDAuNjA5LDAuMTc4bDIuNzQ4LTEuMTA0bDAuMjQzLDAuNjA4bDAuODI5LTAuMzMzICAgIEwzMC4wNDQsNy45NGwxLjM0My0wLjU0bC0wLjY5NS0xLjczbC0xLjM0NCwwLjUzOGwtMC4yNzItMC42OGwtMC44MjksMC4zMzNsMC4yNywwLjY2OUwyNS43NjgsNy42MzJ6IE0yOS4xMjQsOC4wNWwtMi42NjUsMS4wNyAgICBMMjUuODUsOC45NDRMMjUuMTg4LDkuMjFsLTAuMjI0LTAuNTU5bDAuNjYtMC4yNjZsMC4zMTktMC41NDlsMi42NjYtMS4wNzFMMjkuMTI0LDguMDV6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTEyLjM4LDIuOTU4YzAuNTUyLTAuMDkyLDAuOTI0LTAuNjE2LDAuODMxLTEuMTY3Yy0wLjA5Mi0wLjU1LTAuNjE1LTAuOTI0LTEuMTY3LTAuODMxICAgIGMtMC41NSwwLjA5Mi0wLjkyMywwLjYxNi0wLjgzMiwxLjE2NkMxMS4zMDcsMi42NzgsMTEuODI5LDMuMDUxLDEyLjM4LDIuOTU4eiBNMTIuMTMyLDEuNDhjMC4yNjYtMC4wNDQsMC41MTYsMC4xMzQsMC41NjEsMC40ICAgIGMwLjA0NSwwLjI2NC0wLjEzNSwwLjUxNi0wLjM5OSwwLjU2MXMtMC41MTctMC4xMzUtMC41NjEtMC4zOTlDMTEuNjg4LDEuNzc1LDExLjg2OCwxLjUyNCwxMi4xMzIsMS40OHoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMTIuNDMsMy4yNDVjLTAuNTUzLDAuMDkyLTAuOTI1LDAuNjE2LTAuODMyLDEuMTY3YzAuMDkyLDAuNTUsMC42MTUsMC45MjMsMS4xNjcsMC44MyAgICBjMC41NTEtMC4wOTIsMC45MjQtMC42MTYsMC44MjktMS4xNjZDMTMuNTAyLDMuNTI1LDEyLjk3OSwzLjE1MywxMi40MywzLjI0NXogTTEzLjA3NSw0LjE2M2MwLjA0NiwwLjI2NS0wLjEzMywwLjUxNi0wLjM5OSwwLjU2MSAgICBjLTAuMjY0LDAuMDQ0LTAuNTE2LTAuMTM2LTAuNTYtMC40Yy0wLjA0NS0wLjI2NCwwLjEzNC0wLjUxNiwwLjM5OS0wLjU2QzEyLjc4LDMuNzE5LDEzLjAzMSwzLjg5OCwxMy4wNzUsNC4xNjN6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTEwLjYwNSwzLjM5N0w5LjEyOCw1LjUyOGwxLjE3NS0wLjE5N2wxLjQ4MS0yLjEyOUw5LjY5MywxLjY3bC0xLjIsMC4wOTdsMi4xMTYsMS42M0gxMC42MDV6IE0xMS4wNDgsMy4wMjcgICAgYzAuMTQxLTAuMDI1LDAuMjc0LDAuMDcxLDAuMjk5LDAuMjExYzAuMDI0LDAuMTQxLTAuMDcsMC4yNzQtMC4yMTIsMC4yOTljLTAuMTQyLDAuMDIzLTAuMjc0LTAuMDcxLTAuMjk3LTAuMjEyICAgIEMxMC44MTMsMy4xODMsMTAuOTA4LDMuMDQ5LDExLjA0OCwzLjAyN3oiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMjUuMDc2LDE0LjQyNWwtNC42NzgtMC42NmwwLjI5MSwxLjM0bDAuNjYsMC4wNjJsMC4yOTcsMS4zNzhsLTAuNTgsMC4zMTRsMC4zLDEuMzgzbDMuOTkxLTIuNTEzTDI1LjA3NiwxNC40MjV6ICAgICBNMjIuNTE4LDE2LjA3NmwtMC4xNzYtMC44MmwxLjQyNCwwLjEzbDAuMDA0LDAuMDEyTDIyLjUxOCwxNi4wNzZ6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTE4LjI5MywyMC4zNDRjLTAuMDU3LTAuMDcxLTAuMTIyLTAuMTI5LTAuMTk3LTAuMTc2Yy0wLjA3NC0wLjA0Ny0wLjE1LTAuMDgzLTAuMjI5LTAuMTA5ICAgIGMwLjEzMi0wLjA3MywwLjIzNi0wLjE2MywwLjMxNi0wLjI3YzAuMDgtMC4xMDUsMC4xMTktMC4yNDgsMC4xMTktMC40MjdjMC0wLjA4OS0wLjAxNi0wLjE4Ni0wLjA0NC0wLjI5MSAgICBjLTAuMDMtMC4xMDQtMC4wODgtMC4yMDEtMC4xNzMtMC4yOTFjLTAuMDgzLTAuMDg5LTAuMTk5LTAuMTYzLTAuMzQ4LTAuMjIxYy0wLjE0Ny0wLjA1OC0wLjMzOC0wLjA4Ny0wLjU2OC0wLjA4N2gtMS45NDR2My41NDkgICAgaDIuMDE1YzAuMTUzLDAsMC4zMDctMC4wMjMsMC40NTYtMC4wNjljMC4xNDgtMC4wNDYsMC4yNzktMC4xMTQsMC4zOTYtMC4yMDVjMC4xMTYtMC4wODksMC4yMTItMC4xOTksMC4yODEtMC4zMzUgICAgYzAuMDcxLTAuMTM0LDAuMTA2LTAuMjkxLDAuMTA2LTAuNDdjMC0wLjEyOC0wLjAxNy0wLjI0Mi0wLjA1MS0wLjM0MkMxOC4zOTUsMjAuNTAxLDE4LjM0OCwyMC40MTYsMTguMjkzLDIwLjM0NHogTTE2LjMxOCwxOS4zMTggICAgaDAuNTc2YzAuMTE0LDAsMC4yMDMsMC4wMiwwLjI3MSwwLjA1NWMwLjA2OCwwLjAzNiwwLjEwMiwwLjEsMC4xMDIsMC4xODljMCwwLjExNS0wLjAzMSwwLjE5My0wLjA5OSwwLjIzMiAgICBjLTAuMDY1LDAuMDQxLTAuMTU3LDAuMDYxLTAuMjc0LDAuMDYxaC0wLjU3NlYxOS4zMTh6IE0xNy4zNTQsMjEuMDA5Yy0wLjAyMiwwLjA0My0wLjA1NSwwLjA3Ny0wLjA5NSwwLjEwMiAgICBzLTAuMDg1LDAuMDQyLTAuMTM3LDAuMDUyYy0wLjA1MiwwLjAxMS0wLjEwNCwwLjAxNi0wLjE2MSwwLjAxNmgtMC42NDN2LTAuNjYyaDAuNjg4YzAuMjU0LDAsMC4zODEsMC4xMDcsMC4zODEsMC4zMjMgICAgQzE3LjM4NywyMC45MDgsMTcuMzc2LDIwLjk2NSwxNy4zNTQsMjEuMDA5eiIgZmlsbD0iIzAwMDAwMCIvPgoJCTxwYXRoIGQ9Ik0zLjI3MSw5LjY5N2MwLjIxNiwwLjI0NCwwLjQ1NiwwLjQ0LDAuNzE4LDAuNTg1YzAuMjYxLDAuMTQ3LDAuNTMyLDAuMjM0LDAuODE2LDAuMjYxYzAuMjgxLDAuMDI4LDAuNTY0LTAuMDA2LDAuODUxLTAuMSAgICBjMC4yODktMC4wOTQsMC41NjctMC4yNiwwLjgzNi0wLjQ5OUM2LjczMyw5LjczLDYuOTEzLDkuNDk5LDcuMDMsOS4yNTFjMC4xMTgtMC4yNDcsMC4xODMtMC40OTQsMC4xOTUtMC43NCAgICBjMC4wMTMtMC4yNDUtMC4wMjEtMC40NzktMC4xMDEtMC43MDNDNy4wNDUsNy41ODYsNi45MzIsNy4zOSw2Ljc4NSw3LjIyM0w1Ljc4LDguMTEyYzAuMDU0LDAuMDkxLDAuMDk3LDAuMTgyLDAuMTMxLDAuMjczICAgIGMwLjAzNCwwLjA5MiwwLjA1MiwwLjE4MiwwLjA1NCwwLjI2OEM1Ljk2Nyw4Ljc0LDUuOTUsOC44MjQsNS45MTUsOC45MDVjLTAuMDM2LDAuMDgyLTAuMDk3LDAuMTYtMC4xODQsMC4yMzcgICAgQzUuNjEsOS4yNDksNS40ODYsOS4zMTMsNS4zNTgsOS4zM0M1LjIzMiw5LjM0OSw1LjEwNSw5LjMzNiw0Ljk4LDkuMjkzQzQuODU1LDkuMjQ4LDQuNzM1LDkuMTgxLDQuNjE3LDkuMDkyICAgIEM0LjUsOS4wMDMsNC4zOTEsOC45MDMsNC4yOTIsOC43OTFDNC4xOTMsOC42NzgsNC4xMDcsOC41Niw0LjAzMyw4LjQzMkMzLjk1OSw4LjMwNCwzLjkwOCw4LjE3NiwzLjg3OCw4LjA0NyAgICBDMy44NSw3LjkxNywzLjg1Miw3Ljc5MSwzLjg4NSw3LjY2NkMzLjkyLDcuNTQzLDMuOTk3LDcuNDI3LDQuMTE4LDcuMzIxQzQuMjI0LDcuMjI4LDQuMzI3LDcuMTcyLDQuNDMsNy4xNTIgICAgYzAuMTAyLTAuMDE5LDAuMTk2LTAuMDIsMC4yODMtMC4wMDNjMC4wODgsMC4wMTgsMC4xNjEsMC4wNDYsMC4yMjUsMC4wODdTNS4wNSw3LjMxLDUuMDg1LDcuMzM1bDAuOTkzLTAuODgxICAgIGMtMC40MTMtMC4zNzktMC44NDUtMC41NzMtMS4yOTctMC41OGMtMC40NS0wLjAwNy0wLjkwNiwwLjE5Mi0xLjM2NywwLjU5NEMzLjE1NSw2LjY5NywyLjk2Miw2Ljk0MywyLjgyOSw3LjIwOSAgICBjLTAuMTMxLDAuMjY2LTAuMjA0LDAuNTQtMC4yMTYsMC44MjJDMi42MDEsOC4zMTMsMi42NDksOC41OTcsMi43NTgsOC44OEMyLjg3LDkuMTY0LDMuMDQsOS40MzUsMy4yNzEsOS42OTd6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+          </div>
+          <h6> Explore Splash and get a feel for what it offers. Below, you will see some of the categories you can find on our site. All of our information is obtained from the finest Musuems and from Wikepedia.</h6>
+          </div>
+
+          <div className="col-sm-4">
+          <div style={{ paddingLeft: 190}}>
+          <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTcuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQzMi4yMzIgNDMyLjIzMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMyLjIzMiA0MzIuMjMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCI+CjxnPgoJPHBhdGggZD0iTTQxMi4yMzIsNjIuNzY0SDIwYy0xMS4wMjgsMC0yMCw4Ljk3Mi0yMCwyMHYyNjYuNzA0YzAsMTEuMDI4LDguOTcyLDIwLDIwLDIwaDM5Mi4yMzJjMTEuMDI4LDAsMjAtOC45NzIsMjAtMjBWODIuNzY0ICAgQzQzMi4yMzIsNzEuNzM2LDQyMy4yNiw2Mi43NjQsNDEyLjIzMiw2Mi43NjR6IE0xODQuNjE2LDI4NC41NTJsLTAuMDc4LDMwLjg0Mkg1MC45ODFsLTAuMDc5LTMxLjAyM3YtMjQuNjE5ICAgYzAtMTIuNTkyLDEzLjU5My0xNy4zNzUsMjQuNTE1LTIxLjIxN2MyLjU3MS0wLjkwNCw1LjUwMS0xLjkzNiw3LjgyMi0yLjk3NmMtMC40NjEtMC41MDktMC45My0xLjAyMi0xLjQwNS0xLjU0MyAgIGMtOS40NjctMTAuMzgzLTIwLjE5My0yMi4xNDYtMjAuMjYxLTQyLjkwMWMtMC4xMjQtMS41NzItMC45NzQtMTIuNDI3LTEuMjczLTE2LjI3N2MtMi44NDYtMzYuNjA4LDE1LjQyOC00Mi4yMzgsNDMuMDg4LTUwLjc2ICAgYzQuMDczLTEuMjU1LDguMjg0LTIuNTUyLDEyLjc5OC00LjA0OGM1LjgwNC0xLjkyMywxMS41MDUtMi44OTksMTYuOTQ0LTIuODk5YzExLjU0MiwwLDIxLjYzNyw0LjMxNywyOS4xOTUsMTIuNDg1ICAgYzkuNzYxLDEwLjU0OSwxNC4zMzksMjYuNjA5LDEyLjg5Myw0NS4yMjJsLTEuMjczLDE2LjI3NmMtMC4wNjgsMjAuNzU0LTEwLjc5NCwzMi41MTgtMjAuMjYxLDQyLjkwMSAgIGMtMC40NzYsMC41MjEtMC45NDQsMS4wMzYtMS40MDUsMS41NDRjMi4zMjEsMS4wNDEsNS4yNTEsMi4wNzIsNy44MjIsMi45NzdjMTAuOTIyLDMuODQzLDI0LjUxNSw4LjYyNSwyNC41MTUsMjEuMjE3ICAgTDE4NC42MTYsMjg0LjU1MnogTTM4MC4zMjksMzAxLjc5MkgyMzguMDk4di0yNi42MjdoMTQyLjIzMlYzMDEuNzkyeiBNMzgwLjMyOSwyNDAuNTA5SDIzOC4wOTh2LTI2LjYyN2gxNDIuMjMyVjI0MC41MDl6ICAgIE0zODAuMzI5LDE3OS4yMjZIMjM4LjA5OHYtMjYuNjI3aDE0Mi4yMzJWMTc5LjIyNnoiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik0xMTcuNzY3LDIzMy4yMzdjMjQuMjgyLTAuMDM2LDQ0LjA0OS0xOS44MzIsNDQuMDQ5LTQ0LjEyOVYxNzYuMTdjMC0xLjM2NS0wLjA2Ni0yLjc0NC0wLjE5OC00LjEyN2gtNi4wODkgICBjLTEwLjQ2LDAtMTQuMDgzLTkuOTgxLTE1LjgyMS0xNi4xNzFjLTkuODgyLDQuNjc1LTM0LjU3NSwxNS42NjUtNjUuODA2LDE2LjE1NGMtMC4xMzMsMS4zODktMC4yLDIuNzczLTAuMiw0LjE0NHYxMi45MzggICBDNzMuNzAzLDIxMy40MDUsOTMuNDcsMjMzLjIwMSwxMTcuNzY3LDIzMy4yMzd6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8cG9seWdvbiBwb2ludHM9IjExNy43NiwyODYuNTY0IDE1Mi4wMjgsMjUwLjIxOCA4My40OTIsMjUwLjIxOCAgIiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+          </div>
+          <h6>Want to save an article? Create an account with us and come back to view your favorites. Enjoy the exploration! </h6>
+          </div>
+
+          </div>
 
 
-      
+          <div className="row">
+          <div className="col-md-12">
 
-       
+           <section className="main">
 
-        <section className="main">
+            <div id="sb-container" className="sb-container">
 
-          <div id="sb-container" className="sb-container">
 
-            <div>
-
+          <div>
               <span className="sb-icon icon-cog" />
               <h4><span>All Settings</span></h4>
             </div>
@@ -197,15 +201,45 @@ class Start extends Component {
               <h5><span></span></h5>                      
             </div>
           </div>{/* sb-container */}
-        </section>
 
-       </Col>
-      </Row>
+        </section>
+      </div>
+      </div>
+
+    
+         
+
+      <div className="row">
+          <div className="col-md-12">
+          <div className="container1">
+           <div className="carousel">
+            <div className="item a"> </div>
+            <div className="item b"> </div>
+            <div className="item c"> </div>
+            <div className="item d"> </div>
+            <div className="item e"> </div>
+            <div className="item f"> </div>
+          </div>
+            <div className="next">Next</div>
+            <div className="prev">Prev</div>
+
+          </div>  
+      </div>
+      </div>
+
+
+      
+
+
+       </div>
+       </div>
+     
+   
 
      
-        </Container>
+      
 
-        </div>
+
 
     )
   }
