@@ -15,10 +15,10 @@ class Collapse extends Component {
     return (
       <div>
           <div className="card">
-            <div className="card-header" id="headingOne">
+          <div className="card-header btn btn-link" id="headingOne" onClick={this.collapse} data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
               <h5 className="mb-0">
                 <button onClick={this.collapse}className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  <h3>Saved Article #{this.props.index || `1`}</h3>
+                  <h3>Saved Article #{this.props.index || "1"}</h3>
                 </button>
               </h5>
             </div>
@@ -30,7 +30,7 @@ class Collapse extends Component {
               </div>
 
               <div className = "article-img">
-              <img src = {this.props.img || `Article Image`}/>
+              <img src={this.props.img || `Article Image`}/>
               </div>
 
               <div className="card-body">

@@ -15,10 +15,7 @@ class Profile extends Component {
     let name = "Alex";
     return (
       <div className="outer">
-        <button className="btn" onClick={this.props.hideProfile} id="close"> X </button>
-        <div className="name">
-          <h1> {name}'s Saved Articles</h1>
-        </div>
+          <h3 class = "name"> {name}'s Saved Articles</h3>
         <div >
           <div id="accordion">
             <Collapse />
