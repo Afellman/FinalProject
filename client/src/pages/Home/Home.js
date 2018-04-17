@@ -222,19 +222,11 @@ class Home extends Component {
     }else {
       this.setState({showProfile: false})
     }
-<<<<<<< HEAD
   
     // ------------------------------------------------------------
-    
+  }
   render(){
     return(
-=======
-  }
-  // ------------------------------------------------------------
-
-  render() {
-    return (
->>>>>>> master
       <div>
         <Nav showProfile={this.showProfile}/> 
         {this.state.backdrop_start
@@ -296,7 +288,12 @@ class Home extends Component {
                         "Photographic-Technology",
                         "Radio-Communication",
                         "Orthopaedics",
-                        "Space-Technology"
+                        "Space-Technology",
+                        "Cinematography",
+                        "Electricity-and-Magnetism",
+                        "Nuclear-Physics",
+                        "Mathematics",
+                        "Television"
                       ]
                     })
                     setTimeout(() => this.changeLevel(), 500)

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './endpoint.css';
-import API from '../../utils/database';
+import database from '../../utils/database';
 
 // const EndpointItem = (props) => {
 //   return(
