@@ -2,25 +2,37 @@ import axios from 'axios';
 
 
 export default {
-  register: (username, password) => {
-    
-    let newUser = {
-      username: username,
+  register: (email, password) => {
+    let reg = {
+      username: email,
       password: password
     }
-    return axios.post('/auth/register', newUser)
+    console.log('reg', reg)
+    axios.post('/auth/register', reg)
+    .then((res)=>{
+      console.log(res, 'res')
+    })
+    .catch(err=> {
+      console.log(err)
+    })
   },
 
-  login: (username, password, cb) => {
+  login: (email, password, cb) => {
     let login = {
-      username: username,
+      username: email,
       password: password
     }
-    axios.post(`/auth/login`, login )
-    .then()
-    .catch((error) => {
-      cb(error)
+    return axios.post(`/auth/login`, login )
+
+  },
+  checkLogged: ()=> {
+    axios.get('/auth/login')
+    .then((res)=> {
+      console.log(res)
     })
+  },
+  logout: () => {
+    axios.get('/auth/logout')
   }
 }
 

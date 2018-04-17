@@ -1,39 +1,49 @@
+.collapse {
+    background-color: rgb(235, 235, 235);
+}
+
 #accordion {
-    width: 60%;
+    width: 95%;
     margin: auto;
     margin-top: 50px;
     text-align: center;
 }
 
-.card-header {
+#accordion .card-header {
     background: radial-gradient(rgb(119, 192, 216), blue);
+    background: radial-gradient(rgb(230, 109, 230), purple);
+
 }
 
-.btn {
+#accordion .btn {
     color: white;
     text-decoration: none;
     z-index: 2;
+    text-decoration: none !important;
 }
 
-.btn:visited {
-    text-decoration: none;
+#accordion .btn:visited {
+    text-decoration: none !important;
 }
 
-.btn:hover {
-    color: gold;
+#accordion .btn:hover {
+    text-decoration: underline !important;
 }
 
 .card-body {
     text-align: left;
-    overflow-y: scroll;
-    z-index: 3;
+    width: 100%;
+    color: black;
     
 }
 
 .article-title {
     padding-top: 10px;
+    color: black;
 }
 
 h3 {
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
 }

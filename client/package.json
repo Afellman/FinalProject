@@ -4,14 +4,16 @@
   "private": true,
   "proxy": "http://127.0.0.1:3001",
   "dependencies": {
+    "animejs": "^2.2.0",
     "axios": "^0.18.0",
     "mo-js": "^0.288.2",
     "react": "^16.3.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.0",
     "react-motion": "^0.5.2",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "react-addons-css-transition-group": "^15.6.2",
     "unsplash-js": "^4.8.0"
   },
   "scripts": {
