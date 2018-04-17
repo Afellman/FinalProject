@@ -140,32 +140,6 @@ class Home extends Component {
     anime({targets: '#background, .category-col, .carousel ', opacity: 0, duration: 2000});
   }
 
-<<<<<<< HEAD
-    hideProfile = () => {
-      this.setState({showProfile: false})
-    }
-
-    // changing the level after a category click --------------------------
-    changeLevel = (e) => {
-      this.setState({showBubbles: false})
-      if (this.state.firstRound) {
-        this.setState({showChoice: false})
-        this.fadeInCategorys()
-        
-      } else {
-        this.fadeOut()
-      let target = e.target;
-      let category = e.target.textContent
-      // console.log(category)
-      this.getBgImage(category)
-      this.setState({backdrop_start : true})
-      // returns new bubbles of subcategories
-      this.setState({currentCategory: category})
-      // ** Need to save previous bubble to search on aka "Go back"
-      if (this.state.path == 'wiki'){
-        console.log('wiki path')
-        Wiki.getWikiByArticle(category).then(res=> {
-=======
   transition = () => {
     let category = this.state.currentCategory;
     if (this.state.path == 'wiki') {
@@ -173,7 +147,6 @@ class Home extends Component {
       Wiki
         .getWikiByArticle(category)
         .then(res => {
->>>>>>> master
           console.log(res)
           let wikiObj = {
             name: category,
@@ -264,41 +237,12 @@ class Home extends Component {
           image={this.state.background}
           trigger={this.state.currentCategory}/>
         <div id="home-container">
-<<<<<<< HEAD
-          <button className="btn" onClick = {()=>this.setState({showProfile: true})} id = "sidebar">My Saved Articles</button>
-          {this.state.showProfile ? <Profile hideProfile = {this.hideProfile}  />: null}
-          <div id="home-categories">
-            {this.state.showBubbles ? 
-            // Mapping through all the given categories and building divs for them
-            this.state.categories.map((category, index)=> {
-              return (
-                <Category key={index} index={index} angle={index} transition={this.state.categoryTransform} text={category} changeLevel={this.changeLevel}/>
-              )
-            })
-          : null }
-          {this.state.showChoice ? <div id='initial-choice'>
-            <div onClick={()=> {
-              this.setState({showBubbles: true, path: "wiki", categories : ['Astronomy', 'Art', 'Technology', 'Classics', 'Medicine']})
-              setTimeout(()=>this.changeLevel(), 500 )
-              
-              } 
-              } className="wiki btn">
-              <h3>Wikipedia</h3>
-            </div>
-            <div onClick={()=>{
-              this.setState({showBubbles: true, path: "scimuse", categories :  ["computing-&-data-processing", "telecommunication", "aeronautics", "photographic%20technology", "radio-communication", "orthopaedics", "space-technology" ]})
-              setTimeout(()=>this.changeLevel(), 500 )
-            }}className='scimuse btn'>
-              <h3>Scimuse</h3>
-            </div></div>
-=======
         <ReactCSSTransitionGroup
           transitionName="side-bar"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
           {this.state.showProfile
             ? <Profile saved={this.state.savedArticles}/>
->>>>>>> master
             : null}
             </ReactCSSTransitionGroup>
           <div id="home-categories">
