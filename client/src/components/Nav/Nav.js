@@ -38,7 +38,7 @@ class Nav extends Component {
               
               isActive={this.state.isActive}
               toggleButton={this.toggleButton}
-              buttonColor="rgb(223, 83, 157)"
+              buttonColor="#C4C4B0"
               barColor="white"/>
           </ul>
         </div>

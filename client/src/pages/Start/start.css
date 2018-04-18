@@ -88,7 +88,15 @@ h6 {
 
 }
 
+.stripe1 {
+  background-color: gray;
 
+}
+
+.stripe {
+  background-color: purple;
+  padding: 25px;
+}
 
 p1 {
   font-family: 'Great Vibes', cursive;

@@ -11,7 +11,7 @@
 }
 
 .nav .btn {
-    background: rgb(223, 83, 157);
+    background:#C4C4B0;
     border: 1px gray solid;
 }
 .nav .btn, .nav a {
@@ -30,7 +30,7 @@
 /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
- * @author Jonathan Suh @jonsuh
+ * @author Jonathan Suh @jonsu
  * @site https://jonsuh.com/hamburgers
  * @link https://github.com/jonsuh/hamburgers
  */
