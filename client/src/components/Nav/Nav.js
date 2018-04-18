@@ -28,7 +28,7 @@ class Nav extends Component {
       <nav className="navbar navbar-inverse navbar-top">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a href="/" className="navbar-brand" id = "logo">  </a>
+            <a href="/" className="navbar-brand" id = "logo"> Splash </a>
             
           </div>
           
