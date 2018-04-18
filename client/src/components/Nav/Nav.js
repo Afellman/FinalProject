@@ -28,11 +28,12 @@ class Nav extends Component {
       <nav className="navbar navbar-inverse navbar-top">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a href="/" className="navbar-brand">
-              Final Project
-            </a>
+            <a href="/" className="navbar-brand" id = "logo">  </a>
+            
           </div>
+          
           <ul className="nav navbar-nav navbar-right">
+            
             <Logout/>
             <HamburgerVortex
               

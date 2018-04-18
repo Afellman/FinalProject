@@ -10,7 +10,7 @@
     padding: 0 20px 0 20px;
     height: 100vh;
     overflow-y: scroll;
-    background-color: blueviolet;
+    background-color: rgba(137, 129, 145, 0.445);
 }
 
 .name {

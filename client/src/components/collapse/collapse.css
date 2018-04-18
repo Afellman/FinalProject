@@ -1,7 +1,3 @@
-.collapse {
-    background-color: rgb(235, 235, 235);
-}
-
 #accordion {
     width: 95%;
     margin: auto;
@@ -10,7 +6,7 @@
 }
 
 #accordion .card-header {
-background: radial-gradient(rgb(119, 192, 216), blue);
+    background-color: #00677a;
 }
 
 #accordion .btn {

@@ -3,9 +3,21 @@
     border-color: black;
     margin-bottom: 0px;
     z-index: 1;
+    margin-top: -21.5px; 
+    /* added margin-top to push nav to top of page */
     padding-top: 10px;
     padding-bottom: 10px; 
+    
 }
+
+#logo {
+  background-image: url("./logo2.png") !important;
+  z-index: 3;
+  width: 500px;
+  height: 80px;
+  background-repeat: no-repeat;
+}
+
 .nav {
     flex-direction: row;
 }

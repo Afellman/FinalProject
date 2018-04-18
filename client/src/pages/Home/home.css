@@ -1,7 +1,7 @@
 #home-container {
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
+  width: 99vw;
   height: calc(100vh - 56px);
   /* padding-top: 7%; */
 }
