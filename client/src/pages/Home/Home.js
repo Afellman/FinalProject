@@ -57,9 +57,7 @@ class Home extends Component {
           let randomNum = Math.floor(Math.random() * data.data.results.length);
           image = data.data.results[randomNum].urls.full
         } else {
-          image = 'https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-0.3.5&ixid' +
-              '=eyJhcHBfaWQiOjEyMDd9&s=c8df2caeb47cf27eae792735019e072f&auto=format&fit=crop&w=' +
-              '1350&q=80'
+          image = 'https://images.unsplash.com/photo-1484415063229-3d6335668531?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e41b789e5d2a9b156139b4e4f860845c&auto=format&fit=crop&w=2588&q=80'
         }
         this.setState({background: image});
       })

@@ -21,7 +21,7 @@ class Background extends Component {
     console.log(this.props.image)
     return (
       <div>
-        <img  id="background" onLoad={this.props.fade} src={this.props.image || 'https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8df2caeb47cf27eae792735019e072f&auto=format&fit=crop&w=1350&q=80'} className={this.props.trigger}/> 
+        <img id="background" onLoad={this.props.fade} src={this.props.image || 'https://images.unsplash.com/photo-1484415063229-3d6335668531?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e41b789e5d2a9b156139b4e4f860845c&auto=format&fit=crop&w=2588&q=80'} className={this.props.trigger}/> 
       </div>
     )
   }
