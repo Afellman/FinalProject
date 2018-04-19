@@ -1,13 +1,29 @@
 import React, {Component} from 'react';
 import styles from './endpoint.css';
-import {Carousel } from 'react-bootstrap';
 
-export const MyCarousel = ({children, props}) => {
+// export default class Slider extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {}
+//   }
+
+//   render() {
+//     return (
+//       <div className="slider">
+				
+//       </div>
+//     );
+//   }
+// }
+
+
+export const Endpoint = ({children}) => {
   return (
-    <Carousel className= "carousel"
-      >
-      {children}
-
-      </Carousel>
+    <div className="carousel" data-ride="carousel">
+      <div className="carousel-inner">
+          {children}
+      </div>
+    </div>
   );
 }

@@ -16,9 +16,9 @@ import Unsplash from '../../utils/unsplash';
 import Backdrop from '../../components/backdrop'
 import Nav from '../../components/Nav'
 import auth from '../../utils/auth'
-import { MyCarousel, CarouselItem} from '../../components/endpoint';
-import {Carousel } from 'react-bootstrap';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import Endpoint from '../../components/endpoint';
+import EndpointItem from '../../components/endpoint';
 
 let image;
 class Home extends Component {
@@ -296,19 +296,8 @@ class Home extends Component {
                 </div>
               : null}
             {/* Carousel to display images and results to the user */}
-            {this.state.showEndpoint ? 
-              this.state.endpoint.map((element, index)=>{ 
-              return (
-              <MyCarousel
-                activeIndex={index}
-                controls={true}>
-                <CarouselItem
-                  museumObj= {element} index={index}>
-                </CarouselItem>
-              </MyCarousel>)
-              })
 
-            /* {this.state.showEndpoint
+          {this.state.showEndpoint
               ? <Endpoint>
                   {this
                     .state
@@ -318,7 +307,7 @@ class Home extends Component {
                         <EndpointItem museumObj={element} user={this.state.user} key={index} index={index}></EndpointItem>
                       )
                     })}
-                </Endpoint> */
+                </Endpoint>
 
               : null}
           </div>
