@@ -25,16 +25,18 @@ class Collapse extends Component {
             <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
               <div className="article-title">
               <h3>
-                {this.props.title || `Article Title`}
+                {this.props.title || `Galileo Galilei`}
               </h3>
               </div>
 
               <div className = "article-img">
-              <img src={this.props.img || `Article Image`}/>
+              {/* <img src={this.props.img || `Article Image`}/> */}
               </div>
 
               <div className="card-body">
-                <p>{this.props.body || `Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.`}</p>
+              <p>{this.props.body || `Galileo Galilei (Italian: [ɡaliˈlɛːo ɡaliˈlɛi]; 15 February 1564[3] – 8 January 1642) was an Italian polymath. Galileo is a central figure in the transition from natural philosophy to modern science and in the transformation of the scientific Renaissance into a scientific revolution.
+
+Galileo's championing of heliocentrism and Copernicanism was controversial during his lifetime, when most subscribed to either geocentrism or the Tychonic system.[4] He met with opposition from astronomers, who doubted heliocentrism because of the absence of an observed stellar parallax.[4] The matter was investigated by the Roman Inquisition in 1615, which concluded that heliocentrism was "foolish and absurd in philosophy, and formally heretical since it explicitly contradicts in many places the sense of Holy Scripture."[4][5][6] Galileo later defended his views in Dialogue Concerning the Two Chief World Systems (1632), which appeared to attack Pope Urban VIII and thus alienated him and the Jesuits, who had both supported Galileo up until this point.[4] He was tried by the Inquisition, found "vehemently suspect of heresy", and forced to recant. He spent the rest of his life under house arrest.[7][8] While under house arrest, he wrote one of his best-known works, Two New Sciences, in which he summarized work he had done some forty years earlier on the two sciences now called kinematics and strength of materials.`}</p>
               </div>
             </div>
           </div>
