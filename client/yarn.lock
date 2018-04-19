@@ -5942,6 +5942,13 @@ react-animated-burgers@^1.1.0:
     webpack-manifest-plugin "1.2.1"
     whatwg-fetch "2.0.3"
 
+react-bootstrap4-modal@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-bootstrap4-modal/-/react-bootstrap4-modal-1.2.2.tgz#a8c07cf976231a516d1ab89a78ed8cfebe2403dd"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.5.10"
+
 react-bootstrap@^0.32.1:
   version "0.32.1"
   resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.32.1.tgz#60624c1b48a39d773ef6cce6421a4f33ecc166bb"

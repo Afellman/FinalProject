@@ -14,9 +14,11 @@ import Profile from '../../components/profile';
 import anime from 'animejs';
 import Unsplash from '../../utils/unsplash';
 import Backdrop from '../../components/backdrop'
-import {Endpoint, EndpointItem} from '../../components/endpoint';
 import Nav from '../../components/Nav'
 import auth from '../../utils/auth'
+import { MyCarousel, CarouselItem} from '../../components/endpoint';
+import {Carousel } from 'react-bootstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 let image;
 class Home extends Component {
@@ -63,7 +65,6 @@ class Home extends Component {
         }
         this.setState({background: image});
       })
-
   }
 
   fadeInCategorys = (e) => {
@@ -78,7 +79,6 @@ class Home extends Component {
     var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
 
     let bubbleArray = [];
-
     console.log(bubbleArray)
 
     var animate = (el, i) => {
@@ -158,9 +158,7 @@ class Home extends Component {
             this.setState({showEndpoint: true})
           }
           setTimeout(() => {
-            this.fadeInCategorys()
-
-          }, 1000)
+            this.fadeInCategorys()}, 1000)
         })
 
     } else {
@@ -187,9 +185,7 @@ class Home extends Component {
             this.setState({showEndpoint: true})
           }
           setTimeout(() => {
-            this.fadeInCategorys()
-
-          }, 1000)
+            this.fadeInCategorys()}, 1000)
         })
     }
   }
@@ -222,11 +218,11 @@ class Home extends Component {
     }else {
       this.setState({showProfile: false})
     }
+  
+    // ------------------------------------------------------------
   }
-  // ------------------------------------------------------------
-
-  render() {
-    return (
+  render(){
+    return(
       <div>
         <Nav showProfile={this.showProfile}/> 
         {this.state.backdrop_start
@@ -249,10 +245,7 @@ class Home extends Component {
             {this.state.showBubbles
               ?
               // Mapping through all the given categories and building divs for them
-              this
-                .state
-                .categories
-                .map((category, index) => {
+              this.state.categories.map((category, index) => {
                   return (<Category
                     key={index}
                     index={index}
@@ -288,7 +281,12 @@ class Home extends Component {
                         "Photographic-Technology",
                         "Radio-Communication",
                         "Orthopaedics",
-                        "Space-Technology"
+                        "Space-Technology",
+                        "Cinematography",
+                        "Electricity-and-Magnetism",
+                        "Nuclear-Physics",
+                        "Mathematics",
+                        "Television"
                       ]
                     })
                     setTimeout(() => this.changeLevel(), 500)
@@ -297,17 +295,30 @@ class Home extends Component {
                   </div>
                 </div>
               : null}
-            {this.state.showEndpoint
+            {/* Carousel to display images and results to the user */}
+            {this.state.showEndpoint ? 
+              this.state.endpoint.map((element, index)=>{ 
+              return (
+              <MyCarousel
+                activeIndex={index}
+                controls={true}>
+                <CarouselItem
+                  museumObj= {element} index={index}>
+                </CarouselItem>
+              </MyCarousel>)
+              })
+
+            /* {this.state.showEndpoint
               ? <Endpoint>
                   {this
                     .state
                     .endpoint
                     .map((element, index) => {
                       return (
-                        <EndpointItem museumObj={element} user={this.state.user} index={index}></EndpointItem>
+                        <EndpointItem museumObj={element} user={this.state.user} key={index} index={index}></EndpointItem>
                       )
                     })}
-                </Endpoint>
+                </Endpoint> */
 
               : null}
           </div>
