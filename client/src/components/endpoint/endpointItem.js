@@ -11,7 +11,7 @@ import database from '../../utils/database';
 
 // export default EndpointItem;
 
-export const EndpointItem = (props) => {
+const EndpointItem = (props) => {
   return (
     <div className={`carousel-item item${props.index}`}>
       <h3>{props.museumObj.name}
@@ -43,3 +43,5 @@ export const EndpointItem = (props) => {
     </div>
   );
 }
+
+export default EndpointItem

@@ -1,2 +1,1 @@
-export * from "./endpoint";
-export * from "./endpointItem";
+export * from './endpoint'

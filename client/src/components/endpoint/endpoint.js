@@ -18,7 +18,7 @@ import styles from './endpoint.css';
 // }
 
 
-export const Endpoint = ({children}) => {
+const Endpoint = ({children}) => {
   return (
     <div className="carousel" data-ride="carousel">
       <div className="carousel-inner">
@@ -27,3 +27,6 @@ export const Endpoint = ({children}) => {
     </div>
   );
 }
+
+
+export default Endpoint
