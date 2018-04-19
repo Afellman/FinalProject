@@ -318,7 +318,8 @@ class Home extends Component {
                     .endpoint
                     .map((element, index) => {
                       return (
-                        <EndpointItem museumObj={element} user={this.state.user} key={index} index={index}></EndpointItem>
+
+                        <EndpointItem museumObj={element} user={this.state.user['_id']} index={index}></EndpointItem>
                       )
                     })}
                 </Endpoint> */

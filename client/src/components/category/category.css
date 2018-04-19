@@ -1,17 +1,15 @@
 .category-col {
   transform: scale(0);
   position: absolute;
-  top: 45%;
-  left: 45%;
   padding: 5px;
 }
 
 .category-col > div {
   transition: .3s;
   color: white;
+  max-width: 350px;
   padding: 50px;
   border-radius: 50%;
-  word-wrap: break-word;
   text-align: center;
   border: 1px solid rgba(248, 248, 248, 0.616);
   background: radial-gradient(rgba(7, 6, 34, 0.699),rgba(255, 255, 255, 0.541)  );

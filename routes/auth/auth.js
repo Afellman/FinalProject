@@ -1,10 +1,13 @@
 const passport = require('passport');
-const User = require('../../models/user');
+const db = require('../../models/');
 const router = require('express').Router();
+const controller = require('../../controllers/museumController')
 
 router.get('/', function(req, res) {
   res.render('index', {user: req.user});
 });
+
+router.get('/one:id', controller.findAll)
 
 router.get('/register', function(req, res) {
   res.render('register', {});
@@ -12,7 +15,7 @@ router.get('/register', function(req, res) {
 
 router.post('/register', function(req, res, next) {
   
-  User.register(new User({username: req.body.username}), req.body.password, function(err) {
+  db.User.register(new User({username: req.body.username}), req.body.password, function(err) {
     if (err) {
       console.log('error while user register!', err);
       return next(err);
