@@ -8,7 +8,7 @@ import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 export const CarouselItem = (props) => {
     return (
-    <Carousel.Item className={`carousel-item item${props.index}`}>
+    <Carousel.Item className={`carousel-item item`}>
         <h3> {props.museumObj.name}</h3>
         <img width={300} height={300} alt="Unable to load" src={props.museumObj.img} />
     <Carousel.Caption>

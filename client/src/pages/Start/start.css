@@ -63,17 +63,19 @@ img {
 .enter-void {
   padding: 50px;
   border-radius: 10px !important;
-  background: rgb(160, 61, 3);
+  background: purple;
   border: 2px blue;
 }
 
 .void {
-  position: absolute;
-  top: calc(50% - 60px);
-  
-  width: 100%;
-  text-align: center;
+  color: white;
+  margin: auto;
+  margin-top: 200px;
+}
 
+.void > a {
+  color: white !important;
+  text-decoration: none !important;
 }
 
 

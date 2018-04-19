@@ -96,7 +96,7 @@ class Start extends Component {
                 <button onClick={()=> this.setState({showLogin: true})} className='btn btn-primary'>Login</button>
                 <Link className='btn btn-primary' to="/home">Guest</Link>
               </div>
-               : <div className='void' ><Link className='btn enter-void' to="/home">Enter The Void</Link></div> }
+               : <div className='col-md-3 void' ><Link className='btn enter-void' to="/home"><h1>Jump In!</h1></Link></div> }
         <ReactCSSTransitionGroup
           transitionName="login"
           transitionEnterTimeout={200}

@@ -3,15 +3,16 @@
     margin: auto;
     margin-top: 30px;
     text-align: center;
-    /* overflow-y: scroll; */
 }
 
 #accordion .card-header {
-background: radial-gradient(rgb(119, 192, 216), blue);
+    background-color: #00677a;
 }
 
 #accordion .btn {
     color: white;
+    text-decoration: none;
+    z-index: 2;
     text-decoration: none !important;
     z-index: 2;
 }
@@ -42,3 +43,4 @@ h3 {
     font-size: 18px;
     margin-top: 5px;
 }
+

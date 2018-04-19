@@ -299,16 +299,13 @@ class Home extends Component {
                 </div>
               : null}
          {this.state.showEndpoint ? 
-              this.state.endpoint.map((element, index)=>{ 
-              return (
               <MyCarousel
                 activeIndex={index}
                 controls={true}>
                 <CarouselItem
-                  museumObj= {element} index={index}>
+                  museumObj= {this.state.endpoint[0]} index={'foo'}>
                 </CarouselItem>
-              </MyCarousel>)
-              })
+              </MyCarousel>
 
             /* {this.state.showEndpoint
               ? <Endpoint>
