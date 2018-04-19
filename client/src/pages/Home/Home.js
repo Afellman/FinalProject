@@ -228,7 +228,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav showProfile={this.showProfile}/> 
+        <Nav showProfile={this.showProfile} showHam={true}/> 
         {this.state.backdrop_start
           ? <Backdrop/>
           : null}

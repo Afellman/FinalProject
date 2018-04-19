@@ -35,17 +35,13 @@ class Nav extends Component {
           </div>
           <ul className="nav navbar-nav navbar-right">
             <Logout/>
+            {this.props.showHam ?
             <HamburgerVortex
-              
               isActive={this.state.isActive}
               toggleButton={this.toggleButton}
-
               buttonColor="#C4C4B0"
-
-              buttonColor="rgb(223, 83, 157)"
-              buttonColor="rgb(223, 83, 157)"
-
               barColor="white"/>
+            : null}
           </ul>
         </div>
       </nav>

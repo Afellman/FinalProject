@@ -13,6 +13,10 @@
     border-color: purple;
   }
 
+  .btn-primary {
+    float: none;
+  }
+
 .login-enter {
   opacity: 0.01;
 }
@@ -209,7 +213,7 @@ p1 {
 
 .ml12 {
   font-weight: 120;
-  font-size: 2.0em;
+  font-size: 1.7em;
   text-transform: uppercase;
   letter-spacing: 0.5em;
   padding-left: 80px;

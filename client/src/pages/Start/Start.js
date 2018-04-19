@@ -8,6 +8,7 @@ import Login from '../../components/login';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import Logout from '../../components/logout-btn';
 import { Link } from 'react-router-dom'
+import Nav from '../../components/Nav'
 
 
 class Start extends Component {
@@ -73,11 +74,10 @@ class Start extends Component {
   render(){
     
     return(
-  <div className="Container">
+      <div className="Container">
+      <Nav showHam={false}/>
         <div className="Row">
-        
             <Jumbotron>
-            <h1><i className="fa fa-newspaper-o" aria-hidden="true"></i></h1> 
              <div>
         <ReactCSSTransitionGroup
           transitionName="login"
@@ -95,7 +95,6 @@ class Start extends Component {
             <button onClick={()=> this.setState({showSignup: true})} className='btn btn-primary'>Signup</button>
             <button onClick={()=> this.setState({showLogin: true})} className='btn btn-primary'>Login</button>
             <button onClick={this.handleGuest} className='btn btn-primary'>Guest</button>
-         
           </div>
         : null }
         <ReactCSSTransitionGroup
