@@ -1,55 +1,56 @@
-
 .carousel {
+    position: absolute;
     margin: 0 auto;
-    opacity: 0;
     width: 40vw;
-}
-
-.carousel-inner {
-    position: relative;
-    display: inherit;
-    margin: 0 auto;
-    background: rgb(63, 19, 33);
+    height: 80%;
+    background: rgb(155, 154, 155);
     box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.623);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+.carousel-inner {
+    margin: 0 auto;
+    display: inherit;
     color: white;
-    text-indent: 0;
-    overflow: hidden;
+    top: 5%;
     border-radius: 25px;
-    margin-top: 60px;
-    padding-top: 15px;
-    padding-right: 5px;
-    padding-bottom: 30px;
-    width:30vw;
-    /* height: 65vh */
+    width:35vw;
+    height: 70vh;
+    overflow: initial
 }
 
 .carousel-item {
-    display: inherit;
     margin: 0 auto;
-    top:0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    overflow: hidden;
-    text-indent: 0;
     font-size: 16px;
+    display: inherit;
+}
+
+.item {
+    line-height: 20px;
+    background: none;
+    display: inherit;
+    width: auto;
+    height: auto;
 }
 
 a {
     font-weight: bold;
     font-size: 18px;
     float: left;
-    padding-left: 15px;
-    margin-bottom: 10px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    color: blue
+}
+
+.carousel-caption {
+    position: initial;
 }
 
 .btn-primary {
     float: right;
-    margin-right: 15px;
+    margin-right: 40px;
     margin-bottom: 10px;
 }

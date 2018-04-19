@@ -46,14 +46,9 @@
 
 #home-categories .wiki {
   position: relative;
-  float: left;
-  top: 0;
-  height: 100%;
-  width: 50%;
   color: black;
   display: flex;
   justify-content: center;
-  align-items: center;
   transition: .5s;
 }
 
@@ -73,10 +68,6 @@
 
 #home-categories .scimuse {
   position: relative;
-  float: right;
-  top: 0;
-  height: 100%;
-  width: 50%;
   color: black;
   display: flex;
   justify-content: center;
@@ -113,3 +104,8 @@
   transform: translateX(600px);
   transition: transform 300ms ease-in;
 }
+
+
+
+
+

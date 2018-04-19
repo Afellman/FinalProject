@@ -7,16 +7,23 @@
     "animejs": "^2.2.0",
     "axios": "^0.18.0",
     "mo-js": "^0.288.2",
-    "react": "^16.3.0",
+    "react": "^16.3.2",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-transition-group": "^15.6.2",
     "react-animated-burgers": "^1.1.0",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.3.0",
+
+    "react-bootstrap4-modal": "^1.2.2",
+    "react-dom": "^16.3.2",
+
+
     "react-layout-components": "^3.0.6",
+
     "react-motion": "^0.5.2",
     "react-responsive-carousel": "^3.1.36",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
+    "reactstrap": "^5.0.0",
     "unsplash-js": "^4.8.0"
   },
   "scripts": {

@@ -90,13 +90,13 @@ class Start extends Component {
         {this.state.showSignup ? 
           <Signup handleChange={this.handleChange} handleSignup={this.handleSignup} signupName={this.state.signupName} signupEmail={this.state.signupEmail} signupPass={this.state.signupPass}/> : null}
           </ReactCSSTransitionGroup>
-        {this.state.showButtons ? 
-          <div className='button-div'>
-            <button onClick={()=> this.setState({showSignup: true})} className='btn btn-primary'>Signup</button>
-            <button onClick={()=> this.setState({showLogin: true})} className='btn btn-primary'>Login</button>
-            <button onClick={this.handleGuest} className='btn btn-primary'>Guest</button>
-          </div>
-        : null }
+          {this.state.notLoggedIn ? 
+              <div className='button-div'>
+                <button onClick={()=> this.setState({showSignup: true})} className='btn btn-primary'>Signup</button>
+                <button onClick={()=> this.setState({showLogin: true})} className='btn btn-primary'>Login</button>
+                <Link className='btn btn-primary' to="/home">Guest</Link>
+              </div>
+               : <div className='void' ><Link className='btn enter-void' to="/home">Enter The Void</Link></div> }
         <ReactCSSTransitionGroup
           transitionName="login"
           transitionEnterTimeout={200}
