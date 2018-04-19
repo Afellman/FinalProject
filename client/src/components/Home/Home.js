@@ -14,12 +14,11 @@ import Profile from '../../components/profile';
 import anime from 'animejs';
 import Unsplash from '../../utils/unsplash';
 import Backdrop from '../../components/backdrop'
-import Nav from '../../components/Nav'
-import auth from '../../utils/auth'
-
 import { MyCarousel, CarouselItem} from '../../components/endpoint';
 import {Carousel } from 'react-bootstrap';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import Nav from '../../components/Nav'
+import auth from '../../utils/auth'
 
 let image;
 class Home extends Component {
@@ -227,7 +226,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav showProfile={this.showProfile} showHam={true}/> 
+        <Nav showProfile={this.showProfile}/> 
         {this.state.backdrop_start
           ? <Backdrop/>
           : null}
@@ -299,7 +298,7 @@ class Home extends Component {
                   </div>
                 </div>
               : null}
-    {this.state.showEndpoint ? 
+         {this.state.showEndpoint ? 
               this.state.endpoint.map((element, index)=>{ 
               return (
               <MyCarousel
@@ -318,8 +317,7 @@ class Home extends Component {
                     .endpoint
                     .map((element, index) => {
                       return (
-
-                        <EndpointItem museumObj={element} user={this.state.user['_id']} index={index}></EndpointItem>
+                        <EndpointItem museumObj={element} user={this.state.user} key={index} index={index}></EndpointItem>
                       )
                     })}
                 </Endpoint> */

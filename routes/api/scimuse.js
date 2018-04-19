@@ -5,7 +5,7 @@ var request = require('request');
 router.post('/post', function(req, res) {
   
   request({
-    url:`http://collection.sciencemuseum.org.uk/search/objects/images/categories/${req.body.category}?random=10`,
+    url:`http://collection.sciencemuseum.org.uk/search/objects/images/categories/${req.body.category}?random=1`,
     method: "GET",
     headers: {
       'crossdomain': 'true',

@@ -1,45 +1,31 @@
 import React, {Component} from 'react';
 import styles from './endpoint.css';
 import database from '../../utils/database';
+import {Carousel } from 'react-bootstrap';
+import MyCarousel from "./endpoint";
+import MyModal from "../modal/modal";
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
-// const EndpointItem = (props) => {
-//   return(
-//     <div className="slide">
-//     </div>
-//   );
-// }
-
-// export default EndpointItem;
-
-export const EndpointItem = (props) => {
-  return (
-    <div className={`carousel-item item${props.index}`}>
-      <h3>{props.museumObj.name}
-      </h3>
-      <img src={props.museumObj.img} alt="Unable to load"></img>
-      <div className="caption">
-        <p>
-          {props.museumObj.description}
-        </p>
-        <a href={props.museumObj.link} target="_blank"> Learn More </a> 
-        <span> 
-          <button onClick={() => {
-            let museumObj = props.museumObj;
-            museumObj.user = props.user
-            database.postArticle(museumObj)
-            .then(res=>console.log(res))
-          }}
-             type="button" className="btn-primary">Save</button>
-        </span>
-
-        {/* Left and right controls */}
-        <a class="carousel-control-prev" href="#carousel-item" data-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </a>
-        {/* <a class="carousel-control-next" href="#carousel-item" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </a> */}
-      </div>
-    </div>
-  );
+export const CarouselItem = (props) => {
+    return (
+    <Carousel.Item className={`carousel-item item${props.index}`}>
+        <h3> {props.museumObj.name}</h3>
+        <img width={300} height={300} alt="Unable to load" src={props.museumObj.img} />
+    <Carousel.Caption>
+      <p> {props.museumObj.description} </p>
+      <a href={props.museumObj.link} target="_blank"> Learn More </a> 
+      <span> 
+        <MyModal />
+        <button onClick={() => {
+          let museumObj = props.museumObj;
+          museumObj.user = props.user;
+          database.postArticle(museumObj)
+          .then(res=>console.log(res))
+        }}
+        
+        type="button" className="btn-primary">Save</button>
+      </span>
+    </Carousel.Caption>
+  </Carousel.Item>
+    )
 }
