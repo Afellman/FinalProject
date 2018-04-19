@@ -16,9 +16,10 @@ import Unsplash from '../../utils/unsplash';
 import Backdrop from '../../components/backdrop'
 import Nav from '../../components/Nav'
 import auth from '../../utils/auth'
+
+import { MyCarousel, CarouselItem} from '../../components/endpoint';
+import {Carousel } from 'react-bootstrap';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
-import Endpoint from '../../components/endpoint';
-import EndpointItem from '../../components/endpoint';
 
 let image;
 class Home extends Component {
@@ -37,15 +38,15 @@ class Home extends Component {
     path: '',
     showChoice: true,
     savedArticles: [],
-    user: ''
+    user: {},
+    articles: []
   }
 
   componentDidMount() {
     auth.checkLogged()
       .then(res=> {
         if (res) {
-          console.log(res)
-          this.setState({user: res.data['_id']})
+          this.setState({user: res.data})
         }
       })
   }
@@ -76,11 +77,8 @@ class Home extends Component {
     var radius = window.innerWidth < window.innerHeight
       ? window.innerWidth
       : window.innerHeight;
-    var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
-
     let bubbleArray = [];
     console.log(bubbleArray)
-
     var animate = (el, i) => {
       console.log('animate')
       var angle = Math.random() * Math.PI * 2;
@@ -158,7 +156,9 @@ class Home extends Component {
             this.setState({showEndpoint: true})
           }
           setTimeout(() => {
-            this.fadeInCategorys()}, 1000)
+            this.fadeInCategorys()
+
+          }, 1000)
         })
 
     } else {
@@ -185,7 +185,9 @@ class Home extends Component {
             this.setState({showEndpoint: true})
           }
           setTimeout(() => {
-            this.fadeInCategorys()}, 1000)
+            this.fadeInCategorys()
+
+          }, 1000)
         })
     }
   }
@@ -218,11 +220,12 @@ class Home extends Component {
     }else {
       this.setState({showProfile: false})
     }
-  
-    // ------------------------------------------------------------
   }
-  render(){
-    return(
+
+  // ------------------------------------------------------------
+
+  render() {
+    return (
       <div>
         <Nav showProfile={this.showProfile} showHam={true}/> 
         {this.state.backdrop_start
@@ -238,14 +241,20 @@ class Home extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
           {this.state.showProfile
-            ? <Profile saved={this.state.savedArticles}/>
+            ? <Profile articles={this.state.articles} user={this.state.user.username}/>
             : null}
             </ReactCSSTransitionGroup>
           <div id="home-categories">
             {this.state.showBubbles
               ?
               // Mapping through all the given categories and building divs for them
-              this.state.categories.map((category, index) => {
+              this
+                .state
+                .categories
+                .map((category, index) => {
+                  if(index > 12) {
+                    return
+                  }
                   return (<Category
                     key={index}
                     index={index}
@@ -281,12 +290,7 @@ class Home extends Component {
                         "Photographic-Technology",
                         "Radio-Communication",
                         "Orthopaedics",
-                        "Space-Technology",
-                        "Cinematography",
-                        "Electricity-and-Magnetism",
-                        "Nuclear-Physics",
-                        "Mathematics",
-                        "Television"
+                        "Space-Technology"
                       ]
                     })
                     setTimeout(() => this.changeLevel(), 500)
@@ -295,9 +299,19 @@ class Home extends Component {
                   </div>
                 </div>
               : null}
-            {/* Carousel to display images and results to the user */}
+    {this.state.showEndpoint ? 
+              this.state.endpoint.map((element, index)=>{ 
+              return (
+              <MyCarousel
+                activeIndex={index}
+                controls={true}>
+                <CarouselItem
+                  museumObj= {element} index={index}>
+                </CarouselItem>
+              </MyCarousel>)
+              })
 
-          {this.state.showEndpoint
+            /* {this.state.showEndpoint
               ? <Endpoint>
                   {this
                     .state
@@ -307,7 +321,7 @@ class Home extends Component {
                         <EndpointItem museumObj={element} user={this.state.user} key={index} index={index}></EndpointItem>
                       )
                     })}
-                </Endpoint>
+                </Endpoint> */
 
               : null}
           </div>
@@ -319,3 +333,4 @@ class Home extends Component {
 }
 
 export default Home;
+

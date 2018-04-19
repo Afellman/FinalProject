@@ -7,34 +7,30 @@ class Collapse extends Component {
     super(props)
   }
   collapse = (e) => {
-    console.log(e.target)
     e.target.class = "";
   }
   render() {
-  let imgSource = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-11/256/smiling-face-with-smiling-eyes.png";
     return (
       <div>
           <div className="card">
-          <div className="card-header btn btn-link" id="headingOne" onClick={this.collapse} data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <div className="card-header btn btn-link" id={`heading${this.props.index}`} onClick={this.collapse} data-toggle="collapse" data-target={`#collapse${this.props.index}`} aria-expanded="false" aria-controls={`collapse${this.props.index}`}>
               <h5 className="mb-0">
-                <button onClick={this.collapse}className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  <h3>Saved Article #{this.props.index || "1"}</h3>
-                </button>
+                <h3>Saved Article #{this.props.index + 1}</h3>
               </h5>
             </div>
-            <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id={`collapse${this.props.index}`} className="collapse" aria-labelledby={`heading${this.props.index}`} data-parent="#accordion">
               <div className="article-title">
               <h3>
-                {this.props.title || `Article Title`}
+                {this.props.articles.title || `Article Title`}
               </h3>
               </div>
 
               <div className = "article-img">
-              <img src={this.props.img || `Article Image`}/>
+              <img src={this.props.articles.img || `Article Image`}/>
               </div>
 
               <div className="card-body">
-                <p>{this.props.body || `Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.`}</p>
+                <p>{this.props.articles.description || `Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.`}</p>
               </div>
             </div>
           </div>
