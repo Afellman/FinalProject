@@ -2,7 +2,9 @@
 .carousel {
     margin: 0 auto;
     opacity: 0;
-    width: 40vw;
+    width: 40vw !important;
+    height: 400px !important;
+    max-width: 40vw;
 }
 
 .carousel-inner {
@@ -19,10 +21,7 @@
     text-indent: 0;
     overflow: hidden;
     border-radius: 25px;
-    margin-top: 60px;
-    padding-top: 15px;
-    padding-right: 5px;
-    padding-bottom: 30px;
+    padding: 20px;
     width:30vw;
     /* height: 65vh */
 }

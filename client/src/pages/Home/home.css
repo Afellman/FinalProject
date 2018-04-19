@@ -1,17 +1,13 @@
 #home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
   height: calc(100vh - 56px);
   /* padding-top: 7%; */
 }
-
-#sidebar {
-  z-index: 2;
-  position: fixed;
-  right: 0;
-  top: 0;
-} 
 
 #tag {
   /* width: 350px; */
@@ -41,59 +37,44 @@
 }
 
 #home-categories >  #initial-choice {
+  position: absolute; 
   height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-#home-categories .wiki {
-  position: relative;
-  /* float: left;
-  top: 0;
-  height: 100%;
-  width: 50%; */
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: .5s;
-}
 
 #home-categories .wiki > h3{
-  background: radial-gradient( rgba(90, 174, 207, 0.438), rgba(0, 0, 0, 0.685));
-  color: rgb(124, 206, 129);
+  transition: .5s;
+  background: radial-gradient( rgba(90, 174, 207, 0.699), rgba(0, 0, 0, 0.925));
+  color: white;
+  border-radius: 20px;
   padding: 60px;
-  border-radius: 50%;
-  font-size: 3em;
+  font-size: 5em;
   z-index: 99;
 }
 
-#home-categories .wiki:hover {
-  transform: scale(1.6);
+#home-categories .wiki > h3:hover {
+  box-shadow: 1px 1px 20px 10px rgba(90, 174, 207, 0.438);
+  transform: scale(1.2);
+  
 }
 
-
-#home-categories .scimuse {
-  position: relative; 
-  /* float: right;
-  top: 0;
-  height: 100%;
-  width: 50%;  */
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: .5s;
-}
 
 #home-categories .scimuse > h3{
-  background: radial-gradient( rgba(90, 174, 207, 0.438), rgba(0, 0, 0, 0.685));
-  color: rgb(124, 206, 129);
+  transition: .5s;
+  background: radial-gradient( rgba(90, 174, 207, 0.699), rgba(0, 0, 0, 0.925));
+  color: white;
   padding: 60px;
-  border-radius: 50%;
-  font-size: 3em;
+  border-radius: 20px;
+  font-size: 5em;
 }
 
-#home-categories .scimuse:hover {
-  transform: scale(1.6);
+#home-categories .scimuse > h3:hover {
+  box-shadow: 1px 1px 20px 10px rgba(90, 174, 207, 0.438);
+  transform: scale(1.2);
 }
 
 .side-bar-enter {

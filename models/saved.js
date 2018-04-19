@@ -6,10 +6,10 @@ const articleSchema = new Schema({
   description: String,
   img: String,
   url: String,
-  user: [{
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }]
+  }
 });
 
 const Article = mongoose.model("Article", articleSchema);

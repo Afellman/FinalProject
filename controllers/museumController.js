@@ -4,9 +4,11 @@ const db = require("../models");
 module.exports = {
     findAll: function(req, res) {
       db.Saved
-        .find(req.query)
+        .find({user: req.params.id})
         .sort({ date: -1 })
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => {
+          res.json(dbModel)
+        })
         .catch(err => res.status(422).json(err));
     },
     findById: function(req, res) {
@@ -28,8 +30,9 @@ module.exports = {
       db.Saved
         .create(Saved)
         .then(dbModel => {
+          console.log('article Saved')
           res.json(dbModel)
-          db.User.findOneAndUpdate({_id: req.body.museumObj.user},{ $push:{articles: dbModel._id}})
+          
         })
         .catch(err => res.status(422).json(err));
     },

@@ -32,7 +32,7 @@ export default {
     axios.get('/auth/logout')
   },
   getUser: (userId)=> {
-    return axios.get(`/auth/one${userId}` )
+    return axios.get(`/auth/one${userId}`)
   }
 }
 
