@@ -29,7 +29,7 @@ class Nav extends Component {
         <div className="container-fluid">
           <div className="navbar-header">
             <a href="/" className="navbar-brand">
-             Splash
+            <div className="button"> Splash</div>
 
             </a>
           </div>
@@ -39,6 +39,10 @@ class Nav extends Component {
               
               isActive={this.state.isActive}
               toggleButton={this.toggleButton}
+
+              buttonColor="#C4C4B0"
+
+              buttonColor="rgb(223, 83, 157)"
               buttonColor="rgb(223, 83, 157)"
 
               barColor="white"/>

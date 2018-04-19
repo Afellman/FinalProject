@@ -79,8 +79,10 @@ h2 {
   text-align: center;
 }
 
-h6 {
-  font-family: 'Merienda', cursive;
+h5  {
+
+  font-family: 'Caudex', serif;
+
   font-size: 30px;
   text-align: center;
   color: purple;
@@ -89,6 +91,26 @@ h6 {
 }
 
 
+h6  {
+
+  font-family: 'Caudex', serif;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  color: purple;
+  padding-right: 20px;
+
+}
+
+.stripe1 {
+  background-color: gray;
+
+}
+
+.stripe {
+  background-color: purple;
+  padding: 25px;
+}
 
 p1 {
   font-family: 'Great Vibes', cursive;
@@ -199,4 +221,69 @@ p1 {
 .ml12 .letter {
   display: inline-block;
   line-height: 1em;
+}
+
+@font-face {
+  font-family: "GalanoGrotesqueW00-Bold";
+  src: url("https://static2.pickjb.com/assets/fonts/GalanoGrotesqueW00-Bold.eot");
+  src: local("☺︎"), local("Galano Grotesque W00 Bold"), local("GalanoGrotesqueW00-Bold"), url("https://static2.pickjb.com/assets/fonts/GalanoGrotesqueW00-Bold.eot?#iefix") format("embedded-opentype"), url("https://static2.pickjb.com/assets/fonts/GalanoGrotesqueW00-Bold.woff2") format("woff2"), url("https://static2.pickjb.com/assets/fonts/GalanoGrotesqueW00-Bold.woff") format("woff"), url("https://static2.pickjb.com/assets/fonts/GalanoGrotesqueW00-Bold.ttf") format("truetype"), url("https://static2.pickjb.com/assets/fonts/GalanoGrotesqueW00-Bold.svg#GalanoGrotesqueW00-Bold") format("svg");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+.wavey {
+  position: relative;
+  display: block;
+  background: #D9D5C5;
+  text-decoration: none;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 6vmax;
+  min-width: 56px;
+  padding: 2em;
+}
+
+.waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  min-width: 100%;
+  min-height: 70%;
+  margin: auto 0;
+}
+
+img, svg {
+  pointer-events: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  position: relative;
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
