@@ -3,67 +3,61 @@ const router = require('express').Router();
 const request = require('request');
 const wikipedia = require("node-wikipedia");
 const fs = require('fs')
+const cheerio = require('cheerio');
 
 
 router.post('/post', function(req, res) {
   let wikiObject = {}
-  console.log(req.body)
-  // Getting img url and text excerpt
-  request({
-    url: `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts%7Cpageimages%7Ccategories&exintro=1&titles=${req.body.article}`,
-    method: 'GET'
-  }, (error, response, body)=> {
-    let parse = JSON.parse(body)
-    let img;
-    console.log(JSON.stringify(parse))
-    // Getting the first index from the object
-    for (var prop in parse.query.pages){
-      try {img = parse.query.pages[prop].thumbnail.source}
-      catch(err){img = ''}
-      extract = parse.query.pages[prop].extract
-      break
-    }
-    wikiObject.img = img
-    wikiObject.body = extract
-
-    // Calling function to get the related topics
-    getRelated(wikiObject)
-    
-  })
+   getRelated(wikiObject)
    function getRelated(wikiObject) {
-     // **** NEED TO REDUE THIS!! 
 
-    // Currently it is grabbing the first 15 links after the "Major subfields"
-    // text on the wikipage, but not all pages have this text. Might need to grab
-    // them from the page itself instead? 
-    // 
-    // Also should be grabbed from a bigger list, mixed around and 10 or so chosen
-    // from that.
-
-
-     // Wiki library that returns the whole page for finding links
     wikipedia.page.data(req.body.article, { content: true }, function(response) {
       // grabbing the html text
       let string = response.text['*']
+      let $ = cheerio.load(string);
+      // console.log(string)
+      wikiObject.body = $('.mw-parser-output > p:nth-of-type(1)').text()
+      wikiObject.img = $('.infobox img:nth-of-type(1)').attr('src') || $('.thumb.tright img:nth-of-type(1)').attr('src')
       let linkArray = [];
-      let i = 0;
-      let majorSubfields = string.indexOf('Major subfields')
-      if (majorSubfields) {
-        
-        getLinks(string.substr('<a href'), majorSubfields)
-      } else {
-        return
-      }
-      // finding the first ten links ---------------
-      function getLinks(startPoint){
-        let linkStart = string.indexOf('title="', startPoint)
-        let linkEnd = string.indexOf('">', linkStart)
-        let linkName = string.substr(linkStart + 7, linkEnd-(linkStart+7))
-        linkArray.push(linkName)
-        i ++
-        if(i < 15) {
-          getLinks(linkEnd)
+      let links = $('.mw-parser-output > p:nth-of-type(1) a').each((i, el)=>{
+        let text = $(el).text()
+        if (i > 0) {
+          if (text[0] == "[") {
+            null
+          } else if (text == "translit.") {
+            null
+          }else if (text == 'lit') {
+            null
+          }else {
+            linkArray.push(text)
+          }
         }
+      })
+      if (linkArray.length < 10) {
+        let links = $('.mw-parser-output > p:nth-of-type(2) a').each((i, el)=>{
+          if (i > 5) {
+            return
+          }
+          let text = $(el).text()
+          if (text[0] == "[") {
+            null
+          } else {
+            linkArray.push(text)
+          }
+        })
+      }
+      if (linkArray.length < 10) {
+        let links = $('.mw-parser-output > p:nth-of-type(2) a').each((i, el)=>{
+          if (i > 5) {
+            return
+          }
+          let text = $(el).text()
+          if (text[0] == "[") {
+            null
+          } else {
+            linkArray.push(text)
+          }
+        })
       }
       wikiObject.subCategories = linkArray
       res.send(wikiObject)

@@ -1,22 +1,22 @@
 .outer {
-    transition: 1s;
-    /* background-image: url("./louvre.jpg"); */
     background-size: 100%;
     height: 100vh;
-    background: radial-gradient(rgb(119, 192, 216), blue);
-    position: fixed;
+    position: absolute;
     right: 0;
-    top: 0;
+    top: 79px;
     bottom: 0;
-    width: 40%;
+    width: 30%;
     z-index: 2;
-    height: 500vh;
+    padding: 0 20px 0 20px;
+    height: 100vh;
     overflow-y: scroll;
+    background-color: blueviolet;
 }
 
 .name {
     color: white;
     text-align: center;
     padding-top: 20px;
-    font-size: 20px;
+    font-family: ‘Raleway’, sans-serif !important;
+    font-size: 25px;
 }

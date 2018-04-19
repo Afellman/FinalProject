@@ -29,7 +29,14 @@ class Nav extends Component {
         <div className="container-fluid">
           <div className="navbar-header">
             <a href="/" className="navbar-brand">
+<<<<<<< HEAD
             <div className="button"> Splash</div>
+||||||| merged common ancestors
+             Splash
+=======
+             Splash
+
+>>>>>>> 696d12a1e64381b2ce6c90e9f1de423b11f51708
             </a>
           </div>
           <ul className="nav navbar-nav navbar-right">
@@ -38,7 +45,14 @@ class Nav extends Component {
               
               isActive={this.state.isActive}
               toggleButton={this.toggleButton}
+<<<<<<< HEAD
               buttonColor="#C4C4B0"
+||||||| merged common ancestors
+              buttonColor="rgb(223, 83, 157)"
+=======
+              buttonColor="rgb(223, 83, 157)"
+
+>>>>>>> 696d12a1e64381b2ce6c90e9f1de423b11f51708
               barColor="white"/>
           </ul>
         </div>
