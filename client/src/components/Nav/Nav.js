@@ -29,7 +29,7 @@ class Nav extends Component {
         <div className="container-fluid">
           <div className="navbar-header">
             <a href="/" className="navbar-brand">
-             Splash
+            <div className="button"> Splash</div>
             </a>
           </div>
           <ul className="nav navbar-nav navbar-right">
