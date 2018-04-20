@@ -1,18 +1,20 @@
 #accordion {
-    width: 60%;
+    width: 95%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
-    /* overflow-y: scroll; */
 }
 
 #accordion .card-header {
-    background: radial-gradient(rgb(119, 192, 216), blue);
+    background-color: #00677a;
 }
 
 #accordion .btn {
     color: white;
+    text-decoration: none;
+    z-index: 2;
     text-decoration: none !important;
+    z-index: 2;
 }
 
 #accordion .btn:visited {
@@ -20,20 +22,25 @@
 }
 
 #accordion .btn:hover {
-    color: gold;
+    /* text-decoration: none !important; */
 }
 
 .card-body {
     text-align: left;
-    overflow-y: scroll;
-    /* z-index: 3; */
+    /* overflow-y: scroll; */
+    width: 100%;
+    color: black;
     
 }
 
 .article-title {
     padding-top: 10px;
+    color: black;
 }
 
 h3 {
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
 }
+

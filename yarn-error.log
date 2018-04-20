@@ -31,6 +31,12 @@ npm manifest:
       "passport-local": "^1.0.0",
       "passport-local-mongoose": "^5.0.0",
       "react-addons-css-transition-group": "^15.6.2",
+  <<<<<<< HEAD
+      "react-layout-components": "^3.0.6",
+  ||||||| merged common ancestors
+  =======
+      "react-responsive-carousel": "^3.1.36",
+  >>>>>>> 696d12a1e64381b2ce6c90e9f1de423b11f51708
       "react-transition-group": "^2.3.0",
       "request": "^2.85.0"
     }
@@ -106,6 +112,10 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   
+  assign-styles@^1.0.2:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/assign-styles/-/assign-styles-1.0.2.tgz#3a5438937eca2902ef3f217c85b52e6a36919258"
+  
   async@2.1.4:
     version "2.1.4"
     resolved "https://registry.yarnpkg.com/async/-/async-2.1.4.tgz#2d2160c7788032e4dd6cbe2502f1f9a2c8f6cde4"
@@ -169,6 +179,10 @@ Lockfile:
     dependencies:
       hoek "4.x.x"
   
+  bowser@^1.7.3:
+    version "1.9.3"
+    resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.3.tgz#6643ae4d783f31683f6d23156976b74183862162"
+  
   brace-expansion@^1.1.7:
     version "1.1.11"
     resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -211,6 +225,10 @@ Lockfile:
       entities "~1.1.1"
       htmlparser2 "~3.7.0"
       lodash "~2.4.1"
+  
+  classnames@^2.2.5:
+    version "2.2.5"
+    resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
   
   co@^4.6.0:
     version "4.6.0"
@@ -290,6 +308,16 @@ Lockfile:
     dependencies:
       boom "5.x.x"
   
+  <<<<<<< HEAD
+  css-in-js-utils@^2.0.0:
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/css-in-js-utils/-/css-in-js-utils-2.0.1.tgz#3b472b398787291b47cfe3e44fecfdd9e914ba99"
+    dependencies:
+      hyphenate-style-name "^1.0.2"
+      isobject "^3.0.1"
+  
+  ||||||| merged common ancestors
+  =======
   css-select@~1.2.0:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/css-select/-/css-select-1.2.0.tgz#2b3a110539c5355f1cd8d314623e870b121ec858"
@@ -303,6 +331,7 @@ Lockfile:
     version "2.1.0"
     resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
   
+  >>>>>>> 696d12a1e64381b2ce6c90e9f1de423b11f51708
   dashdash@^1.12.0:
     version "1.14.1"
     resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -653,6 +682,10 @@ Lockfile:
       jsprim "^1.2.2"
       sshpk "^1.7.0"
   
+  hyphenate-style-name@^1.0.2:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
+  
   iconv-lite@0.4.19:
     version "0.4.19"
     resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
@@ -674,6 +707,13 @@ Lockfile:
     version "2.0.3"
     resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
   
+  inline-style-prefixer@^3.0.0:
+    version "3.0.8"
+    resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-3.0.8.tgz#8551b8e5b4d573244e66a34b04f7d32076a2b534"
+    dependencies:
+      bowser "^1.7.3"
+      css-in-js-utils "^2.0.0"
+  
   ipaddr.js@1.6.0:
     version "1.6.0"
     resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.6.0.tgz#e3fa357b773da619f26e95f049d055c72796f86b"
@@ -694,6 +734,10 @@ Lockfile:
   isarray@~1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
+  
+  isobject@^3.0.1:
+    version "3.0.1"
+    resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   
   isomorphic-fetch@^2.1.1:
     version "2.2.1"
@@ -1019,7 +1063,7 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.5.6, prop-types@^15.5.8:
+  prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.5.8:
     version "15.6.1"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
     dependencies:
@@ -1061,6 +1105,32 @@ Lockfile:
     dependencies:
       react-transition-group "^1.2.0"
   
+  <<<<<<< HEAD
+  react-layout-components@^3.0.6:
+    version "3.0.6"
+    resolved "https://registry.yarnpkg.com/react-layout-components/-/react-layout-components-3.0.6.tgz#96a39ecbb939765b44c830c973b94982c2d3d422"
+    dependencies:
+      assign-styles "^1.0.2"
+      inline-style-prefixer "^3.0.0"
+      prop-types "^15.5.10"
+  
+  ||||||| merged common ancestors
+  =======
+  react-easy-swipe@^0.0.13:
+    version "0.0.13"
+    resolved "https://registry.yarnpkg.com/react-easy-swipe/-/react-easy-swipe-0.0.13.tgz#c00e90dabed8d0878e8c8313b867e01435f0f637"
+    dependencies:
+      prop-types "^15.5.8"
+  
+  react-responsive-carousel@^3.1.36:
+    version "3.1.36"
+    resolved "https://registry.yarnpkg.com/react-responsive-carousel/-/react-responsive-carousel-3.1.36.tgz#e50abd6113627ebc9326f67d6c68e82509feddd9"
+    dependencies:
+      classnames "^2.2.5"
+      prop-types "^15.5.8"
+      react-easy-swipe "^0.0.13"
+  
+  >>>>>>> 696d12a1e64381b2ce6c90e9f1de423b11f51708
   react-transition-group@^1.2.0:
     version "1.2.1"
     resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.1.tgz#e11f72b257f921b213229a774df46612346c7ca6"
@@ -1325,17 +1395,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 1
-  Command: sh
-  Arguments: -c node server.js
-  Directory: /Users/Andrew/Desktop/FinalProject
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:925:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+  SyntaxError: /Users/Andrew/Desktop/FinalProject/package.json: Unexpected token < in JSON at position 496
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1036:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>

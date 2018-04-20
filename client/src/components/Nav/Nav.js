@@ -29,17 +29,19 @@ class Nav extends Component {
         <div className="container-fluid">
           <div className="navbar-header">
             <a href="/" className="navbar-brand">
-              Final Project
+            <div className="button"> Splash</div>
+
             </a>
           </div>
           <ul className="nav navbar-nav navbar-right">
             <Logout/>
+            {this.props.showHam ?
             <HamburgerVortex
-              
               isActive={this.state.isActive}
               toggleButton={this.toggleButton}
-              buttonColor="black"
+              buttonColor="#C4C4B0"
               barColor="white"/>
+            : null}
           </ul>
         </div>
       </nav>

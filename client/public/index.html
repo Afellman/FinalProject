@@ -2,23 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+
+  
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.swatchbook.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    
-    <!-- Bootstrap css for carousel in endpoint to work -->
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo2.css" />
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+      <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+    <link async href="http://fonts.googleapis.com/css?family=Warnes" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -39,7 +56,7 @@
         font-size: 15px;
         line-height: 1.42857143;
         color: #777777;
-        background-color: beige;
+        background-color: #D9D5C5;
       }
 
       .home-btns {
@@ -54,106 +71,6 @@
 }
 
 
-h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 52px;
-  text-align: center;
-}
-
-p1 {
-  font-family: 'Great Vibes', cursive;
-
-}
-.container1 {
-  margin: 0 auto;
-  width: 250px;
-  height: 200px;
-  position: relative;
-  perspective: 1000px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.carousel {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-}
-
-.item {
-  display: block;
-  position: absolute;
-  background: #000;
-  width: 300px;
-  height: 250px;
-  line-height: 200px;
-  font-size: 5em;
-  text-align: center;
-  color: #FFF;
-  opacity: 0.95;
-  border-radius: 10px;
-  margin-bottom: 400px;
-}
-
-.a {
-  transform: rotateY(0deg) translateZ(250px);
-  background: #000 url("./images/albert.jpg") center center;
-  background-size: cover;
-
-}
-.b {
-  transform: rotateY(60deg) translateZ(250px);
-  background: #000 url("./images/art.jpg") center center;
-  background-size: cover;
-
-}
-.c {
-  transform: rotateY(120deg) translateZ(250px);
-  background: #000 url("./images/history.jpg") center center;
-  background-size: cover;
-
-}
-.d {
-  transform: rotateY(180deg) translateZ(250px);
-  background: #000 url("./images/code.jpg") center center;
-  background-size: cover;
-
-}
-.e {
-  transform: rotateY(240deg) translateZ(250px);
-  background: #000 url("./images/monalisa.jpg") center center;
-  background-size: cover;
-
-} 
-.f {
-  transform: rotateY(300deg) translateZ(250px);
-  background: #000 url("./images/dinosaur.jpg") center center;
-  background-size: cover;
-
-
-}
-
-.next, .prev {
-  color: #444;
-  position: absolute;
-  top: 100px;
-  padding: .7em;
-  cursor: pointer;
-  background: #CCC;
-  border-radius: 5px;
-  border-top: 1px solid #FFF;
-  box-shadow: 0 5px 0 #999;
-  transition: box-shadow 0.1s, top 0.1s;
-}
-.next:hover, .prev:hover { color: #000; }
-.next:active, .prev:active {
-  top: 104px;
-  box-shadow: 0 1px 0 #999;
-}
-.next { right: -6em; margin-top: 50px; }
-.prev { left: -2em; margin-top: 50px; }
     </style>
   </head>
   <body>
@@ -173,7 +90,14 @@ p1 {
     -->
   </body>
 
+
   <script type="text/javascript">
+
+    $.noConflict();
+jQuery( document ).ready(function( $ ) {
+  
+});
+
       var carousel = $(".carousel"),
     currdeg  = 0;
 
@@ -195,6 +119,47 @@ function rotate(e){
   });
 }
 
-    
+
+// Wrap every letter in a span
+$('.ml12').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+});
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml12 .letter',
+    translateX: [40,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 1200,
+    delay: function(el, i) {
+      return 500 + 30 * i;
+    }
+  }).add({
+    targets: '.ml12 .letter',
+    translateX: [0,-30],
+    opacity: [1,0],
+    easing: "easeInExpo",
+    duration: 1100,
+    delay: function(el, i) {
+      return 100 + 30 * i;
+    }
+  });
+  
+  $(function() {
+      
+        $( '#sb-container' ).swatchbook( {
+          // number of degrees that is between each item
+          angleInc : -10,
+          // amount in degrees for the opened item's next sibling
+          proximity : -45,
+          neighbor : -4,
+          // index of the element that when clicked, triggers the open/close function
+          // by default there is no such element
+          closeIdx : 11
+        } );
+      
+      });
   </script>
 </html>
