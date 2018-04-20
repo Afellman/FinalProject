@@ -10,11 +10,9 @@ class App extends Component {
     return (
       <Router>
       <div>
-      
         <Switch>
           <Route exact path="/" component={Start} />
           <Route exact path="/home" component={Home} />
-          <IndexRoute component={Start}/>
           <Route exact path="/profile" component={Profile} />
         </Switch>
       </div>
