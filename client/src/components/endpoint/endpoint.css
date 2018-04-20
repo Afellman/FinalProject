@@ -1,8 +1,8 @@
 .carousel {
     position: absolute;
     margin: 0 auto;
-    width: 40vw;
-    height: 80%;
+    width: 50vw;
+    height: 90%;
     background: rgb(155, 154, 155);
     box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.623);
     background-position: center center;
@@ -15,10 +15,10 @@
     margin: 0 auto;
     display: inherit;
     color: white;
-    top: 5%;
+    top: 10px;
     border-radius: 25px;
     width:35vw;
-    height: 70vh;
+    height: 60vh;
     overflow: initial
 }
 

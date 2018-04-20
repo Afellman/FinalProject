@@ -10,7 +10,7 @@ export const CarouselItem = (props) => {
     return (
     <Carousel.Item className={`carousel-item item${props.index}`}>
         <h3> {props.museumObj.name}</h3>
-        <img width={500} height={450} alt="Unable to load" src={props.museumObj.img} />
+        <img width={400} height={350} alt="Unable to load" src={props.museumObj.img} />
     <Carousel.Caption>
       <p> {props.museumObj.description} </p>
       <a href={props.museumObj.link} target="_blank"> Learn More </a> 
