@@ -299,7 +299,7 @@ class Home extends Component {
                   </div>
                 </div>
               : null}
-    {this.state.showEndpoint ? 
+              {this.state.showEndpoint ? 
               this.state.endpoint.map((element, index)=>{ 
               return (
               <MyCarousel
